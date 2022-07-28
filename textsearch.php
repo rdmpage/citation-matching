@@ -1,8 +1,8 @@
 <?php
 
-error_reporting(E_ALL);
+require_once (dirname(__FILE__) . '/config.inc.php');
 
-require_once(dirname(__FILE__) . '/php-approximate-search/approximate-search.php');
+require_once (dirname(__FILE__) . '/php-approximate-search/approximate-search.php');
 
 //----------------------------------------------------------------------------------------
 // https://kvz.io/reverse-a-multibyte-string-in-php.html
@@ -130,7 +130,7 @@ function compare($needle, $haystack)
 function find_in_text($needle, $haystack, $case_insensitive = false, $max_error = 1)
 {
 	$output_html = true;
-	$output_html = false;
+	//$output_html = false;
 	
 	$result = new stdclass;
 

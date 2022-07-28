@@ -1,9 +1,9 @@
 <?php
 
-error_reporting(E_ALL);
-
-
 // SQLite functions
+
+require_once (dirname(dirname(__FILE__)) . '/config.inc.php');
+
 
 //----------------------------------------------------------------------------------------
 // https://gist.github.com/fcingolani/5364532
@@ -66,5 +66,37 @@ function import_csv_to_sqlite(&$pdo, $csv_path, $options = array())
         );
 
 }
+
+//----------------------------------------------------------------------------------------
+function do_query($sql)
+{
+	global $config;
+		
+	$pdo = new PDO($config['database']);
+	
+	$stmt = $pdo->query($sql);
+
+	$data = array();
+
+	while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+
+		$item = new stdclass;
+		
+		$keys = array_keys($row);
+	
+		foreach ($keys as $k)
+		{
+			if ($row[$k] != '')
+			{
+				$item->{$k} = $row[$k];
+			}
+		}
+	
+		$data[] = $item;
+	}
+	
+	return $data;	
+}
+
 
 ?>
