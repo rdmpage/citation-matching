@@ -4,14 +4,19 @@
 <dict>
 	<key>HierarchyData</key>
 	<array>
-		<string>3359AE1C-172C-4DD3-8B76-FA017978BB4E</string>
+		<string>E479DF56-700E-4ECD-BBD3-CF4D7F133730</string>
+		<string>32911BC7-84D8-4939-BA01-C905B234E7EF</string>
 		<string>E163549F-25CA-4029-A77E-BBB36EFC7F0E</string>
 		<string>4FD78255-EA75-4AE0-817F-9AF6489C9C6E</string>
 		<string>A564DE7F-3FD2-4622-A7A9-838CACED4EBA</string>
 		<string>EC61A8B1-7615-4A05-990D-567F2D4ACD77</string>
 		<string>7491B009-9F47-4D5F-9B1F-D24CFEA4F4A9</string>
 		<string>C27548CD-6616-4CA2-84DB-E1AD54DC0C72</string>
+		<string>C3D47CA6-6CCB-4E5A-83C2-B5AFD0F43052</string>
+		<string>8DABAB01-51CD-4A98-ADAB-DC0F2BBE47AC</string>
+		<string>4FCA76C9-B637-41F3-9E15-7A0C0582F904</string>
 		<string>23F7A9A2-AB53-495B-8917-B81D5B2179F7</string>
+		<string>5C0BF96E-B59B-435B-9B99-F057D98DBD97</string>
 		<string>F1C43710-0B7C-4487-A213-8979B9668543</string>
 		<string>9CD0D852-C71E-4D95-9A69-FEF29EEE81B9</string>
 		<string>54966A7D-2855-4991-A319-80844D1706B3</string>
@@ -123,7 +128,7 @@
 			<key>UserOverrideItemName</key>
 			<true/>
 		</dict>
-		<key>3359AE1C-172C-4DD3-8B76-FA017978BB4E</key>
+		<key>32911BC7-84D8-4939-BA01-C905B234E7EF</key>
 		<dict>
 			<key>ItemData</key>
 			<dict>
@@ -268,6 +273,56 @@
 			<string>microparser.php</string>
 			<key>ItemType</key>
 			<string>FileReference</string>
+		</dict>
+		<key>4FCA76C9-B637-41F3-9E15-7A0C0582F904</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9vaygDAAAAAAQQMAAAANpQxrVFrgIws6ev1npuNMc1
+				N9qeGljtIwUfD8olL5JZGAIAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAABQAA
+				AAEBAABTaXRlcwAAABEAAAABAQAAY2l0YXRpb24tbWF0
+				Y2hpbmcAAAAMAAAAAQEAAGV4dGVybmFsLnBocBQAAAAB
+				BgAAEAAAACAAAAAwAAAAQAAAAFwAAAAIAAAABAMAAIRc
+				AAAAAAAACAAAAAQDAACWxgMAAAAAAAgAAAAEAwAAQOge
+				AAAAAAAIAAAABAMAADjHrgAAAAAACAAAAAQDAAARjLEA
+				AAAAABQAAAABBgAAjAAAAJwAAACsAAAAvAAAAMwAAAAI
+				AAAAAAQAAEHESYkCteFiGAAAAAECAAABAAAAAAAAAA8A
+				AAAAAAAAAAAAAAAAAAAIAAAABAMAAAMAAAAAAAAABAAA
+				AAMDAAD1AQAACAAAAAEJAABmaWxlOi8vLwwAAAABAQAA
+				TWFjaW50b3NoIEhECAAAAAQDAAAAkIKW5wAAAAgAAAAA
+				BAAAQcQU38QAAAAkAAAAAQEAAEVFREJDNDk1LURGNTIt
+				NDU2QS1CNDMxLUZCNjA3QkYwNEFEMRgAAAABAgAAgQAA
+				AAEAAADvEwAAAQAAAAAAAAAAAAAAAQAAAAEBAAAvAAAA
+				AAAAAAEFAAAaAAAAAQEAAE5TVVJMRG9jdW1lbnRJZGVu
+				dGlmaWVyS2V5AAAEAAAAAwMAAGNoAADYAAAA/v///wEA
+				AAAAAAAAEQAAAAQQAABwAAAAAAAAAAUQAADcAAAAAAAA
+				ABAQAAAIAQAAAAAAAEAQAAD4AAAAAAAAAAIgAADUAQAA
+				AAAAAAUgAABEAQAAAAAAABAgAABUAQAAAAAAABEgAACI
+				AQAAAAAAABIgAABoAQAAAAAAABMgAAB4AQAAAAAAACAg
+				AAC0AQAAAAAAADAgAADgAQAAAAAAAAHAAAAoAQAAAAAA
+				ABHAAAAgAAAAAAAAABLAAAA4AQAAAAAAABDQAAAEAAAA
+				AAAAAOgBAIAMAgAAAAAAAA==
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/rpage/Sites/citation-matching/external.php</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./external.php</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>external.php</string>
+			<key>ItemType</key>
+			<string>FileReference</string>
+			<key>UserOverrideItemName</key>
+			<true/>
 		</dict>
 		<key>4FD78255-EA75-4AE0-817F-9AF6489C9C6E</key>
 		<dict>
@@ -414,6 +469,55 @@
 			<key>UserOverrideItemName</key>
 			<true/>
 		</dict>
+		<key>5C0BF96E-B59B-435B-9B99-F057D98DBD97</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9vaxgDAAAAAAQQMAAAAPXDPgFUk/6Y1PtO4o9FuuW5
+				yjX1k5MryKLdwjx6EZLsFAIAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAABQAA
+				AAEBAABTaXRlcwAAABEAAAABAQAAY2l0YXRpb24tbWF0
+				Y2hpbmcAAAAIAAAAAQEAAGRhdGFiYXNlDgAAAAEBAABp
+				bXBvcnQtYmhsLnBocAAAGAAAAAEGAAAQAAAAIAAAADAA
+				AABAAAAAXAAAAGwAAAAIAAAABAMAAIRcAAAAAAAACAAA
+				AAQDAACWxgMAAAAAAAgAAAAEAwAAQOgeAAAAAAAIAAAA
+				BAMAADjHrgAAAAAACAAAAAQDAADB2a4AAAAAAAgAAAAE
+				AwAA1sawAAAAAAAYAAAAAQYAAKQAAAC0AAAAxAAAANQA
+				AADkAAAA9AAAAAgAAAAABAAAQcPNhpeAAAAYAAAAAQIA
+				AAEAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAgAAAAEAwAA
+				BAAAAAAAAAAEAAAAAwMAAPUBAAAIAAAAAQkAAGZpbGU6
+				Ly8vDAAAAAEBAABNYWNpbnRvc2ggSEQIAAAABAMAAACQ
+				gpbnAAAACAAAAAAEAABBxBTfxAAAACQAAAABAQAARUVE
+				QkM0OTUtREY1Mi00NTZBLUI0MzEtRkI2MDdCRjA0QUQx
+				GAAAAAECAACBAAAAAQAAAO8TAAABAAAAAAAAAAAAAAAB
+				AAAAAQEAAC8AAAAAAAAAAQUAAMwAAAD+////AQAAAAAA
+				AAAQAAAABBAAAIQAAAAAAAAABRAAAAQBAAAAAAAAEBAA
+				ADQBAAAAAAAAQBAAACQBAAAAAAAAAiAAAAACAAAAAAAA
+				BSAAAHABAAAAAAAAECAAAIABAAAAAAAAESAAALQBAAAA
+				AAAAEiAAAJQBAAAAAAAAEyAAAKQBAAAAAAAAICAAAOAB
+				AAAAAAAAMCAAAAwCAAAAAAAAAcAAAFQBAAAAAAAAEcAA
+				ACAAAAAAAAAAEsAAAGQBAAAAAAAAENAAAAQAAAAAAAAA
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/rpage/Sites/citation-matching/database/import-bhl.php</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./database/import-bhl.php</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>import-bhl.php</string>
+			<key>ItemType</key>
+			<string>FileReference</string>
+			<key>UserOverrideItemName</key>
+			<true/>
+		</dict>
 		<key>6283EFBF-CE89-432B-A1C8-C5C6B2CB0563</key>
 		<dict>
 			<key>ItemData</key>
@@ -507,6 +611,54 @@
 			</dict>
 			<key>ItemName</key>
 			<string>config.inc.php</string>
+			<key>ItemType</key>
+			<string>FileReference</string>
+			<key>UserOverrideItemName</key>
+			<true/>
+		</dict>
+		<key>8DABAB01-51CD-4A98-ADAB-DC0F2BBE47AC</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9va+gCAAAAAAQQMAAAACqozGGB5sB7RM312wZWQOVN
+				VLLbI0KRo5BBQyrMhtSw5AEAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAABQAA
+				AAEBAABTaXRlcwAAABEAAAABAQAAY2l0YXRpb24tbWF0
+				Y2hpbmcAAAAHAAAAAQEAAGVudi5waHAAFAAAAAEGAAAQ
+				AAAAIAAAADAAAABAAAAAXAAAAAgAAAAEAwAAhFwAAAAA
+				AAAIAAAABAMAAJbGAwAAAAAACAAAAAQDAABA6B4AAAAA
+				AAgAAAAEAwAAOMeuAAAAAAAIAAAABAMAAGGLsQAAAAAA
+				FAAAAAEGAACIAAAAmAAAAKgAAAC4AAAAyAAAAAgAAAAA
+				BAAAQcQ4mvCp4soYAAAAAQIAAAEAAAAAAAAADwAAAAAA
+				AAAAAAAAAAAAAAgAAAAEAwAAAwAAAAAAAAAEAAAAAwMA
+				APUBAAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEBAABNYWNp
+				bnRvc2ggSEQIAAAABAMAAACQgpbnAAAACAAAAAAEAABB
+				xBTfxAAAACQAAAABAQAARUVEQkM0OTUtREY1Mi00NTZB
+				LUI0MzEtRkI2MDdCRjA0QUQxGAAAAAECAACBAAAAAQAA
+				AO8TAAABAAAAAAAAAAAAAAABAAAAAQEAAC8AAAAAAAAA
+				AQUAAMwAAAD+////AQAAAAAAAAAQAAAABBAAAGwAAAAA
+				AAAABRAAANgAAAAAAAAAEBAAAAQBAAAAAAAAQBAAAPQA
+				AAAAAAAAAiAAANABAAAAAAAABSAAAEABAAAAAAAAECAA
+				AFABAAAAAAAAESAAAIQBAAAAAAAAEiAAAGQBAAAAAAAA
+				EyAAAHQBAAAAAAAAICAAALABAAAAAAAAMCAAANwBAAAA
+				AAAAAcAAACQBAAAAAAAAEcAAACAAAAAAAAAAEsAAADQB
+				AAAAAAAAENAAAAQAAAAAAAAA
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/rpage/Sites/citation-matching/env.php</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./env.php</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>env.php</string>
 			<key>ItemType</key>
 			<string>FileReference</string>
 			<key>UserOverrideItemName</key>
@@ -709,6 +861,54 @@
 			<key>UserOverrideItemName</key>
 			<true/>
 		</dict>
+		<key>C3D47CA6-6CCB-4E5A-83C2-B5AFD0F43052</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9va/ACAAAAAAQQMAAAALKIliVE6Tyg66s5pXbR8Oj8
+				6HIBpXlhi8m2C++wDXxi7AEAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAABQAA
+				AAEBAABTaXRlcwAAABEAAAABAQAAY2l0YXRpb24tbWF0
+				Y2hpbmcAAAAQAAAAAQEAAGVudi10ZW1wbGF0ZS5waHAU
+				AAAAAQYAABAAAAAgAAAAMAAAAEAAAABcAAAACAAAAAQD
+				AACEXAAAAAAAAAgAAAAEAwAAlsYDAAAAAAAIAAAABAMA
+				AEDoHgAAAAAACAAAAAQDAAA4x64AAAAAAAgAAAAEAwAA
+				YIuxAAAAAAAUAAAAAQYAAJAAAACgAAAAsAAAAMAAAADQ
+				AAAACAAAAAAEAABBxDiapIKXFBgAAAABAgAAAQAAAAAA
+				AAAPAAAAAAAAAAAAAAAAAAAACAAAAAQDAAADAAAAAAAA
+				AAQAAAADAwAA9QEAAAgAAAABCQAAZmlsZTovLy8MAAAA
+				AQEAAE1hY2ludG9zaCBIRAgAAAAEAwAAAJCClucAAAAI
+				AAAAAAQAAEHEFN/EAAAAJAAAAAEBAABFRURCQzQ5NS1E
+				RjUyLTQ1NkEtQjQzMS1GQjYwN0JGMDRBRDEYAAAAAQIA
+				AIEAAAABAAAA7xMAAAEAAAAAAAAAAAAAAAEAAAABAQAA
+				LwAAAAAAAAABBQAAzAAAAP7///8BAAAAAAAAABAAAAAE
+				EAAAdAAAAAAAAAAFEAAA4AAAAAAAAAAQEAAADAEAAAAA
+				AABAEAAA/AAAAAAAAAACIAAA2AEAAAAAAAAFIAAASAEA
+				AAAAAAAQIAAAWAEAAAAAAAARIAAAjAEAAAAAAAASIAAA
+				bAEAAAAAAAATIAAAfAEAAAAAAAAgIAAAuAEAAAAAAAAw
+				IAAA5AEAAAAAAAABwAAALAEAAAAAAAARwAAAIAAAAAAA
+				AAASwAAAPAEAAAAAAAAQ0AAABAAAAAAAAAA=
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/rpage/Sites/citation-matching/env-template.php</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./env-template.php</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>env-template.php</string>
+			<key>ItemType</key>
+			<string>FileReference</string>
+			<key>UserOverrideItemName</key>
+			<true/>
+		</dict>
 		<key>E163549F-25CA-4029-A77E-BBB36EFC7F0E</key>
 		<dict>
 			<key>ItemData</key>
@@ -754,6 +954,54 @@
 			</dict>
 			<key>ItemName</key>
 			<string>api_parser.php</string>
+			<key>ItemType</key>
+			<string>FileReference</string>
+			<key>UserOverrideItemName</key>
+			<true/>
+		</dict>
+		<key>E479DF56-700E-4ECD-BBD3-CF4D7F133730</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9va+wCAAAAAAQQMAAAALFQVJIPxfosnEYv6lmV3xhL
+				GPbgt4+Gf24N1wNARqsH6AEAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAABQAA
+				AAEBAABTaXRlcwAAABEAAAABAQAAY2l0YXRpb24tbWF0
+				Y2hpbmcAAAALAAAAAQEAAGFwaV9iaGwucGhwABQAAAAB
+				BgAAEAAAACAAAAAwAAAAQAAAAFwAAAAIAAAABAMAAIRc
+				AAAAAAAACAAAAAQDAACWxgMAAAAAAAgAAAAEAwAAQOge
+				AAAAAAAIAAAABAMAADjHrgAAAAAACAAAAAQDAACqibEA
+				AAAAABQAAAABBgAAjAAAAJwAAACsAAAAvAAAAMwAAAAI
+				AAAAAAQAAEHESWkE8fC/GAAAAAECAAABAAAAAAAAAA8A
+				AAAAAAAAAAAAAAAAAAAIAAAABAMAAAMAAAAAAAAABAAA
+				AAMDAAD1AQAACAAAAAEJAABmaWxlOi8vLwwAAAABAQAA
+				TWFjaW50b3NoIEhECAAAAAQDAAAAkIKW5wAAAAgAAAAA
+				BAAAQcQU38QAAAAkAAAAAQEAAEVFREJDNDk1LURGNTIt
+				NDU2QS1CNDMxLUZCNjA3QkYwNEFEMRgAAAABAgAAgQAA
+				AAEAAADvEwAAAQAAAAAAAAAAAAAAAQAAAAEBAAAvAAAA
+				AAAAAAEFAADMAAAA/v///wEAAAAAAAAAEAAAAAQQAABw
+				AAAAAAAAAAUQAADcAAAAAAAAABAQAAAIAQAAAAAAAEAQ
+				AAD4AAAAAAAAAAIgAADUAQAAAAAAAAUgAABEAQAAAAAA
+				ABAgAABUAQAAAAAAABEgAACIAQAAAAAAABIgAABoAQAA
+				AAAAABMgAAB4AQAAAAAAACAgAAC0AQAAAAAAADAgAADg
+				AQAAAAAAAAHAAAAoAQAAAAAAABHAAAAgAAAAAAAAABLA
+				AAA4AQAAAAAAABDQAAAEAAAAAAAAAA==
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/rpage/Sites/citation-matching/api_bhl.php</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./api_bhl.php</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>api_bhl.php</string>
 			<key>ItemType</key>
 			<string>FileReference</string>
 			<key>UserOverrideItemName</key>

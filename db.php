@@ -28,6 +28,35 @@ function issn_from_title ($title)
 }
 
 //----------------------------------------------------------------------------------------
+// BHL title lookup based on ISSN
+function get_bhl_title_from_issn ($issn)
+{
+	$titles = array();
+	
+	$sql = 'SELECT * FROM titleidentifiertxt WHERE identifiername="ISSN" AND identifiervalue="' . $issn . '";';
 
+	$result = do_query($sql);
+	
+	foreach ($result as $row)
+	{
+		$titles[] = $row->titleid;
+	}
+	
+	// hack to add missing titles	
+	if (count($titles) == 0)
+	{
+		switch ($issn)
+		{
+			case '0035-8894':
+				$titles[] = 11516;
+				break;
+			
+			default:
+				break;
+		}
+	}		
+	
+	return $titles;
+}
 
 ?>

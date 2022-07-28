@@ -157,7 +157,7 @@ function parse($text)
 	//$volume_pattern 	= "(?<volume>(\([^\)]+\)\s*)?\d+[A-Z]?(-\d+)?(\s*\(\d+(-\d+)?\))?[,|:]?)";
 
 	// include delimiter
-	$page_pattern 		= "(?<pages>(\d+|[xvlci]+)[\.]?)";
+	$page_pattern 		= "(?<page>(\d+|[xvlci]+)[\.]?)";
 
 	// figures, plates, etc.
 	$extra_pattern = "(?<extra>,\s+(.*))?";
@@ -260,7 +260,7 @@ function parse($text)
 					
 					break;
 					
-				case 'pages':
+				case 'page':
 					$obj->{$k} = preg_replace('/\.$/', '', $obj->{$k});
 					break;
 			

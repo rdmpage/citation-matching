@@ -25,6 +25,10 @@ The [International Standard Serial Number](https://en.wikipedia.org/wiki/Interna
 
 The file `extra.tsv` contains a list of titles that can be added to as we discover journals and/or abbreviations that are missed.
 
+### BHL
+
+BHL has a data dump matching external identifiers such as ISSNs to BHL’s own title identifiers (`titleidentifier.txt`). The file `import-bhl.php` will import these into the database `matching.db`.
+
 
 ### Journal abbreviations
 
