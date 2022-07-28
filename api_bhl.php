@@ -55,7 +55,12 @@ if (isset($doc->BHLPAGEID))
 			{
 				$doc->text = array();
 			}
+			
+			$text = mb_convert_encoding($text, 'UTF-8', mb_detect_encoding($text));
+			
 			$doc->text[$pageid] = $text;
+			
+			//$doc->encoding = mb_detect_encoding($text);
 		}	
 	}
 }

@@ -17,6 +17,7 @@ $doc = find_in_text(
 	isset($doc->maxerror) ? $doc->maxerror : 2	
 	);
 	
+	
 // Was there a problem with the text search?
 if (isset($doc->message))
 {

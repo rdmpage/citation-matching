@@ -3,7 +3,7 @@
 require_once (dirname(__FILE__) . '/config.inc.php');
 
 //----------------------------------------------------------------------------------------
-function get($url, $format = '')
+function get($url, $format_type = '')
 {
 	
 	$ch = curl_init();
@@ -12,9 +12,16 @@ function get($url, $format = '')
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 	
-	if ($format != '')
+	$headers = array();
+	
+	if ($format_type != '')
 	{
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array("Accept: " . $format));	
+		$headers[] = "Accept: " . $format_type;
+	}
+	
+	if (count($headers) > 0)
+	{
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	}
 	
 	$response = curl_exec($ch);
@@ -34,7 +41,7 @@ function get($url, $format = '')
 }
 
 //----------------------------------------------------------------------------------------
-function post($url, $data = '', $content_type = '')
+function post($url, $data = '', $content_type = 'application/json; charset=utf-8')
 {
 	
 	$ch = curl_init();
@@ -42,19 +49,33 @@ function post($url, $data = '', $content_type = '')
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_HEADER, 0);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+	
+	// data needs to be a string
+	if ($data != '')
+	{
+		if (gettype($data) != 'string')
+		{
+			$data = json_encode($data);
+		}	
+	}	
+	
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);  
 	
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 	
+	
+	$headers = array();
+	
 	if ($content_type != '')
 	{
-		curl_setopt($ch, CURLOPT_HTTPHEADER, 
-			array(
-				"Content-type: " . $content_type
-				)
-			);
-	}	
+		$headers[] = "Content-type: " . $content_type;
+	}
+	
+	if (count($headers) > 0)
+	{
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	}
 	
 	$response = curl_exec($ch);
 	if($response == FALSE) 
@@ -188,7 +209,7 @@ function send_doc($doc, $callback = '')
 	}
 	
 	//header("Content-type: text/plain");
-	header("Content-type: application/json");
+	header("Content-type: application/json; charset=utf-8");
 	
 	if ($callback != '')
 	{

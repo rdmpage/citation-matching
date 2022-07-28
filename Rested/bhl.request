@@ -7,7 +7,7 @@
 	<key>bodyString</key>
 	<string>{
     "status": 200,
-    "text": "Trans. ent. Soc. Lond. 1922: 79.",
+    "citation": "Trans. ent. Soc. Lond. 1922: 79.",
     "container-title": "Trans. ent. Soc. Lond.",
     "volume": "1922",
     "page": "79",

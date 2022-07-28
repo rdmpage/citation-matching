@@ -77,6 +77,9 @@ function get_bhl_page_text($pageid)
 	if (isset($obj->Result->OcrText))
 	{
 		$text = $obj->Result->OcrText;
+		
+		// remove double lines
+		$text = preg_replace('/\n\n/', "\n", $text);
 	}
 
 	return $text;
