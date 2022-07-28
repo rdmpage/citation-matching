@@ -52,4 +52,34 @@ function find_bhl_page($obj)
 	return $obj;
 }
 
+//----------------------------------------------------------------------------------------
+function get_bhl_page_text($pageid)
+{
+	global $config;
+	
+	$text = '';
+	
+	$parameters = array(
+		'op' 		=> 'GetPageMetadata',
+		'pageid'	=> $pageid,
+		'ocr'		=> 't',
+		'names'		=> 't',
+		'apikey'	=> $config['BHL_API_KEY'],
+		'format'	=> 'json'
+	);
+	
+	$url = 'https://www.biodiversitylibrary.org/api2/httpquery.ashx?' . http_build_query($parameters);
+	
+	$json = get($url);
+	
+	$obj = json_decode($json);
+	
+	if (isset($obj->Result->OcrText))
+	{
+		$text = $obj->Result->OcrText;
+	}
+
+	return $text;
+}
+
 ?>

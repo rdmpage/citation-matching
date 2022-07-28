@@ -29,6 +29,8 @@ The file `extra.tsv` contains a list of titles that can be added to as we discov
 
 BHL has a data dump matching external identifiers such as ISSNs to BHL’s own title identifiers (`titleidentifier.txt`). The file `import-bhl.php` will import these into the database `matching.db`.
 
+If an article potential exists in BHL we can use the BHL OpenURL resolver to locate the corresponding page (or pages). Note that there may be more than one matching page if BHL has multiple scans of the same volume, or a scan comprising multiple volumes.
+
 
 ### Journal abbreviations
 

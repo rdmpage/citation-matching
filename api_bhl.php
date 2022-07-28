@@ -42,7 +42,24 @@ if (isset($doc->{'container-title'}) && !isset($doc->BHLTITLEID))
 
 // BHL page
 $doc = find_bhl_page($doc);
-	
+
+// text
+if (isset($doc->BHLPAGEID))
+{
+	foreach ($doc->BHLPAGEID as $pageid)
+	{
+		$text = get_bhl_page_text($pageid);
+		if ($text != '')
+		{
+			if (!isset($doc->text))
+			{
+				$doc->text = array();
+			}
+			$doc->text[$pageid] = $text;
+		}	
+	}
+}
+
 
 send_doc($doc);	
 

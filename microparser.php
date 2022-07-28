@@ -129,7 +129,7 @@ function parse($text)
 {
 	$obj = new stdclass;
 	$obj->status = 404;
-	$obj->text = $text;
+	$obj->citation = $text;
 
 	// regex expressions to match microcitations
 	// note that we include anything that looks ike a delimiter as these could be 
