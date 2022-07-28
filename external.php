@@ -59,18 +59,27 @@ function get_bhl_page_text($pageid)
 	
 	$text = '';
 	
-	$parameters = array(
-		'op' 		=> 'GetPageMetadata',
-		'pageid'	=> $pageid,
-		'ocr'		=> 't',
-		'names'		=> 't',
-		'apikey'	=> $config['BHL_API_KEY'],
-		'format'	=> 'json'
-	);
+	$filename = $config['cache'] . '/' . $pageid . '.json';
 	
-	$url = 'https://www.biodiversitylibrary.org/api2/httpquery.ashx?' . http_build_query($parameters);
+	if (!file_exists($filename))
+	{
+		$parameters = array(
+			'op' 		=> 'GetPageMetadata',
+			'pageid'	=> $pageid,
+			'ocr'		=> 't',
+			'names'		=> 't',
+			'apikey'	=> $config['BHL_API_KEY'],
+			'format'	=> 'json'
+		);
 	
-	$json = get($url);
+		$url = 'https://www.biodiversitylibrary.org/api2/httpquery.ashx?' . http_build_query($parameters);
+	
+		$json = get($url);
+		
+		file_put_contents($filename, $json);
+	}
+	
+	$json = file_get_contents($filename);
 	
 	$obj = json_decode($json);
 	

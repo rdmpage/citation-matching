@@ -7,6 +7,8 @@ $config = array();
 
 $config['database'] = 'sqlite:' . dirname(__FILE__) . '/database/matching.db';
 
+$config['cache'] = dirname(__FILE__) . '/cache'; 
+
 // Environment----------------------------------------------------------------------------
 // In development this is a PHP file that is in .gitignore, when deployed these parameters
 // will be set on the server
