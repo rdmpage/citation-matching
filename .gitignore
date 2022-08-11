@@ -2,3 +2,5 @@
 .DS_Store
 env.php
 /cache/*.json
+
+/junk/

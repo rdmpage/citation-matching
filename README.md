@@ -9,11 +9,28 @@ The goals of this work are:
 
 The focus will be on a set of APIs that can be used to process data, rather than a web interface.
 
+
+## API
+
+Possible endpoints
+
+- citation/parse
+
+- container/issn
+- container/abbreviation
+
+- text/find
+
+- work
+
+
 ## Notes
 
 ### Parsing
 
 The parser uses regular expressions. The output includes XML-style tagging so that if we move to approaches such as CRF we can easily generate training data.
+
+Need to be able to parse lists of pages, plates, figures, etc., See `fsa.php` for ideas.
 
 ### Matching containers
 
@@ -29,32 +46,19 @@ The file `extra.tsv` contains a list of titles that can be added to as we discov
 
 BHL has a data dump matching external identifiers such as ISSNs to BHL’s own title identifiers (`titleidentifier.txt`). The file `import-bhl.php` will import these into the database `matching.db`.
 
-If an article potential exists in BHL we can use the BHL OpenURL resolver to locate the corresponding page (or pages). Note that there may be more than one matching page if BHL has multiple scans of the same volume, or a scan comprising multiple volumes.
+If an article potentially exists in BHL we can use the BHL OpenURL resolver to locate the corresponding page (or pages). Note that there may be more than one matching page if BHL has multiple scans of the same volume, or a scan comprising multiple volumes.
 
+### BHL triple store 
+
+Experimenting with BHL in RDF to help resolve [journal, volume, page] triples, as well as discover parts that include pages, etc. 
 
 ### Journal abbreviations
 
 [ISO 4](https://en.wikipedia.org/wiki/ISO_4) defines rules for abbreviating titles. There is a file of abbreviations available from ISSN.org: https://www.issn.org/wp-content/uploads/2021/07/ltwa_20210702.csv. The file `import-ltwa.php` will import this CSV file into a SQLite database called `matching.db`;
 
-
-
-
 ### Text matching
 
 [Microcitations: linking nomenclators to BHL](https://iphylo.blogspot.com/2011/03/microcitations-linking-nomenclators-to.html) discussed validating matches between microcitations and BHL by using associated taxonomic names. If we have a taxonomic name and a citation, one way to valid that we’ve matched the citation to the correct page in BHL is to see whether that page mentions the taxonomic name. The presence of OCR errors means we will need to use approximate matching to check for the presence of the taxon name.
 
-The `api_text.php` service takes a short string (the “needle”) and attempts to find it in a larger body of text (the “haystack”) using approximate search [elonen/php-approximate-search](https://github.com/elonen/php-approximate-search).
+The `api_text.php` service takes a short string (the “needle”) and attempts to find it in a larger body of text (the “haystack”) using approximate search [elonen/php-approximate-search](https://github.com/elonen/php-approximate-search). Matches found have their text coordinates recorded as well as flanking regions of text, so they can be represented as annotations.
 
-## API
-
-Possible endpoints
-
-- citation/parse
-
-- container/issn
-- container/abbreviation
-
-- text/find
-
-- work
- 

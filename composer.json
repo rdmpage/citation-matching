@@ -6,5 +6,9 @@
             "email": "rdmpage@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "easyrdf/easyrdf": "^1.1",
+        "ml/json-ld": "^1.2",
+        "endyjasmi/cuid": "2.*"    
+    }
 }

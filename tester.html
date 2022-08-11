@@ -1,0 +1,55 @@
+<html>
+<head>
+	<meta name="theme-color" content="#1a5d8d">
+	<style>
+		body {
+			padding:3em;
+			background: #D1E6FD;
+		}	
+	</style>
+	
+	<title>Tester</title>
+
+</head>
+<body>
+	<h1>Tester</h1>
+	
+	<p>Page has &lt;meta name="theme-color"  content="#1a5d8d"&gt; and uses fetch().</p>
+
+	<textarea id="text" style="font-size:1em;box-sizing:border-box;width:60%;" rows="5" >
+Canad. Ent., 9, 70.
+	</textarea>
+	<br />
+	<button onclick="go()">Go</button>
+	
+	<div id="output" style="display:none;width:60%;padding:1em;font-family:monospace;white-space:pre-wrap;"></div>
+
+	<script>
+		function go() {
+			var output =  document.getElementById("output");
+			output.style.display = "none";
+
+			var text = document.getElementById("text").value;
+	
+			var url = 'api_tester.php?q=' + encodeURIComponent(text);
+			
+			fetch(url)
+				.then(
+					function(response){
+						if (response.status != 200) {
+							console.log('Looks like there was a problem. Status Code: ' + response.status);
+        					return;
+						}
+				
+						response.json().then(function(data) {
+							output.innerHTML = JSON.stringify(data, null, 2);
+							output.style.display = "block";
+						});
+					}
+					);
+					
+		}	
+	</script>
+
+</body>
+</html>

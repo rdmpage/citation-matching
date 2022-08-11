@@ -1,0 +1,1913 @@
+<html>
+<head>
+	<style>
+/*
+Tiny Sweet Blue: #b5e9e9
+
+Creamy Light Tan: #fef6dd
+
+Pinkie Pie: #ffe1d0
+
+Yellow Horse: #fff1b5
+
+Green Thumb: #dcf3d0
+*/	
+	
+	
+	body {
+		font-family:sans-serif;
+		padding:2em;
+		background: white;
+	}
+	span {
+		padding-left:1em;
+		padding-right:1em;
+		display:inline-block;
+	}
+	
+	.row {
+	  display: flex;
+	  /* border: 1px solid black; */
+	}
+
+	.column {
+	  flex: 40%;
+	  padding:1em;
+  
+	}	
+	
+	.green {
+		background:#dcf3d0;
+		/*color:rgb(252, 241, 144);*/
+	}
+	
+	.yellow {
+		background:#fff1b5;
+	}
+	
+	
+	.orange {
+		background:#fef6dd;
+	}
+
+	.red {
+		background:#ffe1d0;
+		/*color:rgb(252, 241, 144);*/
+	}
+	
+	
+	.id {
+		width: 30px;
+		text-align:right;
+		/* border:1px solid black; */
+	}
+	
+	.name {
+		min-width: 200px;
+	}
+	
+	summary {
+		line-height: 2em;
+		font-size: 0.8em;
+			
+		
+	}
+	
+	details {
+	/*background:#EBEBEB;*/
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	
+	}
+	
+	.more {
+		padding:1em;
+	}
+	
+	pre {
+		background:white;
+		font-size:0.8em;
+		padding:2em;
+		/* border:1px solid #94f0f1; */
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+	
+	img {
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+	}
+	</style>
+</head>
+<body>
+
+<h1>Matching microcitations to DOIs, pages, and text positions</h1>
+<p></p>
+
+<h2>Guide</h2>
+
+
+<div><span class="red">red</span> Failed to parse the citation</div>
+<div><span class="orange">orange</span> Parsed the citation but can't match to a page</div>
+<div><span class="yellow">yellow</span> Matched to a page (and possibly work) but no string match</div>
+<div><span class="green">green</span> Found a string matching the name on the page</div>
+
+<h2>Results</h2>
+
+<details>	<summary class="orange"><span class="id">463375</span>
+<span class="name">Acacia barringtonensis</span>
+<span>Telopea 1(1): 72</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">604623</span>
+<span class="name">Acacia curranii</span>
+<span>Telopea 1(1): 79</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">466614</span>
+<span class="name">Acacia dacrydioides</span>
+<span>Telopea 1(1): 77</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">467495</span>
+<span class="name">Acacia diphylla</span>
+<span>Telopea 1(1): 79</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">470032</span>
+<span class="name">Acacia gracillima</span>
+<span>Telopea 1(1): 74</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">51260245</span>
+<span class="name">Acacia macnuttiana</span>
+<span>Telopea 1(1): 71</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">476862</span>
+<span class="name">Acacia pallida</span>
+<span>Telopea 1(1): 82</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">798047</span>
+<span class="name">Acacia pallida</span>
+<span>Telopea 1(1): 82</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">476871</span>
+<span class="name">Acacia pallidifolia</span>
+<span>Telopea 1(1): 82</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">480058</span>
+<span class="name">Acacia ruppii</span>
+<span>Telopea 1(1): 70</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">482182</span>
+<span class="name">Acacia terminalis</span>
+<span>Telopea 1(1): 81</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">482289</span>
+<span class="name">Acacia torringtonensis</span>
+<span>Telopea 1(1): 68</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">460010</span>
+<span class="name">Dodonaea coriacea</span>
+<span>Telopea 1(1): 66</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">807762</span>
+<span class="name">Dodonaea peduncularis coriacea</span>
+<span>Telopea 1(1): 66</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">483807</span>
+<span class="name">Dodonaea polyandra</span>
+<span>Telopea 1(1): 67</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">484093</span>
+<span class="name">Dodonaea serratifolia</span>
+<span>Telopea 1(1): 66</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">484588</span>
+<span class="name">Dodonaea viscosa laurina</span>
+<span>Telopea 1(1): 67</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">799686</span>
+<span class="name">Mimosa terminalis</span>
+<span>Telopea 1(1): 81</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">480764</span>
+<span class="name">Bursaria diosmoides</span>
+<span>Telopea 1(1): 55</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">480905</span>
+<span class="name">Bursaria procumbens</span>
+<span>Telopea 1(1): 55</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">481079</span>
+<span class="name">Bursaria stuartiana</span>
+<span>Telopea 1(1): 55</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">533980</span>
+<span class="name">Campylanthera ericoides</span>
+<span>Telopea 1(1): 55</span>
+	</summary><div class="more"></div></details><details>	<summary class="red"><span class="id">461051</span>
+<span class="name">Celastrus australis</span>
+<span>Telopea 1(1): 38-39</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(1): 38-39".</p></div></details><details>	<summary class="red"><span class="id">461004</span>
+<span class="name">Celastrus</span>
+<span>Telopea 1(1): 33-39</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(1): 33-39".</p></div></details><details>	<summary class="red"><span class="id">461139</span>
+<span class="name">Celastrus subspicatus</span>
+<span>Telopea 1(1): 35-37</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(1): 35-37".</p></div></details><details>	<summary class="orange"><span class="id">798587</span>
+<span class="name">Conospermum acinacifolium</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898130</span>
+<span class="name">Conospermum affine</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">489202</span>
+<span class="name">Conospermum burgessiorum</span>
+<span>Telopea 1(1): 58, t. VI.</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898153</span>
+<span class="name">Conospermum commutatum</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">798592</span>
+<span class="name">Conospermum cucullatum</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898125</span>
+<span class="name">Conospermum ellipticum</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898133</span>
+<span class="name">Conospermum ellipticum imbricatum</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898131</span>
+<span class="name">Conospermum erectum</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898126</span>
+<span class="name">Conospermum ericifolium</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898127</span>
+<span class="name">Conospermum falcifolium</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898120</span>
+<span class="name">Conospermum helichrysoides</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">489714</span>
+<span class="name">Conospermum imbricatum</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898129</span>
+<span class="name">Conospermum imbricatum</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898132</span>
+<span class="name">Conospermum lanceolatum</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898137</span>
+<span class="name">Conospermum lavandulifolium</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898139</span>
+<span class="name">Conospermum linifolium</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="red"><span class="id">489833</span>
+<span class="name">Conospermum longifolium</span>
+<span>Telopea 1(1): 63-64</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(1): 63-64".</p></div></details><details>	<summary class="orange"><span class="id">489918</span>
+<span class="name">Conospermum longifolium longifolium</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">489847</span>
+<span class="name">Conospermum longifolium angustifolium</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">489956</span>
+<span class="name">Conospermum longifolium mediale</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">806924</span>
+<span class="name">Conospermum longifolium angustifolium</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898154</span>
+<span class="name">Conospermum longifolium angustifolium</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">798602</span>
+<span class="name">Conospermum longifolium intermedium</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">489904</span>
+<span class="name">Conospermum longifolium lingulatum</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898151</span>
+<span class="name">Conospermum longifolium lingulatum</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">490015</span>
+<span class="name">Conospermum mitchellii</span>
+<span>Telopea 1(1): 59</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">802493</span>
+<span class="name">Conospermum mitchellii var</span>
+<span>Telopea 1(1): 59</span>
+	</summary><div class="more"></div></details><details>	<summary class="red"><span class="id">490097</span>
+<span class="name">Conospermum patens</span>
+<span>Telopea 1(1): 59-60</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(1): 59-60".</p></div></details><details>	<summary class="orange"><span class="id">490160</span>
+<span class="name">Conospermum propinquum</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898135</span>
+<span class="name">Conospermum propinquum</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">803849</span>
+<span class="name">Conospermum repens</span>
+<span>Telopea 1(1): 65</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898128</span>
+<span class="name">Conospermum rigidum</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">490260</span>
+<span class="name">Conospermum scolopendrinum</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898152</span>
+<span class="name">Conospermum scolopendrinum</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">803333</span>
+<span class="name">Conospermum scorzonerifolium</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="red"><span class="id">488814</span>
+<span class="name">Conospermum</span>
+<span>Telopea 1(1): 58-65</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(1): 58-65".</p></div></details><details>	<summary class="orange"><span class="id">490304</span>
+<span class="name">Conospermum smithii</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898150</span>
+<span class="name">Conospermum smithii</span>
+<span>Telopea 1(1): 64</span>
+	</summary><div class="more"></div></details><details>	<summary class="red"><span class="id">490323</span>
+<span class="name">Conospermum sphacelatum</span>
+<span>Telopea 1(1): 64-65</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(1): 64-65".</p></div></details><details>	<summary class="orange"><span class="id">490336</span>
+<span class="name">Conospermum spicatum</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898136</span>
+<span class="name">Conospermum spicatum</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">665417</span>
+<span class="name">Conospermum taxifolium</span>
+<span>Telopea 1(1): 61</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">665414</span>
+<span class="name">Conospermum taxifolium</span>
+<span>Telopea 1(1): 61</span>
+	</summary><div class="more"></div></details><details>	<summary class="red"><span class="id">665344</span>
+<span class="name">Conospermum taxifolium</span>
+<span>Telopea 1(1): 60-63</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(1): 60-63".</p></div></details><details>	<summary class="orange"><span class="id">665418</span>
+<span class="name">Conospermum taxifolium</span>
+<span>Telopea 1(1): 61</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">665411</span>
+<span class="name">Conospermum taxifolium</span>
+<span>Telopea 1(1): 61</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">665415</span>
+<span class="name">Conospermum taxifolium</span>
+<span>Telopea 1(1): 61</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">665416</span>
+<span class="name">Conospermum taxifolium</span>
+<span>Telopea 1(1): 61</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898141</span>
+<span class="name">Conospermum taxifolium brownii</span>
+<span>Telopea 1(1): 61</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">490462</span>
+<span class="name">Conospermum taxifolium var</span>
+<span>Telopea 1(1): 61</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898142</span>
+<span class="name">Conospermum taxifolium var</span>
+<span>Telopea 1(1): 61</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898134</span>
+<span class="name">Conospermum taxifolium lanceolatum</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898138</span>
+<span class="name">Conospermum taxifolium lavandulifolium</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898143</span>
+<span class="name">Conospermum taxifolium var</span>
+<span>Telopea 1(1): 61</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898140</span>
+<span class="name">Conospermum taxifolium linifolium</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898123</span>
+<span class="name">Conospermum taxifolium smithii</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">898124</span>
+<span class="name">Conospermum taxifolium typicum</span>
+<span>Telopea 1(1): 60</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">490569</span>
+<span class="name">Conospermum tenuifolium</span>
+<span>Telopea 1(1): 65</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">522164</span>
+<span class="name">Echinochloa crus-galli lacunaria</span>
+<span>Telopea 1(1): 44</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">522326</span>
+<span class="name">Echinochloa inundata</span>
+<span>Telopea 1(1): 46</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">522392</span>
+<span class="name">Echinochloa lacunaria</span>
+<span>Telopea 1(1): 44</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">550169</span>
+<span class="name">Echinochloa telmatophila</span>
+<span>Telopea 1(1): 44</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">544082</span>
+<span class="name">Embothrium sericeum major</span>
+<span>Telopea 1(1): 24</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">494112</span>
+<span class="name">Grevillea acanthifolia acanthifolia</span>
+<span>Telopea 1(1): 23</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">494141</span>
+<span class="name">Grevillea acanthifolia stenomera</span>
+<span>Telopea 1(1): 23</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">759799</span>
+<span class="name">Grevillea acanthifolia stenomera</span>
+<span>Telopea 1(1): 23</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">808746</span>
+<span class="name">Grevillea acanthifolia stenomera</span>
+<span>Telopea 1(1): 23</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">497234</span>
+<span class="name">Grevillea agrifolia</span>
+<span>Telopea 1(1): 24</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">802547</span>
+<span class="name">Grevillea agrifolia major</span>
+<span>Telopea 1(1): 24</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">497781</span>
+<span class="name">Grevillea angulata</span>
+<span>Telopea 1(1): 24</span>
+	</summary><div class="more"></div></details><details>	<summary class="red"><span class="id">523797</span>
+<span class="name">Grevillea aspleniifolia</span>
+<span>Telopea 1(1): 25-26</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(1): 25-26".</p></div></details><details>	<summary class="orange"><span class="id">800571</span>
+<span class="name">Grevillea aspleniifolia</span>
+<span>Telopea 1(1): 25</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">800585</span>
+<span class="name">Grevillea aspleniifolia shepherdiana</span>
+<span>Telopea 1(1): 25</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">539444</span>
+<span class="name">Grevillea biformis</span>
+<span>Telopea 1(1): 27</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">802224</span>
+<span class="name">Grevillea blackallii</span>
+<span>Telopea 1(1): 29</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">539709</span>
+<span class="name">Grevillea blackallii</span>
+<span>Telopea 1(1): 30</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">523079</span>
+<span class="name">Grevillea ceratophylla</span>
+<span>Telopea 1(1): 29</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">800525</span>
+<span class="name">Grevillea ceratophylla</span>
+<span>Telopea 1(1): 29</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">523391</span>
+<span class="name">Grevillea coriacea</span>
+<span>Telopea 1(1): 19</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">783353</span>
+<span class="name">Grevillea cuneata</span>
+<span>Telopea 1(1): 29</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">523586</span>
+<span class="name">Grevillea cyranostigma</span>
+<span>Telopea 1(1): 20</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">808881</span>
+<span class="name">Grevillea eyreana</span>
+<span>Telopea 1(1): 30</span>
+	</summary><div class="more"></div></details><details>	<summary class="red"><span class="id">477732</span>
+<span class="name">Grevillea glabella</span>
+<span>Telopea 1(1): 28-29</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(1): 28-29".</p></div></details><details>	<summary class="orange"><span class="id">477760</span>
+<span class="name">Grevillea glabrata</span>
+<span>Telopea 1(1): 29</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">480415</span>
+<span class="name">Grevillea glossadenia</span>
+<span>Telopea 1(1): 21</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">480761</span>
+<span class="name">Grevillea heteroneura</span>
+<span>Telopea 1(1): 29</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">503640</span>
+<span class="name">Grevillea johnsonii</span>
+<span>Telopea 1(1): 22</span>
+	</summary><div class="more"></div></details><details>	<summary class="red"><span class="id">512784</span>
+<span class="name">Grevillea longifolia</span>
+<span>Telopea 1(1): 26-27</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(1): 26-27".</p></div></details><details>	<summary class="orange"><span class="id">521034</span>
+<span class="name">Grevillea oleoides</span>
+<span>Telopea 1(1): 28</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">539983</span>
+<span class="name">Grevillea parallela</span>
+<span>Telopea 1(1): 29</span>
+	</summary><div class="more"></div></details><details>	<summary class="red"><span class="id">543395</span>
+<span class="name">Grevillea pityophylla</span>
+<span>Telopea 1(1): 29-30</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(1): 29-30".</p></div></details><details>	<summary class="orange"><span class="id">803664</span>
+<span class="name">Grevillea punicea</span>
+<span>Telopea 1(1): 24</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">456924</span>
+<span class="name">Grevillea refracta ceratophylla</span>
+<span>Telopea 1(1): 29</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">457132</span>
+<span class="name">Grevillea rivularis</span>
+<span>Telopea 1(1): 23</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">457314</span>
+<span class="name">Grevillea rosmarinifolia</span>
+<span>Telopea 1(1): 30</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">469583</span>
+<span class="name">Grevillea seymouriae</span>
+<span>Telopea 1(1): 28</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">802342</span>
+<span class="name">Grevillea seymouriae</span>
+<span>Telopea 1(1): 28</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">469623</span>
+<span class="name">Grevillea shepherdii</span>
+<span>Telopea 1(1): 25</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">469880</span>
+<span class="name">Grevillea speciosa</span>
+<span>Telopea 1(1): 24</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">797766</span>
+<span class="name">Grevillea stenocarpa</span>
+<span>Telopea 1(1): 27</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">479848</span>
+<span class="name">Hakea divaricata</span>
+<span>Telopea 1(1): 30</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">803284</span>
+<span class="name">Hakea divaricata</span>
+<span>Telopea 1(1): 30</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">480242</span>
+<span class="name">Hakea eyreana</span>
+<span>Telopea 1(1): 30</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">503053</span>
+<span class="name">Hakea intermedia</span>
+<span>Telopea 1(1): 30</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">809474</span>
+<span class="name">Isopogon anemonifolius tenuifolius</span>
+<span>Telopea 1(1): 32</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">528226</span>
+<span class="name">Isopogon mnoraifolius</span>
+<span>Telopea 1(1): 31</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">528593</span>
+<span class="name">Isopogon prostratus</span>
+<span>Telopea 1(1): 32</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">800796</span>
+<span class="name">Lysanthe speciosa</span>
+<span>Telopea 1(1): 24</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">529410</span>
+<span class="name">Marianthus procumbens</span>
+<span>Telopea 1(1): 55</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">529447</span>
+<span class="name">Marianthus procumbens diosmoides</span>
+<span>Telopea 1(1): 55</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">483969</span>
+<span class="name">Microlaena stipoides breviseta</span>
+<span>Telopea 1(1): 43</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">532750</span>
+<span class="name">Olearia cordata</span>
+<span>Telopea 1(1): 84, Fig. 1</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">800204</span>
+<span class="name">Panicum crus-galli lacunarium</span>
+<span>Telopea 1(1): 44</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">521409</span>
+<span class="name">Panicum lacunarium</span>
+<span>Telopea 1(1): 44</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">807893</span>
+<span class="name">Panicum lacunarium</span>
+<span>Telopea 1(1): 44</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">528228</span>
+<span class="name">Paspalidium breviflorum</span>
+<span>Telopea 1(1): 40</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">797502</span>
+<span class="name">Petrophile fucifolia</span>
+<span>Telopea 1(1): 32</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">465814</span>
+<span class="name">Petrophile pulchella</span>
+<span>Telopea 1(1): 32</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">802869</span>
+<span class="name">Pittosporum nanum</span>
+<span>Telopea 1(1): 55</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">526699</span>
+<span class="name">Pittosporum procumbens</span>
+<span>Telopea 1(1): 55</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">482184</span>
+<span class="name">Rhytidosporum alpinum</span>
+<span>Telopea 1(1): 56</span>
+	</summary><div class="more"></div></details><details>	<summary class="red"><span class="id">482165</span>
+<span class="name">Rhytidosporum</span>
+<span>Telopea 1(1): 55-57</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(1): 55-57".</p></div></details><details>	<summary class="orange"><span class="id">482239</span>
+<span class="name">Rhytidosporum procumbens</span>
+<span>Telopea 1(1): 55</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">482265</span>
+<span class="name">Rhytidosporum prostratum</span>
+<span>Telopea 1(1): 55</span>
+	</summary><div class="more"></div></details><details>	<summary class="orange"><span class="id">465953</span>
+<span class="name">Setaria paspalidioides</span>
+<span>Telopea 1(1): 42</span>
+	</summary><div class="more"></div></details><details>	<summary class="yellow"><span class="id">488125</span>
+<span class="name">Actites</span>
+<span>Telopea 1(2): 130</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806166" target="_new">57806166</a></div><div>Page is part of the work <b>Actites, a new Genus of Compositae from Australia</b>, <a href="https://doi.org/10.7751/telopea19763203" target="_new">doi:10.7751/telopea19763203</a></div></div></details><details>	<summary class="green"><span class="id">488142</span>
+<span class="name">Actites megalocarpa</span>
+<span>Telopea 1(2): 130</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806166" target="_new">57806166</a></div><div>Page is part of the work <b>Actites, a new Genus of Compositae from Australia</b>, <a href="https://doi.org/10.7751/telopea19763203" target="_new">doi:10.7751/telopea19763203</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>130 
+Telopea 
+Vol. 1 (2): 1976 
+2. Achenes elliptical in outline, narrowed towards both ends, sometimes cylindrical; 
+smooth or rough with wrinkles and/or tubercles; margins wingless or narrowly 
+winged; each face with 1-4 prominent ribs which are never raised to form 
+small wings ...... SONCHUS 
+2* Achenes flask-shaped in outline, constricted at apex, compressed, smooth; 
+margins with broad, flat wings; each face with 3 prominent ribs each of which 
+may be raised to form smaller secondary wings.ACTITES 
+1.* Pappus with simple bristles only. Pollen tricolporatc, uniformly spinous; abporal 
+lacunae reduced, indistinct; paraporal lacunae absent. Achenes flask-shaped in 
+outline, constricted at apex, somewhat swollen when mature; margins with broad, 
+inflated wings; each face with 3-6 prominent ribs which are never raised to form 
+small secondary wings .. EMBERGERIA 
+The present author feels it appropriate at this point to record his broad 
+concurrence with the generic delimitations embodied in the continuing monographic 
+treatment of Sonclius and its allies by Eoutfy Boulos. An alternative treatment 
+of this group would consider the entities Actites, Babcockia, Embergeria, Sonclius 
+and Taeckholmia as subgenera of Sonclius sens. Iat. It is the author&rsquo;s conviction 
+that unless a comprehensive review of the subtribe Crepidinae is undertaken, no 
+useful purpose would be served by abandoning Boulos&rsquo;s concepts at this stage. 
+ACTITES 
+Actites N. Lander, gen. nov. 
+Replaced Synonym: Embergeria subgcn. Megalocarpa Boulos in Hj. Eichler, Suppl. 
+Black&rsquo;s FI. South Australia: 333 (1965); Boulos, Bot. Not. 125 (4): 302 (1972). 
+Type Species: A. megalocarpa (Hook.f.) N. Lander. 
+Genus Sonclius L. differt cypselis alatis Embergeria differt pappo piloris 
+glochidiatis. 
+<mark>Actites megalocarpa</mark> (Hook.f.) N. Lander, comb. nov. 
+Synonymy: Sonclius asper var. megalocarpus Hook.f., FI. Tasmaniae 1 (3): 227 (1972). 
+Sonchus megalocarpus (Hook.f.) Black, FI. South Australia Ed. 1, 4: 661 (6.1929); Black in 
+Trans. Roy. Soc. South Australia 53: 263 (12.1929); Ewart, FI. Victoria: 1195 (1930); Black, 
+FI. South Australia Ed. 2, 4: 943 &amp; fig. 1259 (1956): Beadle, Evans &amp; Carolin, Handb. Vase. 
+PI. Sydney Distr.: 396 (1963); Curtis, Stud. FI. Tasmania 2: 390 (1963); Willis, Handb. PI. 
+Victoria 2: 773 (1973); Beadle, Evans &amp; Carolin. FI. Sydney Region: 481 (1974). Embergeria 
+megalocarpa (Hook.f.) Boulos in Eichler. Suppl. Black&rsquo;s FI. South Australia: 333 (1965); Boulos 
+in Bot. Not. 125 (4): 302, 309 &amp; 316-7 (1972). Holotype: &ldquo;near the sea on the north shore 
+of the Island [Tasmania]&quot;, Gunn 845 (K). 
+Sonchus asper var. littoralis Black, Naturalized FI. South Australia: 104 (1909), noin. inval., 
+non Kirk in Trans. New Zealand Inst. 26: 265 (1895). Neotype (here designated): South 
+Australia, Black NSW 135787,&mdash;(NSW). Isotype to be sent to AD. 
+Since Black cited no specimens when he described his variety, it is appropriate 
+to designate the above neotype. Although this specimen was received by Ernst 
+Betche in January of 1913, it was probably collected much earlier; it is the only 
+one of those examined labelled S. asper var. littoralis and the only one collected 
+by Black himself. 
+Fleshy, perennial herbs, erect and up to 0-3 m high, with creeping rhizomes, 
+forming large clumps. Stems branched, somewhat woody at their bases, otherwise 
+herbaceous, with longitudinal furrows, glabrous. Leaves radical and cauline, 
+alternate, deeply pinnatisect, lobed or entire, narrowly spathulate or lanceolate, 
+1 &bull;5-17-0 (8-5 &plusmn; 0-2)f cm long, 0-5-4-5 (21 &plusmn; 0T) cm wide, either tapering into 
+f Measurements are given in the form: range, followed by mean &plusmn; standard error of the 
+mean. (See also Table 1) 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806166">	</div></div>	</div></details><details>	<summary class="green"><span class="id">576664</span>
+<span class="name">Actites megalocarpus</span>
+<span>Telopea 1(2): 130</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806166" target="_new">57806166</a></div><div>Page is part of the work <b>Actites, a new Genus of Compositae from Australia</b>, <a href="https://doi.org/10.7751/telopea19763203" target="_new">doi:10.7751/telopea19763203</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>130 
+Telopea 
+Vol. 1 (2): 1976 
+2. Achenes elliptical in outline, narrowed towards both ends, sometimes cylindrical; 
+smooth or rough with wrinkles and/or tubercles; margins wingless or narrowly 
+winged; each face with 1-4 prominent ribs which are never raised to form 
+small wings ...... SONCHUS 
+2* Achenes flask-shaped in outline, constricted at apex, compressed, smooth; 
+margins with broad, flat wings; each face with 3 prominent ribs each of which 
+may be raised to form smaller secondary wings.ACTITES 
+1.* Pappus with simple bristles only. Pollen tricolporatc, uniformly spinous; abporal 
+lacunae reduced, indistinct; paraporal lacunae absent. Achenes flask-shaped in 
+outline, constricted at apex, somewhat swollen when mature; margins with broad, 
+inflated wings; each face with 3-6 prominent ribs which are never raised to form 
+small secondary wings .. EMBERGERIA 
+The present author feels it appropriate at this point to record his broad 
+concurrence with the generic delimitations embodied in the continuing monographic 
+treatment of Sonclius and its allies by Eoutfy Boulos. An alternative treatment 
+of this group would consider the entities Actites, Babcockia, Embergeria, Sonclius 
+and Taeckholmia as subgenera of Sonclius sens. Iat. It is the author&rsquo;s conviction 
+that unless a comprehensive review of the subtribe Crepidinae is undertaken, no 
+useful purpose would be served by abandoning Boulos&rsquo;s concepts at this stage. 
+ACTITES 
+Actites N. Lander, gen. nov. 
+Replaced Synonym: Embergeria subgcn. Megalocarpa Boulos in Hj. Eichler, Suppl. 
+Black&rsquo;s FI. South Australia: 333 (1965); Boulos, Bot. Not. 125 (4): 302 (1972). 
+Type Species: A. megalocarpa (Hook.f.) N. Lander. 
+Genus Sonclius L. differt cypselis alatis Embergeria differt pappo piloris 
+glochidiatis. 
+<mark>Actites megalocarp</mark>a (Hook.f.) N. Lander, comb. nov. 
+Synonymy: Sonclius asper var. megalocarpus Hook.f., FI. Tasmaniae 1 (3): 227 (1972). 
+Sonchus megalocarpus (Hook.f.) Black, FI. South Australia Ed. 1, 4: 661 (6.1929); Black in 
+Trans. Roy. Soc. South Australia 53: 263 (12.1929); Ewart, FI. Victoria: 1195 (1930); Black, 
+FI. South Australia Ed. 2, 4: 943 &amp; fig. 1259 (1956): Beadle, Evans &amp; Carolin, Handb. Vase. 
+PI. Sydney Distr.: 396 (1963); Curtis, Stud. FI. Tasmania 2: 390 (1963); Willis, Handb. PI. 
+Victoria 2: 773 (1973); Beadle, Evans &amp; Carolin. FI. Sydney Region: 481 (1974). Embergeria 
+megalocarpa (Hook.f.) Boulos in Eichler. Suppl. Black&rsquo;s FI. South Australia: 333 (1965); Boulos 
+in Bot. Not. 125 (4): 302, 309 &amp; 316-7 (1972). Holotype: &ldquo;near the sea on the north shore 
+of the Island [Tasmania]&quot;, Gunn 845 (K). 
+Sonchus asper var. littoralis Black, Naturalized FI. South Australia: 104 (1909), noin. inval., 
+non Kirk in Trans. New Zealand Inst. 26: 265 (1895). Neotype (here designated): South 
+Australia, Black NSW 135787,&mdash;(NSW). Isotype to be sent to AD. 
+Since Black cited no specimens when he described his variety, it is appropriate 
+to designate the above neotype. Although this specimen was received by Ernst 
+Betche in January of 1913, it was probably collected much earlier; it is the only 
+one of those examined labelled S. asper var. littoralis and the only one collected 
+by Black himself. 
+Fleshy, perennial herbs, erect and up to 0-3 m high, with creeping rhizomes, 
+forming large clumps. Stems branched, somewhat woody at their bases, otherwise 
+herbaceous, with longitudinal furrows, glabrous. Leaves radical and cauline, 
+alternate, deeply pinnatisect, lobed or entire, narrowly spathulate or lanceolate, 
+1 &bull;5-17-0 (8-5 &plusmn; 0-2)f cm long, 0-5-4-5 (21 &plusmn; 0T) cm wide, either tapering into 
+f Measurements are given in the form: range, followed by mean &plusmn; standard error of the 
+mean. (See also Table 1) 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806166">	</div></div>	</div></details><details>	<summary class="green"><span class="id">922736</span>
+<span class="name">Embergeria megalocarpa</span>
+<span>Telopea 1(2): 130</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806166" target="_new">57806166</a></div><div>Page is part of the work <b>Actites, a new Genus of Compositae from Australia</b>, <a href="https://doi.org/10.7751/telopea19763203" target="_new">doi:10.7751/telopea19763203</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>130 
+Telopea 
+Vol. 1 (2): 1976 
+2. Achenes elliptical in outline, narrowed towards both ends, sometimes cylindrical; 
+smooth or rough with wrinkles and/or tubercles; margins wingless or narrowly 
+winged; each face with 1-4 prominent ribs which are never raised to form 
+small wings ...... SONCHUS 
+2* Achenes flask-shaped in outline, constricted at apex, compressed, smooth; 
+margins with broad, flat wings; each face with 3 prominent ribs each of which 
+may be raised to form smaller secondary wings.ACTITES 
+1.* Pappus with simple bristles only. Pollen tricolporatc, uniformly spinous; abporal 
+lacunae reduced, indistinct; paraporal lacunae absent. Achenes flask-shaped in 
+outline, constricted at apex, somewhat swollen when mature; margins with broad, 
+inflated wings; each face with 3-6 prominent ribs which are never raised to form 
+small secondary wings .. EMBERGERIA 
+The present author feels it appropriate at this point to record his broad 
+concurrence with the generic delimitations embodied in the continuing monographic 
+treatment of Sonclius and its allies by Eoutfy Boulos. An alternative treatment 
+of this group would consider the entities Actites, Babcockia, Embergeria, Sonclius 
+and Taeckholmia as subgenera of Sonclius sens. Iat. It is the author&rsquo;s conviction 
+that unless a comprehensive review of the subtribe Crepidinae is undertaken, no 
+useful purpose would be served by abandoning Boulos&rsquo;s concepts at this stage. 
+ACTITES 
+Actites N. Lander, gen. nov. 
+Replaced Synonym: Embergeria subgcn. Megalocarpa Boulos in Hj. Eichler, Suppl. 
+Black&rsquo;s FI. South Australia: 333 (1965); Boulos, Bot. Not. 125 (4): 302 (1972). 
+Type Species: A. megalocarpa (Hook.f.) N. Lander. 
+Genus Sonclius L. differt cypselis alatis Embergeria differt pappo piloris 
+glochidiatis. 
+Actites megalocarpa (Hook.f.) N. Lander, comb. nov. 
+Synonymy: Sonclius asper var. megalocarpus Hook.f., FI. Tasmaniae 1 (3): 227 (1972). 
+Sonchus megalocarpus (Hook.f.) Black, FI. South Australia Ed. 1, 4: 661 (6.1929); Black in 
+Trans. Roy. Soc. South Australia 53: 263 (12.1929); Ewart, FI. Victoria: 1195 (1930); Black, 
+FI. South Australia Ed. 2, 4: 943 &amp; fig. 1259 (1956): Beadle, Evans &amp; Carolin, Handb. Vase. 
+PI. Sydney Distr.: 396 (1963); Curtis, Stud. FI. Tasmania 2: 390 (1963); Willis, Handb. PI. 
+Victoria 2: 773 (1973); Beadle, Evans &amp; Carolin. FI. Sydney Region: 481 (1974). <mark>Embergeria 
+megalocarpa</mark> (Hook.f.) Boulos in Eichler. Suppl. Black&rsquo;s FI. South Australia: 333 (1965); Boulos 
+in Bot. Not. 125 (4): 302, 309 &amp; 316-7 (1972). Holotype: &ldquo;near the sea on the north shore 
+of the Island [Tasmania]&quot;, Gunn 845 (K). 
+Sonchus asper var. littoralis Black, Naturalized FI. South Australia: 104 (1909), noin. inval., 
+non Kirk in Trans. New Zealand Inst. 26: 265 (1895). Neotype (here designated): South 
+Australia, Black NSW 135787,&mdash;(NSW). Isotype to be sent to AD. 
+Since Black cited no specimens when he described his variety, it is appropriate 
+to designate the above neotype. Although this specimen was received by Ernst 
+Betche in January of 1913, it was probably collected much earlier; it is the only 
+one of those examined labelled S. asper var. littoralis and the only one collected 
+by Black himself. 
+Fleshy, perennial herbs, erect and up to 0-3 m high, with creeping rhizomes, 
+forming large clumps. Stems branched, somewhat woody at their bases, otherwise 
+herbaceous, with longitudinal furrows, glabrous. Leaves radical and cauline, 
+alternate, deeply pinnatisect, lobed or entire, narrowly spathulate or lanceolate, 
+1 &bull;5-17-0 (8-5 &plusmn; 0-2)f cm long, 0-5-4-5 (21 &plusmn; 0T) cm wide, either tapering into 
+f Measurements are given in the form: range, followed by mean &plusmn; standard error of the 
+mean. (See also Table 1) 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806166">	</div></div>	</div></details><details>	<summary class="red"><span class="id">795496</span>
+<span class="name">Embergeria</span>
+<span>Telopea 1(2)</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(2)".</p></div></details><details>	<summary class="yellow"><span class="id">536161</span>
+<span class="name">Sonchus asper littoralis</span>
+<span>Telopea 1(2): 130</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806166" target="_new">57806166</a></div><div>Page is part of the work <b>Actites, a new Genus of Compositae from Australia</b>, <a href="https://doi.org/10.7751/telopea19763203" target="_new">doi:10.7751/telopea19763203</a></div></div></details><details>	<summary class="yellow"><span class="id">922737</span>
+<span class="name">Sonchus asper littoralis</span>
+<span>Telopea 1(2): 130</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806166" target="_new">57806166</a></div><div>Page is part of the work <b>Actites, a new Genus of Compositae from Australia</b>, <a href="https://doi.org/10.7751/telopea19763203" target="_new">doi:10.7751/telopea19763203</a></div></div></details><details>	<summary class="yellow"><span class="id">536209</span>
+<span class="name">Sonchus asper megalocarpus</span>
+<span>Telopea 1(2): 130</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806166" target="_new">57806166</a></div><div>Page is part of the work <b>Actites, a new Genus of Compositae from Australia</b>, <a href="https://doi.org/10.7751/telopea19763203" target="_new">doi:10.7751/telopea19763203</a></div></div></details><details>	<summary class="yellow"><span class="id">835033</span>
+<span class="name">Sonchus asper megalocarpus</span>
+<span>Telopea 1(2): 130</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806166" target="_new">57806166</a></div><div>Page is part of the work <b>Actites, a new Genus of Compositae from Australia</b>, <a href="https://doi.org/10.7751/telopea19763203" target="_new">doi:10.7751/telopea19763203</a></div></div></details><details>	<summary class="green"><span class="id">539116</span>
+<span class="name">Sonchus megalocarpus</span>
+<span>Telopea 1(2): 130</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806166" target="_new">57806166</a></div><div>Page is part of the work <b>Actites, a new Genus of Compositae from Australia</b>, <a href="https://doi.org/10.7751/telopea19763203" target="_new">doi:10.7751/telopea19763203</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>130 
+Telopea 
+Vol. 1 (2): 1976 
+2. Achenes elliptical in outline, narrowed towards both ends, sometimes cylindrical; 
+smooth or rough with wrinkles and/or tubercles; margins wingless or narrowly 
+winged; each face with 1-4 prominent ribs which are never raised to form 
+small wings ...... SONCHUS 
+2* Achenes flask-shaped in outline, constricted at apex, compressed, smooth; 
+margins with broad, flat wings; each face with 3 prominent ribs each of which 
+may be raised to form smaller secondary wings.ACTITES 
+1.* Pappus with simple bristles only. Pollen tricolporatc, uniformly spinous; abporal 
+lacunae reduced, indistinct; paraporal lacunae absent. Achenes flask-shaped in 
+outline, constricted at apex, somewhat swollen when mature; margins with broad, 
+inflated wings; each face with 3-6 prominent ribs which are never raised to form 
+small secondary wings .. EMBERGERIA 
+The present author feels it appropriate at this point to record his broad 
+concurrence with the generic delimitations embodied in the continuing monographic 
+treatment of Sonclius and its allies by Eoutfy Boulos. An alternative treatment 
+of this group would consider the entities Actites, Babcockia, Embergeria, Sonclius 
+and Taeckholmia as subgenera of Sonclius sens. Iat. It is the author&rsquo;s conviction 
+that unless a comprehensive review of the subtribe Crepidinae is undertaken, no 
+useful purpose would be served by abandoning Boulos&rsquo;s concepts at this stage. 
+ACTITES 
+Actites N. Lander, gen. nov. 
+Replaced Synonym: Embergeria subgcn. Megalocarpa Boulos in Hj. Eichler, Suppl. 
+Black&rsquo;s FI. South Australia: 333 (1965); Boulos, Bot. Not. 125 (4): 302 (1972). 
+Type Species: A. megalocarpa (Hook.f.) N. Lander. 
+Genus Sonclius L. differt cypselis alatis Embergeria differt pappo piloris 
+glochidiatis. 
+Actites megalocarpa (Hook.f.) N. Lander, comb. nov. 
+Synonymy: Sonclius asper var. megalocarpus Hook.f., FI. Tasmaniae 1 (3): 227 (1972). 
+<mark>Sonchus megalocarpus</mark> (Hook.f.) Black, FI. South Australia Ed. 1, 4: 661 (6.1929); Black in 
+Trans. Roy. Soc. South Australia 53: 263 (12.1929); Ewart, FI. Victoria: 1195 (1930); Black, 
+FI. South Australia Ed. 2, 4: 943 &amp; fig. 1259 (1956): Beadle, Evans &amp; Carolin, Handb. Vase. 
+PI. Sydney Distr.: 396 (1963); Curtis, Stud. FI. Tasmania 2: 390 (1963); Willis, Handb. PI. 
+Victoria 2: 773 (1973); Beadle, Evans &amp; Carolin. FI. Sydney Region: 481 (1974). Embergeria 
+megalocarpa (Hook.f.) Boulos in Eichler. Suppl. Black&rsquo;s FI. South Australia: 333 (1965); Boulos 
+in Bot. Not. 125 (4): 302, 309 &amp; 316-7 (1972). Holotype: &ldquo;near the sea on the north shore 
+of the Island [Tasmania]&quot;, Gunn 845 (K). 
+Sonchus asper var. littoralis Black, Naturalized FI. South Australia: 104 (1909), noin. inval., 
+non Kirk in Trans. New Zealand Inst. 26: 265 (1895). Neotype (here designated): South 
+Australia, Black NSW 135787,&mdash;(NSW). Isotype to be sent to AD. 
+Since Black cited no specimens when he described his variety, it is appropriate 
+to designate the above neotype. Although this specimen was received by Ernst 
+Betche in January of 1913, it was probably collected much earlier; it is the only 
+one of those examined labelled S. asper var. littoralis and the only one collected 
+by Black himself. 
+Fleshy, perennial herbs, erect and up to 0-3 m high, with creeping rhizomes, 
+forming large clumps. Stems branched, somewhat woody at their bases, otherwise 
+herbaceous, with longitudinal furrows, glabrous. Leaves radical and cauline, 
+alternate, deeply pinnatisect, lobed or entire, narrowly spathulate or lanceolate, 
+1 &bull;5-17-0 (8-5 &plusmn; 0-2)f cm long, 0-5-4-5 (21 &plusmn; 0T) cm wide, either tapering into 
+f Measurements are given in the form: range, followed by mean &plusmn; standard error of the 
+mean. (See also Table 1) 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806166">	</div></div>	</div></details><details>	<summary class="green"><span class="id">922735</span>
+<span class="name">Sonchus megalocarpus</span>
+<span>Telopea 1(2): 130</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806166" target="_new">57806166</a></div><div>Page is part of the work <b>Actites, a new Genus of Compositae from Australia</b>, <a href="https://doi.org/10.7751/telopea19763203" target="_new">doi:10.7751/telopea19763203</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>130 
+Telopea 
+Vol. 1 (2): 1976 
+2. Achenes elliptical in outline, narrowed towards both ends, sometimes cylindrical; 
+smooth or rough with wrinkles and/or tubercles; margins wingless or narrowly 
+winged; each face with 1-4 prominent ribs which are never raised to form 
+small wings ...... SONCHUS 
+2* Achenes flask-shaped in outline, constricted at apex, compressed, smooth; 
+margins with broad, flat wings; each face with 3 prominent ribs each of which 
+may be raised to form smaller secondary wings.ACTITES 
+1.* Pappus with simple bristles only. Pollen tricolporatc, uniformly spinous; abporal 
+lacunae reduced, indistinct; paraporal lacunae absent. Achenes flask-shaped in 
+outline, constricted at apex, somewhat swollen when mature; margins with broad, 
+inflated wings; each face with 3-6 prominent ribs which are never raised to form 
+small secondary wings .. EMBERGERIA 
+The present author feels it appropriate at this point to record his broad 
+concurrence with the generic delimitations embodied in the continuing monographic 
+treatment of Sonclius and its allies by Eoutfy Boulos. An alternative treatment 
+of this group would consider the entities Actites, Babcockia, Embergeria, Sonclius 
+and Taeckholmia as subgenera of Sonclius sens. Iat. It is the author&rsquo;s conviction 
+that unless a comprehensive review of the subtribe Crepidinae is undertaken, no 
+useful purpose would be served by abandoning Boulos&rsquo;s concepts at this stage. 
+ACTITES 
+Actites N. Lander, gen. nov. 
+Replaced Synonym: Embergeria subgcn. Megalocarpa Boulos in Hj. Eichler, Suppl. 
+Black&rsquo;s FI. South Australia: 333 (1965); Boulos, Bot. Not. 125 (4): 302 (1972). 
+Type Species: A. megalocarpa (Hook.f.) N. Lander. 
+Genus Sonclius L. differt cypselis alatis Embergeria differt pappo piloris 
+glochidiatis. 
+Actites megalocarpa (Hook.f.) N. Lander, comb. nov. 
+Synonymy: Sonclius asper var. megalocarpus Hook.f., FI. Tasmaniae 1 (3): 227 (1972). 
+<mark>Sonchus megalocarpus</mark> (Hook.f.) Black, FI. South Australia Ed. 1, 4: 661 (6.1929); Black in 
+Trans. Roy. Soc. South Australia 53: 263 (12.1929); Ewart, FI. Victoria: 1195 (1930); Black, 
+FI. South Australia Ed. 2, 4: 943 &amp; fig. 1259 (1956): Beadle, Evans &amp; Carolin, Handb. Vase. 
+PI. Sydney Distr.: 396 (1963); Curtis, Stud. FI. Tasmania 2: 390 (1963); Willis, Handb. PI. 
+Victoria 2: 773 (1973); Beadle, Evans &amp; Carolin. FI. Sydney Region: 481 (1974). Embergeria 
+megalocarpa (Hook.f.) Boulos in Eichler. Suppl. Black&rsquo;s FI. South Australia: 333 (1965); Boulos 
+in Bot. Not. 125 (4): 302, 309 &amp; 316-7 (1972). Holotype: &ldquo;near the sea on the north shore 
+of the Island [Tasmania]&quot;, Gunn 845 (K). 
+Sonchus asper var. littoralis Black, Naturalized FI. South Australia: 104 (1909), noin. inval., 
+non Kirk in Trans. New Zealand Inst. 26: 265 (1895). Neotype (here designated): South 
+Australia, Black NSW 135787,&mdash;(NSW). Isotype to be sent to AD. 
+Since Black cited no specimens when he described his variety, it is appropriate 
+to designate the above neotype. Although this specimen was received by Ernst 
+Betche in January of 1913, it was probably collected much earlier; it is the only 
+one of those examined labelled S. asper var. littoralis and the only one collected 
+by Black himself. 
+Fleshy, perennial herbs, erect and up to 0-3 m high, with creeping rhizomes, 
+forming large clumps. Stems branched, somewhat woody at their bases, otherwise 
+herbaceous, with longitudinal furrows, glabrous. Leaves radical and cauline, 
+alternate, deeply pinnatisect, lobed or entire, narrowly spathulate or lanceolate, 
+1 &bull;5-17-0 (8-5 &plusmn; 0-2)f cm long, 0-5-4-5 (21 &plusmn; 0T) cm wide, either tapering into 
+f Measurements are given in the form: range, followed by mean &plusmn; standard error of the 
+mean. (See also Table 1) 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806166">	</div></div>	</div></details><details>	<summary class="yellow"><span class="id">51263912</span>
+<span class="name">Adiantum cuneatum</span>
+<span>Telopea 1(2): 107</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806139" target="_new">57806139</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="yellow"><span class="id">51263913</span>
+<span class="name">Adiantum cuneatum</span>
+<span>Telopea 1(2): 107</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806139" target="_new">57806139</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="green"><span class="id">861540</span>
+<span class="name">Adiantum lineare</span>
+<span>Telopea 1(2): 112</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806144" target="_new">57806144</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>112 
+Telopea 
+Vol. 1 (2): 1976 
+8. Lindsaea linearis Swartz in J. Bot. (Schrader) (1800) 2 : 78 (1801); F. Mueller, 
+Fragm. 5: 119 (1865&mdash;6); J.D. Hooker, Handb. New Zealand FI.: 359 (1864); 
+F.M. Bailey, Handb. Ferns Queensland: 18 (1874); Bentham, FI. Austral. 7: 719 
+(1878); F.M. Bailey, Fern World Australia: 39 (1881); Thomson, Ferns &amp; Fern 
+Allies New Zealand: 51 (1882); Field, Ferns New Zealand: 77, PI. 19, 4 and 4a 
+(1890); F.M. Bailey, Lithogr. Ferns Queensland: PI. 51 (right) (1892); F.M. Bailey, 
+Queensl. FI. 6: 1954(1902); F.M. Bailey, Compr. Cat. Queensland PI.: 641 (1913); 
+Cheeseman, Man. New Zealand FI.: 958 (1906); Domin in Biblioth. Bot. 20 (85 1 ): 
+81 (1913); Wakefield, Ferns Victoria &amp; Tasmania: 26 with fig. (1955); Black, 
+FI. South Australia 1: 36, fig. 3 (1922). ed. 2, 35, fig. 11 (1960); Ewart, FI. Victoria: 
+38 (1931); Dobbie &amp; Crookes, New Zealand Ferns, ed. 5: 150, photo 151 (1952); 
+Allan, FI. New Zealand 1: 58 (1961); Willis, Handb. PI. Victoria 1: 23 (1962); 
+Crookes &amp; Dobbie, New Zealand Ferns, ed. 6: 146, photo 147 (1963); Kramer 
+in Acta Bot. Neerl. 15: 581 (1967); Brownlie, FI. Nouvelle-Caledonic 3: 128, 
+PI. 14, fig. 1-2 (1969); Tindale in Beadle, Evans &amp; Carolin, Handb. Vase. PI. 
+Sydney Distr.: 61 (1963); Tindale in Beadle, Evans &amp; Carolin, FI. Sydney 66 
+(1972). 
+Synonymy: <mark>Adiantum lineare</mark> (Swartz) Poiret in Lamarck, Encycl. Suppl. 1: 139 (1810). 
+Lindsaea hmata Willdenow, Sp. PI. 5: 421 (1810), narn. superfl. Type: not cited, prob. 
+from Australia; not seen. 
+Lindsaea triiobata Colenso in Trans. &amp; Proc. New Zealand Inst. 16: 345 (1884), non Baker 
+(1891). Syntypes?: Great Barrier Island, New Zealand, YVinkelmann NSW P9517 , 1.1883 
+(NSW), examined, and Wellington Harbour, New Zealand, Colenso, not examined. 
+Isosyntypes?: without indication of provenience, Colenso (K), two specimens, seen. 
+Holotype: &ldquo;E n. Hollandia&rdquo; (Swartz scripsit), (S). The type consists of two fertile fronds 
+but no rhizome nor sterile fronds. 
+Distribution: New Caledonia, Norfolk Island, New Zealand (North, South, Stewart and 
+Chatham Islands) and Australia (southeastern Queensland, New South Wales, Victoria, 
+Tasmania, southern South Australia and southwestern Western Australia). 
+Habitats: In Australia terrestrial or more rarely in crevices of boulders, mostly in colonies, 
+in shady situations under trees and shrubs, often associated with sandstone but also on granite 
+and conglomerate, usually in sandy soils, often in open hcathland or wallum, near swamps or 
+in boggy ground, otherwise on hillsides in scrub or sclerophyllous forests. In New Zealand it 
+is &ldquo;common in lowland to lower montane shrubland, open ground and boggy places&rdquo; according 
+to H.H. Allan, Fl. New Zealand 1: 58 (1961). 
+This species occurs from sea level to c. 1500 m alt. 
+Rhizome rather shortly to comparatively long-creeping, c. 0-6-1 mm in diam.; 
+scales honey-coloured, flaccid, elongate-triangular, apically rather shortly uniseriate, 
+up to 6-seriate at the base, to 2 mm long. Leaves not clustered, a few mm to 1 cm 
+apart; sterile leaves nearly always (perhaps always, but not consistently collected) 
+present beside the fertile ones, as a rule much shorter but not very different. 
+Petiole (stipe) atropurpureous, red-brown or black, scarcely or not lustrous, 0-5-1 
+mm in diam., adaxiaily flattened or mostly shallowly sulcate, abaxially obtusely 
+bi-angular, downwards gradually rounded, in fertile leaves c. 2-26 cm long, half 
+as long as to equalling the lamina; in sterile leaves often relatively and absolutely 
+shorter. Lamina linear, simply pinnate, in fertile leaves c. 5-25 cm long (shorter 
+in sterile leaves), 0-5-1-5 cm wide, with c. 15-40 (in sterile leaves often fewer, 7-12) 
+pinnules to each side; rachis dark reddish brown to atropurpureous, similar to the 
+upper part of the petiole in structure. Pinnules for the greater part subopposite, 
+sessile, not or only shortly sclerotic at the base, non-articulate, spreading or 
+markedly detlexed, herbaceous to subcoriaceous (sterile pinnules usually herbaceous), 
+dark green when dry, the lower ones a few times their width apart, the upper closer, 
+or occasionally all subcontiguous or contiguous. Sterile pinnules ^-elliptic or 
+subtrapezoidal, 6 x 3-10 x 6 mm, 14&mdash;2 x as long as wide, crenate or bicrenate, 
+the deepest incisions reaching almost to the middle in large pinnules; fertile pinnules 
+entire, or the basal ones bifid and incised to flabellate-cuneate or subdolabriform, 
+usually somewhat asymmetric, when dry often with the outer margin dorsally folded 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806144">	</div></div>	</div></details><details>	<summary class="green"><span class="id">861603</span>
+<span class="name">Adiantum microphyllum</span>
+<span>Telopea 1(2): 95</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806127" target="_new">57806127</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>Kramer and Tindale, Lindsaeoid Ferns 
+95 
+A. SUBGENUS LINDSAEA 
+1. SECTION SCHIZOLOMA 
+Section Schizoloma ( Gaudichaud ) Kramer * 
+1. Lindsaca microphylla Swartz in J. Bot. (Schrader) (1800)-: 79 (1801); F. 
+Mueller, Fragm 5: 119 (1865-66); F.M. Bailey, Flandb. Ferns Queensland: 19 
+(1875); Bentham, FI. Austral. 7: 721 (1878); F.M. Bailey, Fern World Australia: 
+40 (1881); F.M. Bailey, Lithogr. Ferns Queensland: PI. 54 (1892); F.M. Bailey, 
+Queensland FI. 6: 1955 (1902); F.M. Bailey, Compr. Cat. Queensland PL: 641 
+(1913); Domin in Biblioth. Bot. 20 (85 1 ): 84 (1913); Wakefield, Ferns Victoria 
+&amp; Tasmania: 26. with fig. (1955); Brownlie in Trans. Roy. Soc. New Zealand 87: 
+196 (1959); Willis, Handb. FI. Victoria 1: 23 (1962); Tindale in Beadle, Evans 
+&amp; Carolin, Handb! Vase. PL Sydney Distr.: 61 (1963); Tindale in Beadle, Evans 
+&amp; Carolin, FI. Sydney Region: 66 (1972); non Presl (1825). 
+Synonymy: <mark>Adiantum microphyllum</mark> (Swartz) Poirel in Lamarck, Encycl. Suppl. 1: 140 
+(1810), non Swartz (1788), nec. auct. al. Odomosoria microphylla (Swartz) J. Smith, Hist. Fil.: 
+264 (1875). Schizoloma microphyllum (Swartz) Kuhn, Chaetopt.: 346 (1882). Sphenomeris 
+microphylla (Swartz) Tardicu-Blot in A trier. Fern J. 48: 34 (1958). 
+Lindsaea microphylla Swartz var. gracilescens Domin in Biblioth. Bot. 20 (85 1 ): 85 (1913). 
+Syntypes: Katoomba Falls, Blue Mountains, New South Wales, Domin 184, 1910 (PR), Blue 
+Mountains Domin 183 (PR). 
+Stenoloma lindsayoides Fee, Gen. Fil.: 330, PI. 27 bis A, fig. 5 (1852), epilh. nov. superfl. 
+Holotype: Without date or locality, (S), consisting of one fertile frond. 
+DisTRinUTioNt: Eastern Australia: Queensland (Cook, Leichhardt, Burnett and Moreton 
+Districts), New South Wales (North and Central Tablelands, North, Central and South Coast) 
+and Victoria. Fig. 1 (p. 97). 
+Habitats: In wet or dry sclerophyll forests or in thick scrub or more rarely in exposed 
+positions above rain forest ravines, on hillsides and in moist gullies, commonly in rock crevices 
+or under rock ledges, often in sandy or alluvial soil, mostly associated with sandstone but 
+sometimes on shales or granite, sea level to 1100 m. 
+Rhizome shortly creeping, 1-2 mm in diam.; scales honey-coloured to light 
+reddish brown, almost acicular, the greater part biseriate, the base bi- or triseriate, 
+the apical ^ or ^ uniseriate, up to 2-5 mm long. Leaves clustered; petioles (stipes) 
+stramineous to light reddish brown or mottled, with darker base, or sometimes 
+darker with age, 4&mdash;15 cm long, very much shorter than the lamina, adaxially 
+broadened and shallowly sulcate, the adaxial face often laterally surpassing the 
+lateral faces, abaxially obtusely bi-aneular to subterete. Lamina narrowly oblong, 
+c. 10-50 cm long, (2-) 4-6 cm widc,V6 x as long as the petiole, mostly pale or 
+bright green or olivaceous when dry, herbaceous, bipinnate + deeply pinnatifid. 
+Major pinnae, c. 10-20 on each side, the lower subopposite, especially the larger 
+strongly ascending, the lower ones up to 6 cm apart, the upper ones gradually 
+closer, all subcontiguous to contiguous by their ascending position, ovate to triangular 
+in outline; primary rachis stramineous, in structure like the petiole (stipe). Primary 
+* The publication of the genus Hymenotomia Gaudichaud in Freycinet, Voyage Bot.: 379 
+(1826), cited, e.g., by Christensen (Ind. Fil., 1906) is in the authors&rsquo;^ opinion invalid Under 
+Schizoloma (as genus) Gaudichaud said: &ldquo;La troisiemc section, peut-etre digne ausst de former 
+un genre, hymenotomia, reunirait les lindsaea mycrophylla [sic], media, decomposita. &amp;c., 
+caractcrises par les tiges . . ., des nervures entierement dichotomes; dcs tegumens maiginaux, 
+membraneux, dentes ou lacinies comme Ic bord dcs folioles, &amp;c. ... However, on p. 381 
+L. microphylla is cited under Lindsaea, not tinder Schizoloma. L. microphylla therefore cannot 
+be the type of Hymenotomia, as stated by Christensen (l.c.) and others, e.g., Domin (1913, as 
+subgenus). Gaudichaud&rsquo;s classification of species, and the conditional reunirait , show, in the 
+authors&rsquo; opinion, that he did not really accept a taxon Hymenotomia, in any rank, and it was 
+never validly published. 
+t There is also a dubious record from the Northern Territory (without specific locality) 
+by Darnel (HBG). L. microphylla has been incorrectly reported from New Zealand and New 
+Caledonia by Posthumus (1938) and others, due to confusion with other species. 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806127">	</div></div>	</div></details><details>	<summary class="green"><span class="id">51263911</span>
+<span class="name">Adiantum trichomanoides</span>
+<span>Telopea 1(2): 107</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806139" target="_new">57806139</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>Kramer and Tindale, Lindsaeoid Ferns 
+107 
+6: 148, photo 149 (1963); Tindale in Beadle, Evans &amp; Carolin, Handb. Vase. PI. 
+Sydney Distr.: 61 (1963): Tindale in Beadle, Evans &amp; Carolin, FI. Sydney Region: 
+66 (1972); probably not of F. Mueller, Fragm. 5: 118 (1865-6). 
+Synonymy: <mark>Adiantum trichomanoides</mark> (Dryander) Poiret in Lamarck, Encycl. Suppl. 1: 
+140(1810). Scliizoloma trichomanoides (Dryander) Kuhn, Chaetopt.: 346 (1882). 
+Adiantum cuiteatum Forster f.. Prodr.: 84 (1786), non Langsd. &amp; Fischer (1810). Lindsaea 
+cuneata (Forster f.) C. Christensen, lnd. Fil.: 392 (1906); Ewart, FI. Victoria: 38 (1931); 
+Dobbie &amp; Crookes, New Zealand Ferns, ed. 5: 152, photo 153 (1952); Wakefield, Ferns 
+Victoria &amp; Tasmania: 28, with fig. (1955); Allan, FI. New Zealand 1: 58 (1961); Willis, 
+Handb. FI. Victoria 1: 23 (1962), nom. illeg., non Willdenow (1810). Lectotype (here 
+designated): New Zealand, Forster (GOET). Syntypes: New Zealand, Forster 298 (BM), 
+Forster (UPS). 
+Lindsaea lessonii Bory in Duperrey, Voy. Bot. 1: 278, PI. 37. fig. 2 (1828). Lindsaea 
+trichomanoides Dryander var. lessonii (Bory) Hooker, Handh. New Zealand FI.: 359 (1864); 
+Thomson, Ferns &amp; Fern Allies New Zealand: 52 (1882); Field, Ferns New Zealand: 79, PI. 
+19, 3 (1890); Checseman, Man. New Zealand FI.: 959 (1906); Crookes &amp; Dobbie, ed. 6, New 
+Zealand Ferns, ed. 6: 150, photo 151 (1963); Allan, FI New Zealand 1: 59 (1961). Lindsaea 
+cuneata (Forster f.) Christensen var. lessonii (Bory) Crookes in Dobbie &amp; Crookes, New Zealand 
+Ferns, ed. 5: 154 with plate (1952); Allan, FI. New' Zealand I: 59 (1961). Holotype: Bay 
+of Islands, New Zealand, Lesson s.n. (P). Isotype: (B). 
+Holotype: Dusky Bay, New Zealand, Menzies (BM). Isotypes: (B-W1LLD, E). 
+Distribution: Rare and localized in Australia but recorded from New South Wales 
+(Central Coast and Central Tablelands), Victoria (Wilson's Promontory) and Tasmania (Gordon 
+River); reports from Queensland refer to other species. Fairly abundant in the North Island 
+of New Zealand and local in the South Island; sea level to 750 m alt. Incorrectly reported 
+from the Pacific Islands by Dobbie &amp; Crookes (l.c.), Poslhumus (1938), and others, probably 
+due to confusion with such species as L. moorei and L. ensifolia ssp. agatii. 
+Habitats: In Australia this species is usually found amongst rock crevices in ravines or 
+gorges in rain forests or dense forests above streams or rivers. In New Zealand it is terrestrial 
+on dry shady banks or at the bases of trees in lowland to montane shrubland or in Nothofagus 
+Kauri (A gar his australis ) or Broadleaf forests, Dacrydium cupressinum swamp forests oi in 
+podocarp-hardwood forests ( Podocarpus totara, Dacrydium kirkii and Fliyllocladus glaucus). 
+Rhizome shortly to rather long-creeping, ferrugineous or castaneous, c. 0-7-1 -5 
+mm in diam.; scales reddish brown, elongate-triangular or lanceolate, apically 
+very shortly unseriate, up to c. 14-seriale at or just above the base, up to 2 mm long. 
+Leaves clustered to 1-5 cm apart, often irregularly spaced on the same rhizome; 
+petioles (stipes) c. 7-22 cm long, f-l&pound;(-2) x as long as the lamina, slender, reddish 
+brown or more often castaneous, with or without a narrow pale margin, &plusmn; lustrous, 
+quadrangular, usually scarcely sulcate except adaxially. Lamina herbaceous or less 
+often chartaceous, dark green or olivaceous when dry, oblong or triangular-oblong, 
+c. 10-20 cm long, 2-6 cm wide, 2f-4(-5) x as long as wide, at least at the base 
+pinnate + deeply pinnatifid, not rarely bipinnate, less often at the base bipinnate 
+-I- more or less deeply cleft or pinnatifid; primary rachis like the petiole (stipe), 
+upward gradually paler. Major pinnae c. 5-12, often 6-8, on each side, most or 
+all but the uppermost subopposite, spreading or (especially when fully pinnate) 
+ascending; the basal major pinnae a few cm apart, the upper gradually closer, 
+contiguous or non-contiguous; basal pinnae with a petiolule of 1 to a few mm in 
+length, the upper gradually subsessile; lowest pinnae sometimes not larger or even 
+slightly smaller than the pair or pairs just above them. Secondary rachises, if any, 
+basally reddish brown, upward gradually stramineous and marginate, abaxially 
+rounded. Larger pinnae triangular, deltoid, oblong, or oblong-lanceolate, subobtuse 
+to acuminate. 2-8 cm long, 1-2 cm wide, in the least dissected iorm at least on the 
+basico-anterior side with one quite free or almost free flabellate pinnule and crenate- 
+serrate-lobate above it, in the more strongly dissected forms with more, up to c. 6 
+major pinnules to each side, their shape and size depending on the degree of 
+dissection of and their place in the lamina; smaller segments spathulale-cuneate, 
+usually asymmetric, the outer margin rounded, not rarely erose or even minutely 
+apiculate, often 4-5 mm long, 2-3 mm wide at the sorus, 1-1 -5 mm wide at the base, 
+the sides nearly straight; coarser segments (pinnules) flabellate-obovate, very obtuse, 
+5-8 cm long, 3-6 cm wide, widest above the middle, with very convex, usually erose 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806139">	</div></div>	</div></details><details>	<summary class="yellow"><span class="id">798935</span>
+<span class="name">Davallia brachypoda</span>
+<span>Telopea 1(2): 114</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806146" target="_new">57806146</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="green"><span class="id">51264008</span>
+<span class="name">Dicksonia repens</span>
+<span>Telopea 1(2): 123</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806155" target="_new">57806155</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>Kramer and Tindale, Lindsaeoid Ferns 
+123 
+Synonymy: <mark>Dicksonia repens</mark> Bory, Voy. 2: 323 (1804). 
+Type: Bourbon (= Reunion), Bory s.n. (P; dupl. in B, BM). 
+For further synonymy of this widespread and variable species, see FI. Males 
+ser. 2, 1 (3): 237 (1971). 
+Distribution: From the Mascarenes to Hawaii and Eastern Polynesia with several, mostly 
+geographically exclusive, local forms which are treated here as varieties. So far 3 varieties 
+have been recorded from Tropical Australia. 
+Rhizome long-creeping, castaneous; scales triangular, up to 5 mm long, 
+narrowly triangular or lanceolate with a very short uniseriate apex. Petiole short 
+in the Australian varieties, usually 1-5 cm long. Leaves one to several cm apart, 
+borne at a narrow angle on the rhizome; petioles stramineous to pale brown with 
+a dark base, quadrangular, the faces non-sulcate. Lamina linear, simply pinnate, 
+gradually and strongly narrowed at the base in the Australian varieties; rachis 
+stramineous, quadrangular, adaxially at the base &plusmn; convex, the pinnules inserted 
+below the edges, upwards sulcate, bearing the pinnules at its edges. Pinnules 
+numerous, herbaceous, elongate-triangular, Iigulate or -^-elliptic, the upper ones 
+gradually and strongly reduced, a few confluent into a pinnatifid leaf-apex; upper 
+margin of the pinnules shallowly incised. Juvenile plants with deeply (bi)pinnatilld, 
+thin pinnules, sterile; but in transitional cases leaves may be fertile in the upper 
+part and bear sterile pinnules of the juvenile shape in the basal part. Veins 
+immersed, free, once or twice forked. Sori interrupted. Spores pale brown, 
+trilcte, smooth, c. 22-26 /xm. 
+KEY TO THE VARIETIES 
+1. Indusium with strongly concave base, subhippocrepiform. Most sori uninerval and 
+round, occasionally some binerval, crescent-shaped. Margin of the pinnules very 
+regularly incised to somewhat beyond the level of the receptacle. Most lobes of 
+the pinnules rounded. Sporangia at full maturity strongly spreading laterally.. var. sessitis 1. 
+1.* Indusium with weakly concave, straight, or somewhat convex base. Sori uninerval 
+to plurincrval. 
+2. Most inner incisions of the pinnules reaching the level of the receptacle or 
+slightly beyond. Lobes of the pinnules (except sometimes the innermost 1 or 2) 
+rounded, narrowed from base to apex, sometimes apically erose; outer lobes 
+very oblique. Sori short, often with basally somewhat concave receptacle 
+. var. marquesensis 2. 
+2.* Many inner incisions of the pinnules reaching considerably beyond the level of 
+the receptacle. At least the broader lobes of the pinnules Iigulate, scarcely 
+narrowed to the shallow rounded or truncate, not rarely in addition emarginate 
+or sinuate-erose outer margin; outer lobes usually not very oblique. Sori 
+short, without basally concave receptacle; binerval sori transversely elongate 
+.. var. lingtdata 3. 
+1. L. repens var. sessilis ( Copeland ) Kramer in Blumea 15: 568 (1968), 18: 
+180 (1970). 
+Synonymy: L. sessilis Copeland in Philipp. J. Sci. Bot. 6: 82 (1911), 60: 115 (1936). 
+For further synonymy see Kramer in FI. Males., l.c. 239. 
+Hoi.otype: Papua, Copland King 244 (MICH). Isotypf,: Ambasi, Papua, Copland King 
+244 (NSW). 
+Distribution: Borneo to New Guinea, the Admiralty Is and Australia (Queensland), also 
+Western Polynesia. 
+Habitats: In moist forests, mostly epiphytic, rarely epilithic. 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806155">	</div></div>	</div></details><details>	<summary class="green"><span class="id">51348542</span>
+<span class="name">Dicksonia repens</span>
+<span>Telopea 1(2): 123</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806155" target="_new">57806155</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>Kramer and Tindale, Lindsaeoid Ferns 
+123 
+Synonymy: <mark>Dicksonia repens</mark> Bory, Voy. 2: 323 (1804). 
+Type: Bourbon (= Reunion), Bory s.n. (P; dupl. in B, BM). 
+For further synonymy of this widespread and variable species, see FI. Males 
+ser. 2, 1 (3): 237 (1971). 
+Distribution: From the Mascarenes to Hawaii and Eastern Polynesia with several, mostly 
+geographically exclusive, local forms which are treated here as varieties. So far 3 varieties 
+have been recorded from Tropical Australia. 
+Rhizome long-creeping, castaneous; scales triangular, up to 5 mm long, 
+narrowly triangular or lanceolate with a very short uniseriate apex. Petiole short 
+in the Australian varieties, usually 1-5 cm long. Leaves one to several cm apart, 
+borne at a narrow angle on the rhizome; petioles stramineous to pale brown with 
+a dark base, quadrangular, the faces non-sulcate. Lamina linear, simply pinnate, 
+gradually and strongly narrowed at the base in the Australian varieties; rachis 
+stramineous, quadrangular, adaxially at the base &plusmn; convex, the pinnules inserted 
+below the edges, upwards sulcate, bearing the pinnules at its edges. Pinnules 
+numerous, herbaceous, elongate-triangular, Iigulate or -^-elliptic, the upper ones 
+gradually and strongly reduced, a few confluent into a pinnatifid leaf-apex; upper 
+margin of the pinnules shallowly incised. Juvenile plants with deeply (bi)pinnatilld, 
+thin pinnules, sterile; but in transitional cases leaves may be fertile in the upper 
+part and bear sterile pinnules of the juvenile shape in the basal part. Veins 
+immersed, free, once or twice forked. Sori interrupted. Spores pale brown, 
+trilcte, smooth, c. 22-26 /xm. 
+KEY TO THE VARIETIES 
+1. Indusium with strongly concave base, subhippocrepiform. Most sori uninerval and 
+round, occasionally some binerval, crescent-shaped. Margin of the pinnules very 
+regularly incised to somewhat beyond the level of the receptacle. Most lobes of 
+the pinnules rounded. Sporangia at full maturity strongly spreading laterally.. var. sessitis 1. 
+1.* Indusium with weakly concave, straight, or somewhat convex base. Sori uninerval 
+to plurincrval. 
+2. Most inner incisions of the pinnules reaching the level of the receptacle or 
+slightly beyond. Lobes of the pinnules (except sometimes the innermost 1 or 2) 
+rounded, narrowed from base to apex, sometimes apically erose; outer lobes 
+very oblique. Sori short, often with basally somewhat concave receptacle 
+. var. marquesensis 2. 
+2.* Many inner incisions of the pinnules reaching considerably beyond the level of 
+the receptacle. At least the broader lobes of the pinnules Iigulate, scarcely 
+narrowed to the shallow rounded or truncate, not rarely in addition emarginate 
+or sinuate-erose outer margin; outer lobes usually not very oblique. Sori 
+short, without basally concave receptacle; binerval sori transversely elongate 
+.. var. lingtdata 3. 
+1. L. repens var. sessilis ( Copeland ) Kramer in Blumea 15: 568 (1968), 18: 
+180 (1970). 
+Synonymy: L. sessilis Copeland in Philipp. J. Sci. Bot. 6: 82 (1911), 60: 115 (1936). 
+For further synonymy see Kramer in FI. Males., l.c. 239. 
+Hoi.otype: Papua, Copland King 244 (MICH). Isotypf,: Ambasi, Papua, Copland King 
+244 (NSW). 
+Distribution: Borneo to New Guinea, the Admiralty Is and Australia (Queensland), also 
+Western Polynesia. 
+Habitats: In moist forests, mostly epiphytic, rarely epilithic. 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806155">	</div></div>	</div></details><details>	<summary class="green"><span class="id">51264005</span>
+<span class="name">Isoloma walkerae</span>
+<span>Telopea 1(2): 122</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806154" target="_new">57806154</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>122 
+Telopea 
+Vol. 1 (2): 1976 
+5. SECTION PSAMMOLINDSAEA 
+Section Psammolindsaea Kramer in Blumea 15: 560 (1968); FI. Males., Ser. 2, 1 
+(3): 229 (1971). 
+The type and only species in this section is the following taxon which has been 
+placed in both Scliizoloma and Isoloma, but is not closely allied to either. 
+12. Lindsaea walkerae Hooker, Sp. Fil. 1: 20, PI. 69A (1846); Kramer in 
+Blumea 15: 560 (1968); Kramer in FI. Males, l.c. 229-230. 
+Synonymy: <mark>Isoloma walkerae</mark> (Hooker) Presl, Epimcl. Bot.: 101 (1851). Scl<mark>iizoloma 
+walkerae</mark> (Hooker) Kuhn, Chaetopt.: 346 (1882); Diels in Engler &amp; Prantl, Nat. Pflanzenf. 
+1 (4): 218 (1902); Holttum, Rev. FI. Malaya 2: 344 (1954). Schizolegnia walkerae (Hooker) 
+Alston in Bol. Soc. Brot., 2&ldquo; ser., 30: 25 (1956). 
+Holotype: Ceylon, (Mrs) Walker (K). Isotype: (B). 
+Distribution: Ceylon and Indo-China to Micronesia. This species has been recorded 
+from W. New Guinea but not previously from Australia (Cook District, Queensland). Fig. 1 
+(P- 97). 
+Habitats: In localities outside Australia it occurs in moist, open situations, frequently 
+on poor acid soil as well as by streams and in swamps mostly at low elevations but in Malaya at 
+altitudes of 1000-1200 m. 
+The following description of L. walkerae by the senior author is cited from 
+FI. Males., l.c. 229:&mdash; 
+&ldquo;Rhizome rather short- to long-creeping, 11-2 mm &lt;f&gt;; scales reddish brown to castaneous, 
+almost linear, to 2 mm, to 4-scriale at base, there usually with laterally projecting cell partitions, 
+the apex uniseriate, paler. Leaves rather close to 4 cm apart; petioles dark castaneous to black, 
+lustrous, abaxially rounded, adaxially flattened or broadly sulcate, c. 10-45 cm long, much 
+shorter to longer than the lamina. Lamina narrowly oblong, 15-70 cm long, l j-20 cm wide, 
+simply pinnate, with 3-17 pinnules to a side and a free terminal one; rachis like the upper part 
+of the petiole. Pinnules chartaceous to rigidly coriaceous, mostly olivaceous to dark brown 
+when dry, paler beneath, subsessile, obliquely to very strongly ascending, a few cm apart, 
+opposite or subopposite throughout, linear, 21-15 cm long, 4-8 mm wide, 6-20 times as long 
+as wide; lower pinnules often more remote and sometimes slightly shortened: upper pinnules 
+little or not reduced. Base of pinnules slightly unequally cuneate, the basiscopic side narrower, 
+the dark colour of the rachis ending rather abruptly in the stalk-like base, but without an 
+articulation; margin entire, somewhat revolute; upper half of pinnule narrowed, obtuse, if 
+acuminate the tip still obtuse. Terminal pinnule conform, symmetric, occasionally joined to an 
+upper lateral one or lobed at base, usually soriferous. Costa distinct, abaxially elevated, almost 
+pcrcurrent. Veins elevated on both sides, very oblique, less so towards their apices, 2-3 times 
+forked, close, J&mdash;j mm apart, free. Sori continuous, extending around the apices of the 
+pinnules, the vein-ends below the receptacle thickened: indusium rigid, yellow or brown, entire, 
+0-4 mm wide, reaching the margin, somewhat reflexed at maturity. Spores dark brown, trilete, 
+smooth, 25-30 gm.&rdquo; 
+AUSTRALIA: Queensland: Cook District: Cockatoo Creek, Cape York Peninsula, 
+Whitehouse 1943 (BRI 59589, K); Browns Creek on Iron Range road, NNE. of Coen, 12&deg; 44' 
+S, 143&deg; 06' E, terrestrial fern 30 cm high with creeping rhizome, in Sinoga swamp with Lycopodium 
+cernuum etc., very localized, Coveny 7/19 &amp; Hind, 9.1975 (NSW, BRI, K, L, Z). 
+B. SUBGENUS ODONTOLOMA 
+Subgenus Odontoloma ( Hooker ) Kramer in Blumea 15: 561 (1968). 
+1. SECTION ODONTOLOMA 
+Section Odontoloma see Kramer, l.c. 562 (1968). 
+13. Lindsaea repens ( Bory) Thwaites, Enum. PI. Zeylaniae: 388 (1864); Domin 
+in Biblioth. Bot. 20 (85 1 ): 85. 87, fig. 16 (1913); Kramer in Blumea 15: 568 (1968), 
+18: 180 (1970); Kramer in FI. Males, l.c. 237 (1971). 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806154">	</div></div>	</div></details><details>	<summary class="green"><span class="id">861503</span>
+<span class="name">Lindsaea anogrammoides</span>
+<span>Telopea 1(2): 110</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806142" target="_new">57806142</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>110 
+Telopea 
+Vol. 1 (2): 1976 
+AUSTRALIA: Queensland: North Kennedy District: Wallaman, on higher ridges in 
+grass, Fessev (JCT); Mt Fox, 18&deg; 49' S, 145&ldquo; 50' E, on margin of rocky stream, Clemens 
+9- 12 1949 (BRJ K. L, U). Wide Bav District: Inland from Happy Valley on eastern side of 
+Fraser Island, in sclerophyll rorest, Baxter 804, 5.1967 (BRI, CANB). Moreton Bay District: 
+Buderim Mountain, Gwyther (BRI, K), held Naturalists Chib Excursion 4.1912 (BRI 59332); 
+Mooloolah, Simmonds 12.1890 (BRI, K. MICH). Simmonds NSW 05809 (NSW), Mooloolah 
+swamp, F.N.C. Excursion 12.1890 (BRI 59333); Caloundra, in damp places in open forest, 
+S.T. Blake 4088, 8.1932 (BRI); Beerwah, C.T. White (BRI 59339); 3 miles [4-8 km] S. of 
+Beerburrum, in coastal hcathland, damp site, Telford 1617, 5.1970 (CBG); Toorbal, Gilbert 
+NSW P292, 5.1944 (NSW); Petrie-RedclilTe Rd., near Deception Bay turnoff, terrestrial fern 
+10- 20 cm high, common in sandy soil beneath Melaleuca c/uim/uencrvia, Tristania sttaveolens, 
+Banksia robur, Casuaritta littoralis, various grasses etc., 27 14' S, 153 02' E, Coveny 6685 &amp; 
+Hind, 8.1975 (BM. BRI. CANB. K, NSW, TNS, US. Z); Geebung, swamp in open forest, 
+S.T. Blake 5089, 1.1934 (NSW); Nudgee Rd., Brisbane, Bancroft (E); Kcdron Brook (Brisbane), 
+Simmonds 695, 5.1888 (BRI): Brisbane, Simmonds 1895 (US); Brisbane River, F.M. Bailey 
+(BRI 59338); Wellington Point, C.T. White 6.1914 (BRI 59329), C.T. White NSW P2693, 
+11.1913 (NSW); Mt Gravatt, 200 m alt., at side of running creek under Eucalyptus umbra in 
+damp alluvial site, growing amongst grasses and supported by them, Sharpe 139, 8.1972 (BRI); 
+Eight Mile Plains. 27 35&rsquo;^S, 153 06' E. C.T. While 1912 (BRI 59330), S.T. Blake 4088 (BRI); 
+Sunnybank, F.N.C. Excursion 3.1889 (BRI 49334); Dunedin Street, Sunnvbank, soakage area 
+beside lagoon in mixed community of Cyperaceae (dominant), grasses, odd trees to 12 m and 
+some shrubs. Bates 455, 12.1872 (BRI); between Cooper's Plains and Sunnybank near Brisbane, 
+alt. c. 100 ft [c. 30 m], in wet places in a Melaleuca swamp, Hubbard 3059, 6.1930 (BRI, K. NSW, 
+US). 
+New South Wales: North Coast: Wells Crossing. 1 mile [1-6 kni| N. of Halfway Creek, 
+18 miles [29 km] SSE. of Grafton, Thurtcll &amp; Coveny 3841, 12.1971 (NSW). 
+This taxon is of somewhat uncertain affinity, and is placed in section Sdhizolotna 
+with misgivings. L. microphyllci is tentatively regarded as its closest relative, 
+although it may be nearer to L. cliinorpha and L. linearis both of which it resembles 
+in general appearance. Sterile leaves are not always present but this may be due 
+to incomplete collecting, and if they are shown to be an invariable feature of 
+L. incisa, this should be placed in section Paralindsaea. 
+Lindsaea sp. 
+There is also an unidentified species of Lindsaea (belonging to the section 
+Schizoloma) represented by juvenile plants collected at Fern Gully, Gariyeli Creek, 
+Prince Regent River Reserve, Western Australia, 15&ldquo; 32' S., 125&deg; 13' E., on moss 
+beds by creek, by A. S. George 12823 on 30th August, 1974 (PERTH). This species 
+resembles certain forms of Lindsaea orbiculata Mett. and also of L. chienii Ching 
+but more mature material would be necessary for further determination. It was 
+cited as L. orbiculata Mett.? in &ldquo;A Biological Survey of The Prince Regent River 
+Reserve, North-West Kimberley, Western Australia in August 1974&rdquo; in Wildlife 
+Research Bulletin No. 3: 36 (1976) which was edited by A.M. Miles and A.A. 
+Burbidge. 
+2. SECTION PARALINDSAEA 
+Section Paralindsaea ( Keyseriing) C. Christensen, Ind. Fil.: XXX (1906); Kramer 
+in Acta Bot. Neerl. 6: 136, 266 (1957). 
+7. Lindsaea diniorpha F.M. Bailey, Handb. Queensland Ferns: 19 (1874); 
+Bentham, FI. Austral., 7: 719 (1878); F.M. Bailey, Fern World Australia: 39 
+(1881); F.M. Bailey, Lithogr. Ferns Queensland: PI. 51 (left) (1892); F.M. Bailey, 
+Queensland FI. 6: 1954 (1902); F.M. Bailey, Compr. Cat. Queensland PI.: 641 
+(1913); Domin in Biblioth. Bot. 20 (85 1 ): 81 (1913); Brownlie in Pacific Sci. 15: 
+64 (1961); Kramer in Acta Bot. Neerl. 15: 581 (1967); Brownlie, FI. Nouvelle- 
+Caledonie 3: 128-9 (1969); based on L. heterophyiia Prentice in J. Bot. 11: 295 
+(1873), non Dryander (1797). 
+Synonymy: <mark>Lindsaea anogrammoides</mark> C. Christensen, Vierteljahrsschr. Naturf. Ges. Zurich 
+70: 223 (1925). Holotype: Conception, Franc 1308, 7.1918 (BM). For further synonymy 
+see Kramer (1967, l.c.). 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806142">	</div></div>	</div></details><details>	<summary class="yellow"><span class="id">51263996</span>
+<span class="name">Lindsaea anogrammoides</span>
+<span>Telopea 1(2): 111</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806143" target="_new">57806143</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="red"><span class="id">51348536</span>
+<span class="name">Lindsaea blanda</span>
+<span>Telopea 1(2): 125-126</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(2): 125-126".</p></div></details><details>	<summary class="red"><span class="id">545379</span>
+<span class="name">Lindsaea brachypoda</span>
+<span>Telopea 1(2): 114-117, pl. 9</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(2): 114-117, pl. 9".</p></div></details><details>	<summary class="yellow"><span class="id">861499</span>
+<span class="name">Lindsaea concinna</span>
+<span>Telopea 1(2): 115</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806147" target="_new">57806147</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="yellow"><span class="id">801737</span>
+<span class="name">Lindsaea cultrata brachypoda</span>
+<span>Telopea 1(2): 114</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806146" target="_new">57806146</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="yellow"><span class="id">51264003</span>
+<span class="name">Lindsaea cultrata concinna</span>
+<span>Telopea 1(2): 115</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806147" target="_new">57806147</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="green"><span class="id">861495</span>
+<span class="name">Lindsaea cultrata</span>
+<span>Telopea 1(2): 115</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806147" target="_new">57806147</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>Kramer and Tindale, Lindsaeoid Ferns 
+115 
+Misapplied Names: <mark>Lindsaea cultrata</mark> auct. non (Willd.) Swartz as to Australian specimens, 
+e.g. Bentliam, FI. Austral. 7: 719 (1878); F.M. Bailey, Fern World Australia: 39 (1881); 
+F M. Bailey, Lithogr. Ferns Queensland: PI. 52 (left), (1892); F.M. Bailey, Queensland FI. 6: 
+1954 (1902); F.M. Bailey, Compr. Cat. Queensland Ferns: 641 (1913). L. concinna (or L. 
+cultrata var. concinna) auct. non J. Smith as to Australian specimens, e.g. F.M. Bailey. Handb. 
+Ferns Queensland: 18, fig. 12a, b (1874); Domin in Biblioth. Bot. 20 (85 1 ): 82 (1913). 
+Distribution: Eastern Australia (Cook, North Kennedy, Wide Bay and Moreton Districts 
+of Queensland, also 3 records from the North Coast of New South Wales). Fig. 3 (p. 116). 
+Habitats: Terrestrial or usually on mossy rocks, in rain forests, mesophyll palm forests 
+or mesophyll vine forests, often on the banks of creeks, on steep rocky slopes or under rock 
+ledges, frequently on soils derived from granite or metamorphics, at lower elevations up to 
+850 m alt. 
+Rhizome very shortly creeping, 0-6-1 mm in diam.; scales pale brown, minute, 
+subacicular, at least ^ uniseriate, biseriate at the base, sometimes entirely uniseriate, 
+rarely up to 0-5 mm long. Leaves clustered; petiole (stipe) stramineous or slightly 
+darker with age, dull, quadrangular almost to the base, adaxially and often also 
+laterally sulcate, slender, in fertile leaves c. 5-13 cm long, about half as long as the 
+lamina or in the largest leaves equalling it. Lamina mostly linear, herbaceous, 
+usually dark green when dry, dimorphic. Fertile lamina c. 10-20 cm long, 1 -2-2 
+cm wide, simply pinnate, or occasionally subbipinnate, or bipinnate with a single 
+pair of strongly ascending pinnae, truncate or slightly narrowed at the base, scarcely 
+or not acuminate at the apex, with c. 15-30 pinnules on each side, these spreading, 
+subcontiguous, or more often 4-1 x their width apart; rachis quadrangular, 
+quadrisuTcate or abaxially only flattened. Sterile leaves (apparently invariably 
+present in carefully collected specimens) with the lamina c. 7-14 cm long, 1-2-1-5 
+cm wide, the petiole (stipe) 1-2-5 cm long, J-,,- the length of the lamina; lamina 
+basally and apically long-tapering, the pinnules usually contiguous to slightly 
+imbricate, c. 10-25 on each side. Fertile pinnules subsessile, ^-elliptic or subligulate, 
+the largest sometimes touching or overlying the rachis with their anterior base, 
+the larger 5x3-10x5 mm, slightly longer than wide to twice as long as wide in 
+the largest, subacute on the outer-posterior side, the outer margin not distinct or 
+broadly rounded into the upper; lower margin straight or nearly so. Fertile 
+pinnules entire, or especially in the larger ones on the upper/ouler margin minutely 
+erose and with 1-4 very shallow' incisions at the most c. 0-5 mm deep yet 
+interrupting the sorus; sterile pinnules in outline like the fertile but mostly smaller, 
+4 x 2-7 x 4 mm, &plusmn; regularly crenato-lobate on the outer upper margin. Basal 
+pinnules offertile leaves not rarely more remote and then sometimes slightly reduced; 
+upper pinnules more strongly reduced, few or none denticuliform, the terminal 
+pinnule (segment) free or nearly so, rhombic-cuneate-flabellate, 2x2 mm or larger, 
+sometimes lobed, soriferous. Upper sterile pinnules scarcely reduced, the terminal 
+relatively large, cuneate-flabellate, free or nearly so; basal pinnules reduced, usually 
+remote and &plusmn; decurved. Intermediates between sterile and fertile leaves sometimes 
+found, basally sterile, apically fertile, with intermediate measurements. Veins 
+immersed or slightly elevated, quite free, c. 0-5-0-8 mm apart, simple or once 
+forked or in the innermost twice forked. Sori continuous or interrupted by (even 
+very shallow) incisions of the margin, indusium greenish or pale brownish, entire 
+to slightly erose, narrowed-rounded at the partly adnate ends, 0-3-0-5 mm w'ide, 
+reaching the margin or almost so, not or slightly reflexed at maturity. Spores 
+very pale brownish, trilete, smooth, c. 25 fim. Plate IX. 
+AUSTRALIA: Queensland: Cook District: Leo Creek, Upper Nesbit River, alt. 420 ni, 
+Brass 19849, 8.1948 (CANB, K, L); Endeavour River, F. Mueller (P); fringing forest W. of 
+Cooktown, on clay bank of creek, very moist, Vessey 3.1963 (JCT); Shiptons Flat, alt. 275 m. 
+Brass 20015, 9.1948 (CANB, K, L): Upper Parrot Creek, Annan River, gregarious on shady 
+banks of a stream in rain forest, 350 m alt., Brass 20029, 9.1948 (BRI, CANB, K, L), Brass 
+20030, 9.1948 (BRI); 1 mile [1-6 km] NW. of Stuckics Gap, Bloomfield River area, 15 50' S, 
+145 19' E, in complex mesophvll vine forest on coarse sandy clay derived from granite, IVebb 
+&amp; Tracey 8396 (BRI); Mt Hemmant, c. 48 km NE. of Mossman, 16 08' S, 145 ~28' E, Tracey 
+549 (BRI); Bailey&rsquo;s Creek c. 7&pound; mis [11-7 km] ENE. of Dainlree, L.S. Smith 11676, 10.1962 
+(BRI); Daintree River, on damp rocks in rain forest gullies, Messmer NSW P9504, 7.1954 
+(NSW); Stewart Creek gorge, bank beside creek, in rain forest, 16&deg; 23' S, 145&deg; 16' E, Wrigley 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806147">	</div></div>	</div></details><details>	<summary class="green"><span class="id">861498</span>
+<span class="name">Lindsaea cultrata</span>
+<span>Telopea 1(2): 115</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806147" target="_new">57806147</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>Kramer and Tindale, Lindsaeoid Ferns 
+115 
+Misapplied Names: <mark>Lindsaea cultrata</mark> auct. non (Willd.) Swartz as to Australian specimens, 
+e.g. Bentliam, FI. Austral. 7: 719 (1878); F.M. Bailey, Fern World Australia: 39 (1881); 
+F M. Bailey, Lithogr. Ferns Queensland: PI. 52 (left), (1892); F.M. Bailey, Queensland FI. 6: 
+1954 (1902); F.M. Bailey, Compr. Cat. Queensland Ferns: 641 (1913). L. concinna (or L. 
+cultrata var. concinna) auct. non J. Smith as to Australian specimens, e.g. F.M. Bailey. Handb. 
+Ferns Queensland: 18, fig. 12a, b (1874); Domin in Biblioth. Bot. 20 (85 1 ): 82 (1913). 
+Distribution: Eastern Australia (Cook, North Kennedy, Wide Bay and Moreton Districts 
+of Queensland, also 3 records from the North Coast of New South Wales). Fig. 3 (p. 116). 
+Habitats: Terrestrial or usually on mossy rocks, in rain forests, mesophyll palm forests 
+or mesophyll vine forests, often on the banks of creeks, on steep rocky slopes or under rock 
+ledges, frequently on soils derived from granite or metamorphics, at lower elevations up to 
+850 m alt. 
+Rhizome very shortly creeping, 0-6-1 mm in diam.; scales pale brown, minute, 
+subacicular, at least ^ uniseriate, biseriate at the base, sometimes entirely uniseriate, 
+rarely up to 0-5 mm long. Leaves clustered; petiole (stipe) stramineous or slightly 
+darker with age, dull, quadrangular almost to the base, adaxially and often also 
+laterally sulcate, slender, in fertile leaves c. 5-13 cm long, about half as long as the 
+lamina or in the largest leaves equalling it. Lamina mostly linear, herbaceous, 
+usually dark green when dry, dimorphic. Fertile lamina c. 10-20 cm long, 1 -2-2 
+cm wide, simply pinnate, or occasionally subbipinnate, or bipinnate with a single 
+pair of strongly ascending pinnae, truncate or slightly narrowed at the base, scarcely 
+or not acuminate at the apex, with c. 15-30 pinnules on each side, these spreading, 
+subcontiguous, or more often 4-1 x their width apart; rachis quadrangular, 
+quadrisuTcate or abaxially only flattened. Sterile leaves (apparently invariably 
+present in carefully collected specimens) with the lamina c. 7-14 cm long, 1-2-1-5 
+cm wide, the petiole (stipe) 1-2-5 cm long, J-,,- the length of the lamina; lamina 
+basally and apically long-tapering, the pinnules usually contiguous to slightly 
+imbricate, c. 10-25 on each side. Fertile pinnules subsessile, ^-elliptic or subligulate, 
+the largest sometimes touching or overlying the rachis with their anterior base, 
+the larger 5x3-10x5 mm, slightly longer than wide to twice as long as wide in 
+the largest, subacute on the outer-posterior side, the outer margin not distinct or 
+broadly rounded into the upper; lower margin straight or nearly so. Fertile 
+pinnules entire, or especially in the larger ones on the upper/ouler margin minutely 
+erose and with 1-4 very shallow' incisions at the most c. 0-5 mm deep yet 
+interrupting the sorus; sterile pinnules in outline like the fertile but mostly smaller, 
+4 x 2-7 x 4 mm, &plusmn; regularly crenato-lobate on the outer upper margin. Basal 
+pinnules offertile leaves not rarely more remote and then sometimes slightly reduced; 
+upper pinnules more strongly reduced, few or none denticuliform, the terminal 
+pinnule (segment) free or nearly so, rhombic-cuneate-flabellate, 2x2 mm or larger, 
+sometimes lobed, soriferous. Upper sterile pinnules scarcely reduced, the terminal 
+relatively large, cuneate-flabellate, free or nearly so; basal pinnules reduced, usually 
+remote and &plusmn; decurved. Intermediates between sterile and fertile leaves sometimes 
+found, basally sterile, apically fertile, with intermediate measurements. Veins 
+immersed or slightly elevated, quite free, c. 0-5-0-8 mm apart, simple or once 
+forked or in the innermost twice forked. Sori continuous or interrupted by (even 
+very shallow) incisions of the margin, indusium greenish or pale brownish, entire 
+to slightly erose, narrowed-rounded at the partly adnate ends, 0-3-0-5 mm w'ide, 
+reaching the margin or almost so, not or slightly reflexed at maturity. Spores 
+very pale brownish, trilete, smooth, c. 25 fim. Plate IX. 
+AUSTRALIA: Queensland: Cook District: Leo Creek, Upper Nesbit River, alt. 420 ni, 
+Brass 19849, 8.1948 (CANB, K, L); Endeavour River, F. Mueller (P); fringing forest W. of 
+Cooktown, on clay bank of creek, very moist, Vessey 3.1963 (JCT); Shiptons Flat, alt. 275 m. 
+Brass 20015, 9.1948 (CANB, K, L): Upper Parrot Creek, Annan River, gregarious on shady 
+banks of a stream in rain forest, 350 m alt., Brass 20029, 9.1948 (BRI, CANB, K, L), Brass 
+20030, 9.1948 (BRI); 1 mile [1-6 km] NW. of Stuckics Gap, Bloomfield River area, 15 50' S, 
+145 19' E, in complex mesophvll vine forest on coarse sandy clay derived from granite, IVebb 
+&amp; Tracey 8396 (BRI); Mt Hemmant, c. 48 km NE. of Mossman, 16 08' S, 145 ~28' E, Tracey 
+549 (BRI); Bailey&rsquo;s Creek c. 7&pound; mis [11-7 km] ENE. of Dainlree, L.S. Smith 11676, 10.1962 
+(BRI); Daintree River, on damp rocks in rain forest gullies, Messmer NSW P9504, 7.1954 
+(NSW); Stewart Creek gorge, bank beside creek, in rain forest, 16&deg; 23' S, 145&deg; 16' E, Wrigley 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806147">	</div></div>	</div></details><details>	<summary class="green"><span class="id">51264000</span>
+<span class="name">Lindsaea cultrata</span>
+<span>Telopea 1(2): 115</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806147" target="_new">57806147</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>Kramer and Tindale, Lindsaeoid Ferns 
+115 
+Misapplied Names: <mark>Lindsaea cultrata</mark> auct. non (Willd.) Swartz as to Australian specimens, 
+e.g. Bentliam, FI. Austral. 7: 719 (1878); F.M. Bailey, Fern World Australia: 39 (1881); 
+F M. Bailey, Lithogr. Ferns Queensland: PI. 52 (left), (1892); F.M. Bailey, Queensland FI. 6: 
+1954 (1902); F.M. Bailey, Compr. Cat. Queensland Ferns: 641 (1913). L. concinna (or L. 
+cultrata var. concinna) auct. non J. Smith as to Australian specimens, e.g. F.M. Bailey. Handb. 
+Ferns Queensland: 18, fig. 12a, b (1874); Domin in Biblioth. Bot. 20 (85 1 ): 82 (1913). 
+Distribution: Eastern Australia (Cook, North Kennedy, Wide Bay and Moreton Districts 
+of Queensland, also 3 records from the North Coast of New South Wales). Fig. 3 (p. 116). 
+Habitats: Terrestrial or usually on mossy rocks, in rain forests, mesophyll palm forests 
+or mesophyll vine forests, often on the banks of creeks, on steep rocky slopes or under rock 
+ledges, frequently on soils derived from granite or metamorphics, at lower elevations up to 
+850 m alt. 
+Rhizome very shortly creeping, 0-6-1 mm in diam.; scales pale brown, minute, 
+subacicular, at least ^ uniseriate, biseriate at the base, sometimes entirely uniseriate, 
+rarely up to 0-5 mm long. Leaves clustered; petiole (stipe) stramineous or slightly 
+darker with age, dull, quadrangular almost to the base, adaxially and often also 
+laterally sulcate, slender, in fertile leaves c. 5-13 cm long, about half as long as the 
+lamina or in the largest leaves equalling it. Lamina mostly linear, herbaceous, 
+usually dark green when dry, dimorphic. Fertile lamina c. 10-20 cm long, 1 -2-2 
+cm wide, simply pinnate, or occasionally subbipinnate, or bipinnate with a single 
+pair of strongly ascending pinnae, truncate or slightly narrowed at the base, scarcely 
+or not acuminate at the apex, with c. 15-30 pinnules on each side, these spreading, 
+subcontiguous, or more often 4-1 x their width apart; rachis quadrangular, 
+quadrisuTcate or abaxially only flattened. Sterile leaves (apparently invariably 
+present in carefully collected specimens) with the lamina c. 7-14 cm long, 1-2-1-5 
+cm wide, the petiole (stipe) 1-2-5 cm long, J-,,- the length of the lamina; lamina 
+basally and apically long-tapering, the pinnules usually contiguous to slightly 
+imbricate, c. 10-25 on each side. Fertile pinnules subsessile, ^-elliptic or subligulate, 
+the largest sometimes touching or overlying the rachis with their anterior base, 
+the larger 5x3-10x5 mm, slightly longer than wide to twice as long as wide in 
+the largest, subacute on the outer-posterior side, the outer margin not distinct or 
+broadly rounded into the upper; lower margin straight or nearly so. Fertile 
+pinnules entire, or especially in the larger ones on the upper/ouler margin minutely 
+erose and with 1-4 very shallow' incisions at the most c. 0-5 mm deep yet 
+interrupting the sorus; sterile pinnules in outline like the fertile but mostly smaller, 
+4 x 2-7 x 4 mm, &plusmn; regularly crenato-lobate on the outer upper margin. Basal 
+pinnules offertile leaves not rarely more remote and then sometimes slightly reduced; 
+upper pinnules more strongly reduced, few or none denticuliform, the terminal 
+pinnule (segment) free or nearly so, rhombic-cuneate-flabellate, 2x2 mm or larger, 
+sometimes lobed, soriferous. Upper sterile pinnules scarcely reduced, the terminal 
+relatively large, cuneate-flabellate, free or nearly so; basal pinnules reduced, usually 
+remote and &plusmn; decurved. Intermediates between sterile and fertile leaves sometimes 
+found, basally sterile, apically fertile, with intermediate measurements. Veins 
+immersed or slightly elevated, quite free, c. 0-5-0-8 mm apart, simple or once 
+forked or in the innermost twice forked. Sori continuous or interrupted by (even 
+very shallow) incisions of the margin, indusium greenish or pale brownish, entire 
+to slightly erose, narrowed-rounded at the partly adnate ends, 0-3-0-5 mm w'ide, 
+reaching the margin or almost so, not or slightly reflexed at maturity. Spores 
+very pale brownish, trilete, smooth, c. 25 fim. Plate IX. 
+AUSTRALIA: Queensland: Cook District: Leo Creek, Upper Nesbit River, alt. 420 ni, 
+Brass 19849, 8.1948 (CANB, K, L); Endeavour River, F. Mueller (P); fringing forest W. of 
+Cooktown, on clay bank of creek, very moist, Vessey 3.1963 (JCT); Shiptons Flat, alt. 275 m. 
+Brass 20015, 9.1948 (CANB, K, L): Upper Parrot Creek, Annan River, gregarious on shady 
+banks of a stream in rain forest, 350 m alt., Brass 20029, 9.1948 (BRI, CANB, K, L), Brass 
+20030, 9.1948 (BRI); 1 mile [1-6 km] NW. of Stuckics Gap, Bloomfield River area, 15 50' S, 
+145 19' E, in complex mesophvll vine forest on coarse sandy clay derived from granite, IVebb 
+&amp; Tracey 8396 (BRI); Mt Hemmant, c. 48 km NE. of Mossman, 16 08' S, 145 ~28' E, Tracey 
+549 (BRI); Bailey&rsquo;s Creek c. 7&pound; mis [11-7 km] ENE. of Dainlree, L.S. Smith 11676, 10.1962 
+(BRI); Daintree River, on damp rocks in rain forest gullies, Messmer NSW P9504, 7.1954 
+(NSW); Stewart Creek gorge, bank beside creek, in rain forest, 16&deg; 23' S, 145&deg; 16' E, Wrigley 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806147">	</div></div>	</div></details><details>	<summary class="green"><span class="id">51264001</span>
+<span class="name">Lindsaea cultrata</span>
+<span>Telopea 1(2): 115</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806147" target="_new">57806147</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>Kramer and Tindale, Lindsaeoid Ferns 
+115 
+Misapplied Names: <mark>Lindsaea cultrata</mark> auct. non (Willd.) Swartz as to Australian specimens, 
+e.g. Bentliam, FI. Austral. 7: 719 (1878); F.M. Bailey, Fern World Australia: 39 (1881); 
+F M. Bailey, Lithogr. Ferns Queensland: PI. 52 (left), (1892); F.M. Bailey, Queensland FI. 6: 
+1954 (1902); F.M. Bailey, Compr. Cat. Queensland Ferns: 641 (1913). L. concinna (or L. 
+cultrata var. concinna) auct. non J. Smith as to Australian specimens, e.g. F.M. Bailey. Handb. 
+Ferns Queensland: 18, fig. 12a, b (1874); Domin in Biblioth. Bot. 20 (85 1 ): 82 (1913). 
+Distribution: Eastern Australia (Cook, North Kennedy, Wide Bay and Moreton Districts 
+of Queensland, also 3 records from the North Coast of New South Wales). Fig. 3 (p. 116). 
+Habitats: Terrestrial or usually on mossy rocks, in rain forests, mesophyll palm forests 
+or mesophyll vine forests, often on the banks of creeks, on steep rocky slopes or under rock 
+ledges, frequently on soils derived from granite or metamorphics, at lower elevations up to 
+850 m alt. 
+Rhizome very shortly creeping, 0-6-1 mm in diam.; scales pale brown, minute, 
+subacicular, at least ^ uniseriate, biseriate at the base, sometimes entirely uniseriate, 
+rarely up to 0-5 mm long. Leaves clustered; petiole (stipe) stramineous or slightly 
+darker with age, dull, quadrangular almost to the base, adaxially and often also 
+laterally sulcate, slender, in fertile leaves c. 5-13 cm long, about half as long as the 
+lamina or in the largest leaves equalling it. Lamina mostly linear, herbaceous, 
+usually dark green when dry, dimorphic. Fertile lamina c. 10-20 cm long, 1 -2-2 
+cm wide, simply pinnate, or occasionally subbipinnate, or bipinnate with a single 
+pair of strongly ascending pinnae, truncate or slightly narrowed at the base, scarcely 
+or not acuminate at the apex, with c. 15-30 pinnules on each side, these spreading, 
+subcontiguous, or more often 4-1 x their width apart; rachis quadrangular, 
+quadrisuTcate or abaxially only flattened. Sterile leaves (apparently invariably 
+present in carefully collected specimens) with the lamina c. 7-14 cm long, 1-2-1-5 
+cm wide, the petiole (stipe) 1-2-5 cm long, J-,,- the length of the lamina; lamina 
+basally and apically long-tapering, the pinnules usually contiguous to slightly 
+imbricate, c. 10-25 on each side. Fertile pinnules subsessile, ^-elliptic or subligulate, 
+the largest sometimes touching or overlying the rachis with their anterior base, 
+the larger 5x3-10x5 mm, slightly longer than wide to twice as long as wide in 
+the largest, subacute on the outer-posterior side, the outer margin not distinct or 
+broadly rounded into the upper; lower margin straight or nearly so. Fertile 
+pinnules entire, or especially in the larger ones on the upper/ouler margin minutely 
+erose and with 1-4 very shallow' incisions at the most c. 0-5 mm deep yet 
+interrupting the sorus; sterile pinnules in outline like the fertile but mostly smaller, 
+4 x 2-7 x 4 mm, &plusmn; regularly crenato-lobate on the outer upper margin. Basal 
+pinnules offertile leaves not rarely more remote and then sometimes slightly reduced; 
+upper pinnules more strongly reduced, few or none denticuliform, the terminal 
+pinnule (segment) free or nearly so, rhombic-cuneate-flabellate, 2x2 mm or larger, 
+sometimes lobed, soriferous. Upper sterile pinnules scarcely reduced, the terminal 
+relatively large, cuneate-flabellate, free or nearly so; basal pinnules reduced, usually 
+remote and &plusmn; decurved. Intermediates between sterile and fertile leaves sometimes 
+found, basally sterile, apically fertile, with intermediate measurements. Veins 
+immersed or slightly elevated, quite free, c. 0-5-0-8 mm apart, simple or once 
+forked or in the innermost twice forked. Sori continuous or interrupted by (even 
+very shallow) incisions of the margin, indusium greenish or pale brownish, entire 
+to slightly erose, narrowed-rounded at the partly adnate ends, 0-3-0-5 mm w'ide, 
+reaching the margin or almost so, not or slightly reflexed at maturity. Spores 
+very pale brownish, trilete, smooth, c. 25 fim. Plate IX. 
+AUSTRALIA: Queensland: Cook District: Leo Creek, Upper Nesbit River, alt. 420 ni, 
+Brass 19849, 8.1948 (CANB, K, L); Endeavour River, F. Mueller (P); fringing forest W. of 
+Cooktown, on clay bank of creek, very moist, Vessey 3.1963 (JCT); Shiptons Flat, alt. 275 m. 
+Brass 20015, 9.1948 (CANB, K, L): Upper Parrot Creek, Annan River, gregarious on shady 
+banks of a stream in rain forest, 350 m alt., Brass 20029, 9.1948 (BRI, CANB, K, L), Brass 
+20030, 9.1948 (BRI); 1 mile [1-6 km] NW. of Stuckics Gap, Bloomfield River area, 15 50' S, 
+145 19' E, in complex mesophvll vine forest on coarse sandy clay derived from granite, IVebb 
+&amp; Tracey 8396 (BRI); Mt Hemmant, c. 48 km NE. of Mossman, 16 08' S, 145 ~28' E, Tracey 
+549 (BRI); Bailey&rsquo;s Creek c. 7&pound; mis [11-7 km] ENE. of Dainlree, L.S. Smith 11676, 10.1962 
+(BRI); Daintree River, on damp rocks in rain forest gullies, Messmer NSW P9504, 7.1954 
+(NSW); Stewart Creek gorge, bank beside creek, in rain forest, 16&deg; 23' S, 145&deg; 16' E, Wrigley 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806147">	</div></div>	</div></details><details>	<summary class="green"><span class="id">51264002</span>
+<span class="name">Lindsaea cultrata</span>
+<span>Telopea 1(2): 115</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806147" target="_new">57806147</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>Kramer and Tindale, Lindsaeoid Ferns 
+115 
+Misapplied Names: <mark>Lindsaea cultrata</mark> auct. non (Willd.) Swartz as to Australian specimens, 
+e.g. Bentliam, FI. Austral. 7: 719 (1878); F.M. Bailey, Fern World Australia: 39 (1881); 
+F M. Bailey, Lithogr. Ferns Queensland: PI. 52 (left), (1892); F.M. Bailey, Queensland FI. 6: 
+1954 (1902); F.M. Bailey, Compr. Cat. Queensland Ferns: 641 (1913). L. concinna (or L. 
+cultrata var. concinna) auct. non J. Smith as to Australian specimens, e.g. F.M. Bailey. Handb. 
+Ferns Queensland: 18, fig. 12a, b (1874); Domin in Biblioth. Bot. 20 (85 1 ): 82 (1913). 
+Distribution: Eastern Australia (Cook, North Kennedy, Wide Bay and Moreton Districts 
+of Queensland, also 3 records from the North Coast of New South Wales). Fig. 3 (p. 116). 
+Habitats: Terrestrial or usually on mossy rocks, in rain forests, mesophyll palm forests 
+or mesophyll vine forests, often on the banks of creeks, on steep rocky slopes or under rock 
+ledges, frequently on soils derived from granite or metamorphics, at lower elevations up to 
+850 m alt. 
+Rhizome very shortly creeping, 0-6-1 mm in diam.; scales pale brown, minute, 
+subacicular, at least ^ uniseriate, biseriate at the base, sometimes entirely uniseriate, 
+rarely up to 0-5 mm long. Leaves clustered; petiole (stipe) stramineous or slightly 
+darker with age, dull, quadrangular almost to the base, adaxially and often also 
+laterally sulcate, slender, in fertile leaves c. 5-13 cm long, about half as long as the 
+lamina or in the largest leaves equalling it. Lamina mostly linear, herbaceous, 
+usually dark green when dry, dimorphic. Fertile lamina c. 10-20 cm long, 1 -2-2 
+cm wide, simply pinnate, or occasionally subbipinnate, or bipinnate with a single 
+pair of strongly ascending pinnae, truncate or slightly narrowed at the base, scarcely 
+or not acuminate at the apex, with c. 15-30 pinnules on each side, these spreading, 
+subcontiguous, or more often 4-1 x their width apart; rachis quadrangular, 
+quadrisuTcate or abaxially only flattened. Sterile leaves (apparently invariably 
+present in carefully collected specimens) with the lamina c. 7-14 cm long, 1-2-1-5 
+cm wide, the petiole (stipe) 1-2-5 cm long, J-,,- the length of the lamina; lamina 
+basally and apically long-tapering, the pinnules usually contiguous to slightly 
+imbricate, c. 10-25 on each side. Fertile pinnules subsessile, ^-elliptic or subligulate, 
+the largest sometimes touching or overlying the rachis with their anterior base, 
+the larger 5x3-10x5 mm, slightly longer than wide to twice as long as wide in 
+the largest, subacute on the outer-posterior side, the outer margin not distinct or 
+broadly rounded into the upper; lower margin straight or nearly so. Fertile 
+pinnules entire, or especially in the larger ones on the upper/ouler margin minutely 
+erose and with 1-4 very shallow' incisions at the most c. 0-5 mm deep yet 
+interrupting the sorus; sterile pinnules in outline like the fertile but mostly smaller, 
+4 x 2-7 x 4 mm, &plusmn; regularly crenato-lobate on the outer upper margin. Basal 
+pinnules offertile leaves not rarely more remote and then sometimes slightly reduced; 
+upper pinnules more strongly reduced, few or none denticuliform, the terminal 
+pinnule (segment) free or nearly so, rhombic-cuneate-flabellate, 2x2 mm or larger, 
+sometimes lobed, soriferous. Upper sterile pinnules scarcely reduced, the terminal 
+relatively large, cuneate-flabellate, free or nearly so; basal pinnules reduced, usually 
+remote and &plusmn; decurved. Intermediates between sterile and fertile leaves sometimes 
+found, basally sterile, apically fertile, with intermediate measurements. Veins 
+immersed or slightly elevated, quite free, c. 0-5-0-8 mm apart, simple or once 
+forked or in the innermost twice forked. Sori continuous or interrupted by (even 
+very shallow) incisions of the margin, indusium greenish or pale brownish, entire 
+to slightly erose, narrowed-rounded at the partly adnate ends, 0-3-0-5 mm w'ide, 
+reaching the margin or almost so, not or slightly reflexed at maturity. Spores 
+very pale brownish, trilete, smooth, c. 25 fim. Plate IX. 
+AUSTRALIA: Queensland: Cook District: Leo Creek, Upper Nesbit River, alt. 420 ni, 
+Brass 19849, 8.1948 (CANB, K, L); Endeavour River, F. Mueller (P); fringing forest W. of 
+Cooktown, on clay bank of creek, very moist, Vessey 3.1963 (JCT); Shiptons Flat, alt. 275 m. 
+Brass 20015, 9.1948 (CANB, K, L): Upper Parrot Creek, Annan River, gregarious on shady 
+banks of a stream in rain forest, 350 m alt., Brass 20029, 9.1948 (BRI, CANB, K, L), Brass 
+20030, 9.1948 (BRI); 1 mile [1-6 km] NW. of Stuckics Gap, Bloomfield River area, 15 50' S, 
+145 19' E, in complex mesophvll vine forest on coarse sandy clay derived from granite, IVebb 
+&amp; Tracey 8396 (BRI); Mt Hemmant, c. 48 km NE. of Mossman, 16 08' S, 145 ~28' E, Tracey 
+549 (BRI); Bailey&rsquo;s Creek c. 7&pound; mis [11-7 km] ENE. of Dainlree, L.S. Smith 11676, 10.1962 
+(BRI); Daintree River, on damp rocks in rain forest gullies, Messmer NSW P9504, 7.1954 
+(NSW); Stewart Creek gorge, bank beside creek, in rain forest, 16&deg; 23' S, 145&deg; 16' E, Wrigley 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806147">	</div></div>	</div></details><details>	<summary class="yellow"><span class="id">801741</span>
+<span class="name">Lindsaea cuneata</span>
+<span>Telopea 1(2): 106</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806138" target="_new">57806138</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="green"><span class="id">861589</span>
+<span class="name">Lindsaea cuneata</span>
+<span>Telopea 1(2): 99</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806131" target="_new">57806131</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>Kramer and Tindale, Lindsaeoid Ferns 
+99 
+Lindsaea flabellulata Dryander var. multipinnulata F.M. Bail, in Queensl. Agric. J. 29: 
+349, PI. 36 (1912). Lectotype: Hinchinbrook Island, North Kennedy District, Queensland, 
+H. Tryon 1912 (BR1 59253). Syntypes: Cook District, Thursday Island, J. Douglas 6.1893 
+(BRI 59254) and Cardwell, North Kennedy District, Queensland, K. Broadbent (BR1 59252). 
+Lindsaea subtripinnata Copeland in J. Arnold Arbor. 24: 441 (1943). Holotype: Tarara, 
+W. Div., Papua, Brass 8491 (MICH). Isotypes: (BO, GH, L). 
+Holotype: North Coast, Island G 2 (Australia), R. Brown 82, 18-24.ii.1803 (BM). 
+Isotypes: (K, E). Possible Isotypes: (P, U). 
+Misapplied Names: Lindsaea trichomanoides auct. non Dryander; ? F. Mueller, Fragm. 
+5: 118 (1965-66). Lindsaea orbiculata auct. non (Lam.) Mett. ex Kuhn; Donun in Biblioth. 
+Bot. 20 (85 l ): 82 (1913). <mark>Lindsaea cuneata</mark> auct. non (Forst. f.) C. Chr.; Domin, l.c. 83. 
+Lindsaea tencra auct. non Dryander; F. Mueller, l.c. 119. 
+Distribution: Papua and Australia (Cook, North Kennedy, Port Curtis and Moreton 
+Districts of Queensland as well as a very dubious record from New South Wales). Fig. 2 
+(p. 100). 
+Habitats: Terrestrial or amongst boulders, often in rich alluvial soils along the banks of 
+streams, in densely shaded situations or in open grassy sites, in low scrub, in savanna forests, 
+in eucalypt or Casuarina forests, in semi-deciduous mesophyll vine-forests, on the margins of 
+gallery woods or in rain forest undergrowth, in soils derived from sandstone, volcanic or a 
+mixture of granite and metamorphic rocks, from sea level to c. 500 m alt. 
+Rhizome rather shortly creeping, c. 1-1-5 mm in diam., rather thinly and 
+deciduously paleaceous; scales yellow, ovate-triangular, with a short, uniseriate, 
+unthickened apical portion, up to 6-seriate at the base, to c. 1 mm long. Leaves 
+clustered to c. 0-5 cm apart; petioles (stipes) stramineous or fawn-coloured, adaxially 
+bi-angular below, channelled above, abaxially terete below, upward gradually 
+obtusely or acutely bi-angular or flattened, 10-40 cm long, equalling or mostly 
+longer than the lamina. Lamina herbaceous or chartaceous, olivaceous, brownish, 
+or medium to dark green when dry, 10-30 cm long, 4-17 cm wide, 2-3 x as long 
+as wide, triangular or oblong, bipinnate or bipinnate -f pinnatilobate or + pinnatifid, 
+rarely tripinnatc at the base. Primary rachis adaxially deeply sulcate, abaxially 
+flattened and bi-angular. Pinnae spreading or slightly, rarely more strongly 
+ascending, the major pinnae c. 4-10 to a side, most or all subopposite, the largest 
+basal pinnae 2-5-10 cm long, 12-18 mm wide, not narrowed at the base, rather 
+evenly narrowed in the upper half or throughout; upper pinnae gradually and 
+evenly reduced, no conform terminal pinna present. Secondary rachises adaxially 
+flattened, bi-angular, the greater part with a green margin. Basal pinnules on both 
+sides of the lower pinnae at least of large leaves usually pinnatilobate to pinnatifid 
+or rarely pinnate, with few tertiary divisions. Ultimate free pinnules variable in 
+size and shape, largely depending on the degree of dissection and on their place 
+in the lamina but always distinctly dimidiate-subfiabellate; larger ones trapezoidal, 
+subquadratic, subsessile, the larger undissected pinnules up to 5 x 3-5 to 10 x 6 
+mm, if dissected the larger ones with incisions on both sides, the smaller only on 
+the anterior side. Upper pinnules reduced, not strongly so in paueijugate pinnae, 
+the terminal segment then obliquely rhombic, obtuse, free or almost so, to 5 mm 
+long, more strongly reduced in plurijugate pinnae, the upper pinnules denticuliform, 
+confluent into a narrow pinnatifid pinna-apex. Juvenile plants with paueijugate 
+laminas with' a few patent, paueijugate-pinnate pinnae at the base. Upper and 
+outer margin of the sterile pinnules sharply dentate but obscurely or mostly 
+distinctly erose in the fertile pinnules. Veins immersed, usually not evident, 1-3 
+x forked, c. 0-5 mm apart, free, connivent, or sporadically and irregularly 
+anastomosing; leaves of adult plants hardly ever without any anastomoses, but 
+often many pinnules, especially smaller ones, quite free-veined. Sori continuous 
+except as interrupted by the incisions of the margin; indusium pale, erose to deeply 
+and irregularly incised, almost reaching to slightly exceeding the margin, 0-3-0-5 
+mm wide, neither reficxed nor concealed at full maturity. Spores medium brown, 
+trilete, smooth, c. 25 /am. 
+AUSTRALIA: Queensland: Cook District: Lockerbie, 10 miles [c. 16 km] WSW. of 
+Somerset, 10&deg; 47' S, 142&deg; 28' E, abundant on outer edge of gallery woods on banks of stream, 
+alt. 30 m, Brass 18411, 4.1948 (BRI, K, L, CANB); Scrubby Creek, Cape York Peninsula, 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806131">	</div></div>	</div></details><details>	<summary class="yellow"><span class="id">51263917</span>
+<span class="name">Lindsaea cuneata lessonii</span>
+<span>Telopea 1(2): 107</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806139" target="_new">57806139</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="yellow"><span class="id">861635</span>
+<span class="name">Lindsaea decomposita simplex</span>
+<span>Telopea 1(2): 119</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806151" target="_new">57806151</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="yellow"><span class="id">861634</span>
+<span class="name">Lindsaea decomposita contigua</span>
+<span>Telopea 1(2): 119</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806151" target="_new">57806151</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="green"><span class="id">861640</span>
+<span class="name">Lindsaea decomposita</span>
+<span>Telopea 1(2): 119</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806151" target="_new">57806151</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>Kramer and Tindale, Lindsaeoid Ferns 
+119 
+(E), ex Herb. Cheeseman; Waitakere Range, Auckland, Cheeseman 13 or s.n. (BR1 59489, GH); 
+Hendersons Creek, Waitakere Range, Cheeseman 238 (K); The Huia, Manukau, Tenison- Woods 
+(P); Hum, Hector (E); Mt Ngongotaha, Prince (GH); Mangarewa Gorge, between Rotorua 
+and Tauranga, Chinnock P334, 4,1972 (Herb. Chinnock); Manutahi, New Plymouth. H. Tryon 
+(BO, BRI 59493-4, SING); Waikato, Alt wood (MICH); Wellington, Logan 5.1867 (K), Field, 
+received 3.1875 (K); near Massacre Bay. in deep shady ravine, Lyall 9.1850 (E); Massacre Bay, 
+Cooks Straits of New Zealand, under high rocks in a deep ravine, rare, Lyall (K); without 
+specific localities in North Island, Sinclair (E), Kirk (BM). South Island; Nelson, Dali 
+(BRI 59371); Westport, Green 1.1878 (E); Greymouth, Helms 1875-1885 (L), 1870 (P); Prov. 
+Canterbury, Sinclair &amp; Haast 1860 (K). 
+Specific Localities: Craig (BISH, GH, HBG); Jessie Heywood 40 (GH); 
+Kirk 161 (BM, GH). 
+T his species has often been confused with L. trichonumoides but the differences 
+stated in the key are quite obvious. The leaf pattern of L. viridis would place it 
+in section Schizoloma , although the shape of the petioles, the subclathrate scales 
+as well as the monolete spores exclude it from that section and show its affinity to 
+section Tropidolindsaea, as stipulated previously (Kramer 1957, p. 136). Its leaf- 
+architecture is, however, so different from the latter homogeneous and closely-knit 
+group of species, that it seems preferable to place it in a section of its own. 
+4. SECTION SYNAPHLEBIUM 
+Section Synaphlebium (J . Smith) Diels in Engler &amp; Prantl, Nat. Pflanzenf. 1 (4): 
+221 (1902); Kramer in Blumea 15: 559 (1968). 
+11. Lindsaea obtusa J. Smith in Hooker, Sp. Fil. 1: 224 (1846); Kramer in 
+Blumea 15: 565 (1968); Kramer in Blumea 18 (1): 171 (1970), Kramer in FI. 
+Males., Ser. 2, 1 (3): 218-219, fig. 31 (1971). 
+Synonymy; <mark>Lindsaea decomposita</mark> Willdenow var. contigua Dominf, l.c. 84. Holotype; 
+Bellenden-Kcr Mountains, above Harveys Creek. Queensland, Domin 182 , 12.1909 (PR). L. 
+decomposita Willdenow var. davallioides (Blumc) Domin f. simplex Domin l.c. 84. Holotype: 
+Harveys Creek, Queensland, Domin 181, 1910 (PR), doubtfully described as a new taxon. 
+Holotype: Malacca, Cuming 394 (K). Isotypes: B, E, GH, P, W. 
+Misapplied Names: Lindsaea lobata auct. non Poirct in Lamarck; Benlham, FI. Austral. 
+7: 720 (1878); F.M. Bailey, Fern World of Australia: 40 (1881); F.M. Bailey, Lithogr. Ferns 
+Queensland: PI. 52 (right) (1892); F.M. Bailey, Compr. Cat. Queens!. PI.: 641 (1913). L. 
+decomposita auct. non Willd.; Domin in Biblioth. Bot. 20 (85 1 ): 83 (1913). 
+Distribution: Taiwan and Thailand to eastern Malesia; Australia (eastern Queensland), 
+Admiralty Islands and New Caledonia. Fig. 4 (p. 120). 
+Habitats: On the banks of streams or on rocks in rain forests (simple meso-notophyll 
+vine-forests with sclerophyll emergents, complex mesophyll vine-forests etc.), usually in gullies 
+or ravines, often in fringing forest. 
+The following description by the senior author is cited from FI. Males., l.c. 218: 
+&ldquo;Rhizome short-creeping, l-2f mm, usually If mm cj), scales medium brown, narrowly 
+triangular, to If mm long, to 4-seriate at base, with a rather short uniseriate apex. Leaves 
+close (less so in epiphytic plants); petioles stramineous or in mature specimens mostly medium 
+to dark brown or blackish, sometimes pale-margined or mottled, ! sharply quadrangular and 
+mostly somewhat sulcate, c. 10-30 cm long, f as long as to equalling the lamina. Lamina simply 
+pinnate or in full-grown plants mostly bipinnate, with I or 2, less often 3 pairs of pinnae (very 
+rarely the basal pinnae forked) and a conform terminal one; primary rachis like the petiole. 
+Pinnae mostly subopposite, obliquely ascending, 10-20 cm long. 1 (-3 cm wide (simply pinnate 
+t Probably L. obtusa (aberrant by small, very shallowly incised pinnules; bipinnate). 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806151">	</div></div>	</div></details><details>	<summary class="red"><span class="id">546017</span>
+<span class="name">Lindsaea dimorpha</span>
+<span>Telopea 1(2): 110-111, pl. viii</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(2): 110-111, pl. viii".</p></div></details><details>	<summary class="green"><span class="id">544567</span>
+<span class="name">Lindsaea</span>
+<span>Telopea 1(2): 93</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806125" target="_new">57806125</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>Kramer and Tindale, <mark>Lindsae</mark>oid Ferns 
+93 
+Our thanks are due to Mr R.C. Coveny for making special collections of 
+<mark>Lindsaea a</mark>nd to Miss N. McIntyre for checking the latitudes and longitudes of a 
+large number of the localities in which specimens were collected. We are also 
+grateful to Miss C.L. Payne for the preparation of the maps. 
+TAXONOMIC TREATMENT 
+For general notes on the <mark>Lindsaea</mark> group of ferns see Kramer (1957, 1968, 
+1970, 1971). Species already described in other papers but occurring in Australia 
+have been quoted in the text, so that the revision would be as complete as possible. 
+These descriptions cover Australian material, although few specimens were available 
+in some taxa, e.g. L. repens and L. pulchella. 
+A very considerable portion of the herbarium work was undertaken by the 
+senior author. Specimens of <mark>Lindsaea</mark> in the following herbaria were examined 
+by K.U. Kramer:&mdash; B, B1SH, BM, BO, BR1, B-W1LLD, E, GH, HBG, K, LAE, 
+L, MICH, NSW, P, PR, SING, S-PA, U, US, W and Z; whereas M.D. Tindale 
+saw material in the following herbaria:&mdash; AD, BM, BR1, CANB, CBG, E, G, GOET, 
+HO, JCT, K, L, MEL, NT, NSW, PERTH, P, S, UPS and the private collection 
+of R.J. Chinnock. 
+<mark>LINDSAEA</mark> 
+Dryander in J.E. Smith in Mem. Acad. Sci. Turin 5: 401 (1793): Trans. Linn. 
+Soc. London 3: 39 (1797). The name is often misspelled &ldquo; <mark>Lindsaya 
+A</mark>s to the terminology employed, the reader is reminded that the term 
+&ldquo;pinnule&rdquo; is always used in this paper for an ultimate free division of a compound 
+leaf, regardless of whether the leaf is once or more times compound. 
+The following description of the genus <mark>Lindsaea</mark> is cited from Kramer in FI. 
+Males. Ser. 2, 1 (3): 198 (1971):&mdash; 
+&ldquo;Small to medium-sized, terrestrial, epilithic, scandent, or epiphytic ferns with a Lindsaeoid 
+protostele, the xylem with an internal phloem strand, or in some small epiphytes open. Scales 
+variable in shape, mostly entire. Lamina rarely simple, mostly once or twice pinnate, sometimes 
+more dissected, to decompound, anadrontous; idtimate divisions various, most often dimidiate, 
+sometimes partly or entirely equal-sided, rarely cuneatc and dicholomously divaricate. Veins 
+free, connivent, or anastomosing without free included veinlcts. Sort terminal on the veins, 
+bi- to plurinerval, less often uninerval, mostly very close to the margin, lndusium short, 
+roundish, ovate, or hippocrepiform and then free at the sides, or more elongate, and laterally 
+free or adnate, rarely fugacious. Bicellular filiform paraphyscs present in some, probably in 
+all species. Spores trilete or (very rarely in the Old World species) monoletc.&rdquo; 
+Type Species: Lindsaea trapeziformis Dryander (neotropical). 
+Distribution: About 150 species, two-thirds of which occur in the Old World but few in 
+continental Africa; extending north to Japan, south to Australia (Tasmania) and east to the 
+Marquesas. 
+ARTIFICIAL KEY TO THE SPECIES OF LINDSAEA IN AUSTRALIA AND 
+NEW ZEALAND 
+1. Fertile lamina simply pinnate or rarely with an odd pinnate pinna in L. brachypoda. 
+Fertile pinnules entire or shallowly incised. 
+2. Rhizome long-scandcnt, epiphytic, with a strongly dorsiventral stele. 
+3. Rhizome (1-5-) 2-3 mm in diam., persistently scaly, or, when eventually 
+scaleless, usually not polished. Larger pinnules at least 1-5 cm long .. L. repens 13. 
+3.* Rhizome not over 1-2 mm in diam., soon largely scaleless and polished. 
+Larger pinnules not over 12 mm long. L. pulchella 14. 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806125">	</div></div>	</div></details><details>	<summary class="red"><span class="id">546198</span>
+<span class="name">Lindsaea ensifolia agatii</span>
+<span>Telopea 1(2): 105-106</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(2): 105-106".</p></div></details><details>	<summary class="green"><span class="id">546139</span>
+<span class="name">Lindsaea ensifolia</span>
+<span>Telopea 1(2): 103</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806135" target="_new">57806135</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div><div class="row">	<div class="column" style="color:#5E5E5E;"> <h3>Page text</h3><pre>Kramer and Tindale, Lindsaeoid Ferns 
+103 
+This species is morphologically close to L. media on the one hand and to 
+L. ensifolia ssp. agatii on the other: juvenile specimens cannot always be readily 
+distinguished. The abortive spores suggest an F r hybrid, presumably between 
+these two species. It is interesting that sterile, apparently not full-grown specimens 
+are often bipinnate or subbipinnate, whereas fertile ones are simply pinnate or 
+rarely subbipinnate. 
+It was previously considered that L.fraseri extended to the Northern Territory 
+(see I indale in Specht (1958) page 177) based on a rather puzzling specimen 
+collected by Specht 451 at South Bay, Bickerton Island in the Gulf of Carpentaria, 
+N.T., 6.1948 (BRI, K, L, LAE, NSW, US). This material is somewhat intermediate 
+between L. fraseri and L. ensifolia Swartz ssp. ensifolia but is perhaps closer to the 
+latter. 
+L.fraseri probably does not occur north of the Wide Bay District in Queensland. 
+There are two doubtful records, viz. Rossville, Cook District, Percival 5.1973 (BRI) 
+which is a poor specimen, and Dulhunty River, W. (Gulf) side of Cape York 
+Peninsula, Cook District, Whitehouse 1943 (BRI) which may be juvenile material 
+of L. media. 
+4 . <mark>Lindsaea ensifolia</mark> Swartz in J. Bot. (Schrader) (1800): 77 (1801); F. 
+Mueller, Fragm. 5: 118 (1865-6); Bentham, FI. Austral. 7: 721 (1878); F.M. 
+Bailey, Fern World Australia: 40 (1881); F.M. Bailey, Lithogr. Ferns Queensland: 
+PI. 57 (1892); F.M. Bailey, Queensland FI. 6: 1955 (1902); F.M. Bailey, Compr. 
+Cat. Queensland PI.: 641 (1913); Tindale in Rec. Amer.-Austral. Sci. Exp. 
+Arnhem Land 3: 176 (1958); Kramer in Acta Bot. Neerl. 15: 579 (1967); Kramer 
+in Blumea 15: 564 (1968); Brownlie, FI. Nouvelle-Caledonie 3: 126 (1969); 
+Kramer in Blumea 18, 1: 170 (1970); Kramer in FI. Males. 2, 1 (3): 211 (1971). 
+Synonymy: Schizoloma ensifotium (Swartz) J. Smith in J. Bot. (Hooker) 3: 3 (1841); 
+F.M. Bailey, Handb. Ferns Queensland: 20 (1874) as S. ensifolia; Domin in Biblioth. Bot. 20 
+(85 ): 74-77 (1913). Schizolegnia ensifolia (Swartz) Alston in Bol. Soc. Brot., 2&deg; ser., 30: 24 
+(1956). 
+For further synonymy see Kramer in FI. Males., ser. 2, 1 (3): 211-212. As 
+indicated previously (Kramer (1967) l.c.) there are two subspecies in the Pacific 
+zone and Eastern Malesia but they are not sharply distinct and intermediates occur 
+where they overlap in distribution. 
+Holotype: Mauritius, unknown collector (S-PA). 
+KEY TO THE SUBSPECIES OF L. ENSIFOLIA IN AUSTRALIA 
+1. Upper pinnules scarcely or not abbreviated; terminal pinnule large, free or nearly 
+so, entire or rarely hastate at the base. L. ensifolia ssp. ensifolia 
+1.* Upper pinnules rb gradually reduced, confluent into a lobed or pinnatifid leaf-apex; 
+lamina sometimes bipinnate or subbipinnate, rarely even subtripinnate at the base 
+. L. ensifolia ssp. agatii 
+a. L. ensifolia ssp. ensifolia, see Bailey (l.c. 1892), PI. 57 (right). 
+Distribution: Africa to S. China, S. Japan, Melanesia, Micronesia, Hawaii and Australia 
+(northern Western Australia, the northern region of the Northern Territory and the Cook, Port 
+Curtis, Wide Bay and Moreton Districts of Eastern Queensland). 
+Habitats: Terrestrial or in rock crevices, frequently in sandy alluvium near fresh-water 
+streams or on the margins of Melaleuca , mangrove or cyperaceous swamps, in monsoon forests 
+or in low-lying sandy areas in dry sclerophyll forests, on cliffs near the sea or in moist shaded 
+gorges, often associated with sandstone. 
+The following description of ssp. ensifolia by the senior author is cited from 
+FI. Males. 2, 1 (3): 212 (1971): 
+&ldquo;Rhizome sometimes short-creeping, (l-)l)&mdash; 2 (- 23 ) mm scales light reddish brown, 
+narrowly triangular, to 2 mm long, to 5-seriate at the base, about the apical uniseriate. Leaves 
+to 2 cm apart. Petioles c. 10-35 cm long, 4-1 times as long as, rarely longer than the lamina, 
+</pre>	</div>	<div class="column"> <h3>Page image</h3>		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/57806135">	</div></div>	</div></details><details>	<summary class="red"><span class="id">546264</span>
+<span class="name">Lindsaea ensifolia ensifolia</span>
+<span>Telopea 1(2): 103-105</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(2): 103-105".</p></div></details><details>	<summary class="yellow"><span class="id">51263910</span>
+<span class="name">Lindsaea ensifolia heterophylla</span>
+<span>Telopea 1(2): 105</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806137" target="_new">57806137</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="yellow"><span class="id">546482</span>
+<span class="name">Lindsaea flabellulata multipinnulata</span>
+<span>Telopea 1(2): 99</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806131" target="_new">57806131</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="yellow"><span class="id">801793</span>
+<span class="name">Lindsaea flabellulata multipinnulata</span>
+<span>Telopea 1(2): 99</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806131" target="_new">57806131</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="red"><span class="id">546528</span>
+<span class="name">Lindsaea fraseri</span>
+<span>Telopea 1(2): 101-103, Fig. 2 (map)</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(2): 101-103, Fig. 2 (map)".</p></div></details><details>	<summary class="yellow"><span class="id">546573</span>
+<span class="name">Lindsaea heterophylla</span>
+<span>Telopea 1(2): 110</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806142" target="_new">57806142</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="yellow"><span class="id">801800</span>
+<span class="name">Lindsaea heterophylla</span>
+<span>Telopea 1(2): 110</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806142" target="_new">57806142</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details><details>	<summary class="red"><span class="id">546617</span>
+<span class="name">Lindsaea incisa</span>
+<span>Telopea 1(2): 109-110</span>
+	</summary><div class="more"><p>Could not parse the citation "Telopea 1(2): 109-110".</p></div></details><details>	<summary class="yellow"><span class="id">51264010</span>
+<span class="name">Lindsaea lanuginosa</span>
+<span>Telopea 1(2): 126</span>
+	</summary><div class="more"><div>Citation matches BHL page(s): <a href="https://www.biodiversitylibrary.org/page/57806158" target="_new">57806158</a></div><div>Page is part of the work <b>The Lindsaeoid Ferns of the Old World VII. Australia and New Zealand</b>, <a href="https://doi.org/10.7751/telopea19763202" target="_new">doi:10.7751/telopea19763202</a></div></div></details>
+</body>
+</html>

@@ -6,7 +6,7 @@ require_once (dirname(__FILE__) . '/api_utilities.php');
 
 //----------------------------------------------------------------------------------------
 // Given a structured citation with container-ttiel, volume, and page, can we match to
-// one or more BHL pages?
+// one or more BHL pages using BHL's OpenURL query?
 function find_bhl_page($obj)
 {
 

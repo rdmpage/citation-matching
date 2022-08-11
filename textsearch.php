@@ -1,7 +1,6 @@
 <?php
 
 require_once (dirname(__FILE__) . '/config.inc.php');
-
 require_once (dirname(__FILE__) . '/php-approximate-search/approximate-search.php');
 
 //----------------------------------------------------------------------------------------
@@ -135,6 +134,7 @@ function find_in_text($needle, $haystack, $case_insensitive = false, $max_error 
 	$result = new stdclass;
 
 	define ('MAX_ERR', $max_error);
+	define ('FLANKING_LENGTH', 32);
 	
 	$query = $needle;
 	$text = $haystack;
@@ -203,6 +203,13 @@ function find_in_text($needle, $haystack, $case_insensitive = false, $max_error 
 		
 		// match in haystack
 		$hit->text = mb_substr($haystack, $start, $end - $start);
+		
+		$pre_length = min($start, FLANKING_LENGTH);
+		$pre_start = $start - $pre_length;
+	
+		$hit->prefix = mb_substr($haystack, $pre_start, $pre_length, mb_detect_encoding($haystack)); 
+		$post_length = min(mb_strlen($haystack, mb_detect_encoding($haystack)) - $end, FLANKING_LENGTH);		
+		$hit->suffix = mb_substr($haystack, $end, $post_length, mb_detect_encoding($haystack)); 
 		
 		$result->selector[] = $hit;
 		
@@ -344,24 +351,24 @@ cords a fine reticulation, the whole producing a basket-Uke effect. Suture';
 if (0)
 {
 	$json = '{
-  "needle": "Ptochoryctis rosaria",
-  "haystack": "740 JOURNAL, BOMBAY NATURAL HISTORY SOCIETY , Vol.XVU, \n\nup in disc and not reaching dorstim ; beyond this a narrower fascia of purplish- \n crimson suffusion, edges irregularly dentate and marked with dark fuscous, \n obsolete towards dorsum, an acute median projection of posterior edge followed \n by some whitish suffusion ; a pale crimson streak mixed with white round apex \n and tornus : cilia deep yellow, obscurely barred with yellow-whitish, above \n apex suffused with orange on basal half. Hindwings pale grey, darker towards \n tornus ; cilia whitish-yellowish. \n\nKhasi Hills ; two specimens. \n\nParadoris, n. n. \n\nI propose this name for the genus described by Heinemann under the name \n of Euteles, which is preoccupied in Coleoptera (18341 \n\nParadoris anaphracta, n. sp. \n\ng. 12-13 mm. Head ochreous-whitish, slightly sprinkled with fuscous. Palpi \n fuscous irrorated with blackish, apex of second joint white, terminal joint \n whitish with a few dark fuscous specks. Antennas fuscous. Thorax ochreous- \n whitish sprinkled with fuscous, shoulders narrowly dark fuscous. Abdomen \n pale ochreous, more or less suffused with fuscous. Forewings elongate, rather \n narrow, costa gently arched, apex obtuse, termen very obliquely rounded ; \n ochreous-whitish or pale whitish-ochreous, thinly sprinkled with fuscous ; a \n small blackish spot on base of costa ; stigmata blackish, plical somewhat beyond \n first discal, second discal connected by a slightly incurved blackish streak with \n dorsum before tornus, followed by an undefined band of darker irroration from \n | of costa to tornus ; undefined spots of blackish irroration round apex and \n termen : cilia ochreous-whitish. Hindwings grey ; cilia pale whitish-ochreous. \n\nBhotan (4,500 feet), from May to July ; three specimens (Dudgeon). \n\nPtochoryctis rosaria, n. sp. \n\n#$. 23-24 mm. Head, thorax, and abdomen snow-white. Palpi and an- \n tennae grey. Forewings elongate, moderately broad, costa moderately arched, \n apex rounded-obtuse, termen obliquely rounded, shining snow-white ; a sub- \n marginal series of seven black dots round apex and termen : cilia white. Hind- \n\nings and cilia white. \n\n•-•hotau, in April and May ; two specimens (Dudgeon). \n\nTrypherantis , n. g. \n\nHead with appressed scales, side-tufts loosely raised ; tongue obsolete. An- \n tennae |, in $ moderately ciliated, basal joint moderate, without pecten. Labial \n palpi long, recurved, with appressed scales, terminal joint somewhat shorter \n than second, acute. Maxillary palpi rudimentary. Posterior tibia? clothed with \n rough hairs above. Forewings with 16 furcate, 2 from |, 4 and 5 approximated, \n 7 and 8 stalked, 7 to termen, 9 absent, 11 from about middle. Hindwings over \n 1, ovate, cilia \\ ; 3 and 4 stalked, 5 parallel, 6 and 7 short stalked. \n\nApparently allied to Ptochoryctis. \n\nTrypherantis atelogramrna, n. sp. \n\n$ . 24-2G mm. Head, palpi, and antennae ochreous-whitish, base of palpi \n fuscous. Thorax and abdomen whitish-ochreous. Forewings elongate, pos- \n"
+  "needle": "Angianthus micropoides",
+  "haystack": "168 \nDistribution (Fig. 2): \nNullarbor Plain region. Common, \nEcology: \nOccurs on both clay and loam soils. Collectors’ notes include “Common on clayey \nsoils”, “Fine sandy loam over calcrete” and “In loam over limestone”. \nNote: \nl.A. conocephalus was originally described by Black (1929) as a variety of \nA. brachypappus. The var. conocephalus was considered to have a conical compound \nhead and var. brachypappus a cylindrical head. However the shape of the compound \nhead is quite variable. On the other hand both species exhibit distinct differences in habit \nand leaf morphology and usually pappus morphology. They are also allopatric. \nSelected Specimens Examined (5/23): \nWestern Australia — ApHn 1656, Forrest, 31.viii.1962 (PERTH); Chinnock 1151, 30 km S. of \nRawlinna, 19.ix.l973 (AD); George 8495, 30 miles NW. of Reid, 14.x. 1966 (PERTH). \nSouth Australia — Chinnock 1183, 15 km E. of Koonalda homestead, 21.ix.l973 (AD); Ising 1529, \nHughes, 8.ix.l920 (AD). \n8. Angianthus micropodioides (Benth.) Benth., FI. Austr. 3:565 (1867) {^micropo ides\'); \nGrieve & Blackall, W. Aust. Wildfls 812 (1975) {\'micropoides\'). — Phyllocalymma \nmicropodioides Benth., Enum. PI. Hueg. 62 (1837); Steetz in Lehm. PI. Preiss. 1:436 \n(1845). — Styloncerus micropodioides (Benth.) Kuntze, Rev. Generum PI. 367 (1891) \n{\'micropodes\'). Type: “Swan River. (Hiigel.).” Lectotype (here designated): Hugel s.n., \nSwan River, s. dat. (W). Isolectotype: K (see note 1 below). \nPhyllocalymma filaginoides Steetz in Lehm. PI. Preiss. 1:437 (1845); Steetz in \nWalper’s Repert. Bot. Syst. 6:229(1846). — Angianthus micropodioides filaginoides \nEwart & J. White, Proc. Roy. Soc. Viet. 22:92 (1909) {\'micropoides\'). Type: “In solo \narenoso — turfoso inter frutices ad fluvii Cygnorum ripam prope oppidulum Perth, \nmense Januario 1839. Herb. Preiss. No. 37.” Lectotype (here designated): Preiss 37, In \nNova Hollandia, (Swan-River Colonia) in solo arenoso turfoso inter frutices ad flumis \nCygnorum ripam leg. cl. Preiss, s. dat. (MEL 541603). Isolectotypes: LD, MEL 541604, \nMEL 541605 (ex herb. O. W. Sonder), MEL 583143 (ex herb O. W. Sonder), S, GH (ex \nherb. Klatt), (see p.l52). \nAnnual herb. Major axes ascending to erect, 4-15 cm long, hairy; stem sometimes \nsimple to c. 10 cm high, but usually forming major branches at basal and/or upper \nnodes. Leaves alternate, ± linear or lanceolate, 0.5-1. 5(2.8) cm long, 0.05-0.1 cm wide, \ndistinctly mucronate, variably hairy. Compound heads ± depressed ovoid to broadly \ndepressed ovoid, 0.4-0.6 cm long, 0.4-0.5 cm diam., axillary or terminal; bracts \nsubtending compound heads forming a conspicuous involucre exceeding the length of the \nhead, ofc. 10 leaf-like bracts, ± lanceolate to ± ovoid, 0.5-1. 5 cmlong, c. 0.1 cm wide, \nmucronate, hairy; general receptacle a small convex axis. Capitula c. 10-30 per \ncompound head; capitulum-subtending bracts 1, ± oblong or ovate, 2. 1-2.8 mm long, \n0.8-1. 3(1. 5) mm wide, the midrib variably hairy toward the apex. Capitular bracts with \nthe two concave ones 2. 4-3.1 mm long, the midrib hairy; flat bracts 2, obovate, ± \nabruptly attenuated in the lower Vi, 2. 4-3.1 mm long, (0.75)0.9-1.25 mm wide, the \nmidrib usually variably hairy toward the apex, rarely glabrous. Florets 2; corolla 5-lobed, \nthe tube tapering gradually towards the base in immature florets, a more abrupt taper in \nthe lower V 3 of mature florets which have variably swollen bases, 1.4-1. 9 mm long, \nc. 0.5 mm diam. Achenes ± obovoid, 0.8-1 mm long, 0. 5-0.6 mm diam., pubescent. \nPappus of 5 or 6 jagged scales fused at the base, each sc^e terminating in a single smooth \nor minutely barbellate bristle, the total pappus c. ‘73-^3 the length of the corolla \ntube. Fig. 3k. \nDistribution (Fig. 2): \nWestern Australia, particularly in the South West Drainage Division (Mulcahy & \nBettenay, 1972), between latitudes c.28°30\'S and 32°S and west of longitude c.l22°E. \nLocally common."
 }';
 
 	$doc = json_decode($json);
+	
 	
 	if (json_last_error() != JSON_ERROR_NONE)
 	{
 		echo json_last_error_msg() . "\n";
 	}
 	
-	print_r($doc);
+	//print_r($doc);
 	
-	echo 'x';
 
-	//$result = find_in_text($doc->needle, $doc->haystack, true);
+	$result = find_in_text($doc->needle, $doc->haystack, true);
 	
-	//print_r($result);
+	print_r($result);
 
 
 }

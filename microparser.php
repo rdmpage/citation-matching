@@ -211,13 +211,9 @@ function parse($text)
 						
 						default:
 							$obj->{$tag} = $match[0];
-							break;
-				
+							break;				
 					}
 				}				
-				
-			
-			
 			}
 		}
 		
@@ -287,7 +283,7 @@ function parse($text)
 //
 // "tests"
 
-if (0)
+if (1)
 {
 	$publications = array(
 	/*
@@ -347,7 +343,9 @@ if (0)
 	);
 	
 	$publications = array(
-	'Ofvers. Finska Förh., 50, no. 7, 73.',
+	//'Ofvers. Finska Förh., 50, no. 7, 73.',
+	//	'Mém. Mus. natn. Hist. nat. Paris (N.S.)(A)37: 75, pl. 3, fig. 14.',
+'Insecta kor. 12: 27, 28 [keys], 32, figs 26, 27, 103, pl. C, fig. 17.',
 	);
 
 

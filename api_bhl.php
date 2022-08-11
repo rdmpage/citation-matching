@@ -22,23 +22,14 @@ if (isset($doc->ISSN))
 // hack
 if (isset($doc->{'container-title'}) && !isset($doc->BHLTITLEID))
 {
-	switch ($doc->{'container-title'})
+	$titles = get_bhl_title_from_text($doc->{'container-title'});
+	if (count($titles) > 0)
 	{
-		case 'Exot. Micr.':
-		case 'Exotic Microlep.':
-		case 'Exot. Microlepid.':
-		case 'Exotic microlepidoptera':
-			$doc->BHLTITLEID = array(9241);
-			break;			
-	
-		case 'Genera Insectorum':
-			$doc->BHLTITLEID = array(45481);
-			break;
-		
-		default:
-			break;
-	}	
+		$doc->BHLTITLEID = $titles;
+	}
+
 }
+
 
 // BHL page
 $doc = find_bhl_page($doc);

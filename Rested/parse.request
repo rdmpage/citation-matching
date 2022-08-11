@@ -20,11 +20,19 @@
 	<array>
 		<dict>
 			<key>inUse</key>
-			<true/>
+			<false/>
 			<key>parameter</key>
 			<string>q</string>
 			<key>value</key>
 			<string>Trans. ent. Soc. Lond. 1922: 79.</string>
+		</dict>
+		<dict>
+			<key>inUse</key>
+			<true/>
+			<key>parameter</key>
+			<string>q</string>
+			<key>value</key>
+			<string>Insecta kor. 11: 21.</string>
 		</dict>
 	</array>
 	<key>parametersType</key>
