@@ -1,8 +1,8 @@
 <?php
 
+// experiments parsing collation information
 
-
-function locator_parser($string, $debug = false)
+function collation_parser($string, $debug = false)
 {
 	// definitions
 	$range_split_pattern = '[-|–]';
@@ -364,7 +364,7 @@ if (0)
 
 	foreach ($strings as $string)
 	{
-		$result = locator_parser($string, true);
+		$result = collation_parser($string, true);
 		
 		print_r($result);
 

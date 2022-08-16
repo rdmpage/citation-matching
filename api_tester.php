@@ -1,11 +1,11 @@
 <?php
 
 require_once (dirname(__FILE__) . '/api_utilities.php');
-require_once (dirname(__FILE__) . '/fsa.php');
+require_once (dirname(__FILE__) . '/collation_parser.php');
 
 $doc = http_get_endpoint(["q"]);
 
-$doc->result = locator_parser($doc->q);
+$doc->result = collation_parser($doc->q);
 
 if (1)
 {
