@@ -37,7 +37,7 @@ function get_abbreviation($term)
 	while (!$done)
 	{
 		// exact match
-		$sql = 'SELECT * FROM ltwa20210702 WHERE words="' . $query_term . '" COLLATE NOCASE;';
+		$sql = 'SELECT * FROM ltwa20210702 WHERE words="' . str_replace('"', '""', $query_term) . '" COLLATE NOCASE;';
 	
 		$result = do_query($sql);
 	
@@ -65,7 +65,7 @@ function get_abbreviation($term)
 				
 				// if we don't have match for a longer string, truncate and go again
 				$query_term = mb_substr($query_term, 0, $query_length) . '-';
-				$sql = 'SELECT * FROM ltwa20210702 WHERE words="' . $query_term . '" COLLATE NOCASE;';
+				$sql = 'SELECT * FROM ltwa20210702 WHERE words="' . str_replace('"', '""', $query_term) . '" COLLATE NOCASE;';
 		
 				$result = do_query($sql);
 		
@@ -261,6 +261,7 @@ if (1)
 
 	$strings=array(
 	'Tropical Lepidoptera', 
+	'Bulletin of the Osaka Museum of Natural History',
 	);
 	
 
