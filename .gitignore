@@ -2,5 +2,6 @@
 .DS_Store
 env.php
 /cache/*.json
+!/cache/abbreviations.json
 
 /junk/
