@@ -435,7 +435,13 @@ function parse($text)
 					break;
 					
 				case 'page':
-					//$obj->{$k} = preg_replace('/\.$/', '', $obj->{$k});
+					// if we have a page range we take first page, 
+					// we will handle full collation later
+					$parts = preg_split('/-/u', $obj->{$k});
+					if (count($parts) > 1)
+					{
+						$obj->{$k} = $parts[0];
+					}
 					break;
 			
 				default:
@@ -633,6 +639,8 @@ if (0)
 'Arch. Naturgesch. 85(A)(4): 63.',
 'Acta ent. bohemoslovaca 73: 175; 182 [key], figs 1, 2, 6, 8, 9.',
 'Far Eastern Entomologist (127): 4 [key], 10, figs 3, 4, 29. Acanthophila (A.).',
+
+'Muelleria 2(1): 21-23',
 	);
 	
 
