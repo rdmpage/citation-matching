@@ -4,6 +4,7 @@
 
 
 require_once(dirname(__FILE__) . '/database/sqlite.php');
+require_once(dirname(__FILE__) . '/compare.php');
 
 //----------------------------------------------------------------------------------------
 // ISSNs from title
@@ -22,6 +23,43 @@ function issn_from_title ($title)
 	foreach ($result as $row)
 	{
 		$issns[] = $row->issn;
+	}
+	
+	if (count($issns) == 0)
+	{
+		// try approx match
+		$like_title = preg_replace('/(\.\s+)/', '% ', $title);
+		
+		// echo $title;
+		
+		$sql = 'SELECT DISTINCT title, issn FROM issn WHERE title LIKE "' . addcslashes($like_title, '"') . '" COLLATE NOCASE;';
+
+		// echo $sql;
+	
+		$result = do_query($sql);
+		
+		// get best match...
+		$max_score = 0;
+				
+		foreach ($result as $row)
+		{		
+			$result = compare_common_subsequence(
+				$title, 
+				$row->title,
+				false);
+
+			if ($result->normalised[1] > 0.95)
+			{
+				// one string is almost an exact substring of the other
+				if ($result->normalised[1] > $max_score)
+				{
+					$max_score = $result->normalised[1];
+					$issns = array($row->issn);
+				}
+			}
+		}
+	
+	
 	}
 	
 	return $issns;
@@ -81,6 +119,7 @@ function get_bhl_title_from_text($text)
 		case 'Exotic Microlep.':
 		case 'Exot. Microlepid.':
 		case 'Exotic microlepidoptera':
+		case 'Exotic Microlepidoptera.':
 			$titles = array(9241);
 			break;			
 	
@@ -88,9 +127,17 @@ function get_bhl_title_from_text($text)
 			$titles = array(45481);
 			break;
 			
+		case 'Horae Soc. ent. ross.':
+			$titles = array(87655);
+			break;			
+			
 		case 'Isis von Oken':
 		case 'Isis, Leipzig':
 			$titles = array(13271);
+			break;
+			
+		case 'J. Dep. Agric. P. Rico':
+			$titles = array(143341);
 			break;
 			
 		case 'List Specimens lepid. Insects Colln Br. Mus.':
@@ -103,6 +150,10 @@ function get_bhl_title_from_text($text)
 			
 		case 'Telopea':
 			$titles = array(157010);
+			break;
+
+		case 'Wien. ent. Mschr.':
+			$titles = array(45022);
 			break;
 		
 		default:
