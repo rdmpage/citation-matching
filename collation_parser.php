@@ -342,7 +342,7 @@ function collation_parser($string, $debug = false)
 
 
 // test
-if (0)
+if (1)
 {
 	$strings = array(
 	//"27, 28 [keys], 32, figs 26, 27, 103, pl. C, fig. 17.",
@@ -359,7 +359,8 @@ if (0)
 	//" 365–367, plate 21.",
 
 
-		"1 [hi] 3-5,7 "
+//		"1 [hi] 3-5,7 ",
+		"2-4 [keys], 19, text-fig. 9, pl. 2, fig. 12.",
 	);
 
 	foreach ($strings as $string)
@@ -374,7 +375,3 @@ if (0)
 }
 
 ?>
-
-
-
-

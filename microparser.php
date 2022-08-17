@@ -198,7 +198,9 @@ function parse($text)
 	
 	$comment_pattern = '(\s*\[[^\]]+\])?';
 
-	$date_pattern 		= "(\d+\s+)?([A-Z]|[a-z]|\'|-)+(\s+\d+)?";
+	//$date_pattern 		= "(\d+\s+)?([A-Z]|[a-z]|\'|-)+(\s+\d+)?";
+	
+	$year_pattern = '(?<year>\(?[0-9]{4}\)?,?)';
 
 	// include delimiter after journal, also include series in this pattern
 	$journal_pattern 	= "(?<journal>.*)(\s+\(\d+\))?[,]?";
@@ -207,7 +209,10 @@ function parse($text)
 	$journal_pattern = "(?<journal>([\p{L}]+[\.|,]?)((\s+[\p{L}]+[\.|,]?)+)?[,]?(\s+\((N.S.|\d+)\))?)";
 	$journal_pattern = "(?<journal>([\p{L}]+[\.|,]?)((\s+[\p{L}]+[\.|,]?)+)?[,]?(\s+\((N.S.|\d+)\))?(\([A-Z]\))?)";
 	$journal_pattern = "(?<journal>([\p{L}]+\.?,?)((\s*[\p{L}]+\.?\,?)+)?[,]?(\s+\((N.S.|\d+)\))?(\([A-Z]\))?)";
+
+	// current
 	$journal_pattern = "(?<journal>([\p{L}]+\.?,?)((\s*[\p{L}]+\.?\,?)+)?[,]?(\s+\([^\)]+\))?)";
+	$journal_pattern = "(?<journal>([\p{L}]+\.?,?)((\s*[\p{L}]+\.?\,?)+)?[,]?(\s*\([^\)]+\))?)";
 
 	// include issue in "volume", and include delimiter
 	$volume_pattern 	= "(?<volume>\d+[A-Z]?(-\d+)?(\s*\(\d+(-\d+)?\))?[,|:]?)";
@@ -215,41 +220,46 @@ function parse($text)
 	$volume_pattern 	= "(?<volume>\d+[A-Z]?(-\d+)?(\s*\(\d+(-\d+)?\))?(,?\s+(no|fasc)\.\s+\d+)?[,|:]?)";
 
 	$volume_pattern 	= "(?<volume>(No.\s+)?\d+[A-Z]?(-\d+)?(\s*\(\d+(-\d+)?\))?(,?\s+(no|fasc)\.\s+\d+)?[,|:]?)";
+
+	// current
 	$volume_pattern 	= "\s*(?<volume>(No.\s+)?\d+[A-Z]?(-\d+)?(\s*\([^\)]+\))?(,?\s+(no|fasc)\.\s+\d+)?[,|:])";
 
 
 	// include delimiter
-	$page_pattern 		= "(?<page>(\d+|[xvlci]+))" . $comment_pattern . "[\.]?";
+	$page_pattern 		= "(?<page>(\d+|[xvlci]+)(-(\d+|[xvlci]+))?)" . $comment_pattern . "[\.]?";
 
 	// figures, plates, etc.
-	$extra_pattern = "(,\s+(.*))?";
+	$extra_pattern = "([,|;]\s+(.*))?";
 	
 	$collation_pattern = '\s*(?<collation>' . $page_pattern  . $extra_pattern . ')';
 	
 	
 	$journal_simple = '(?<journal>(\s*[\-|\']?[\p{L}]+[\.]?[,]?)+(\s*\([^\)]+\))?)';
+	$journal_simple = '(?<journal>(\s*[\-|\']?[\p{L}]+[\.]?[,]?)+(\s*\([^\)]+\)){0,})';
 
 	// Biologia cent.-am. (Zool.) Lepid.-Heterocera
 	$journal_para = '(?<journal>(\s*[\-]?[\p{L}]+[\.]?[,]?)+(\s*\([^\)]+\))\s*(\s*[\-]?[\p{L}]+[\.]?[,]?)+)';
 		
 		
-	// authorship
-	
-	$name_pattern = '((\p{Lu}\.)+\s*)?\p{Lu}\p{L}+';
+	// authorship	
+	$name_pattern = '((\p{Lu}\.)+\s*)?\p{Lu}\p{L}+(-\p{Lu}\p{L}+)?';
 	
 	// in(,?\s+(\p{Lu}\p{L}+))+\s+&\s+(\p{Lu}\p{L}+|al\.),\s+
 	
-	$in_authors = '(,?\s*' . $name_pattern . ')+(\s+&\s+' . '(' . $name_pattern . '|al\.))?';
+	$authors = '(,?\s*' . $name_pattern . ')+(\s+&\s+' . '(' . $name_pattern . '|al\.))?';
 		
-
 	$matched = false;	
 	$matches = array();
 	
 	$patterns = array(
 	
 		// authorship prefix
-		'/^(?<author>[I|i]n\s+' . $in_authors . ',)\s+' . $journal_simple . $volume_pattern . $collation_pattern . '/u',
-		'/^(?<author>[I|i]n\s+' . $in_authors . ',)\s+' . $journal_simple . '[,|:]' . $collation_pattern . '/u',
+		'/^(?<author>[I|i]n\s+' . $authors . ',)\s+' . $journal_simple . $volume_pattern . $collation_pattern . '/u',
+		'/^(?<author>[I|i]n\s+' . $authors . ',)\s+' . $journal_simple . '[,|:]' . $collation_pattern . '/u',
+
+		'/^(?<author>[I|i]n\s+' . $authors . ',)\s*' . $year_pattern . '\s*' . $journal_simple . $volume_pattern . $collation_pattern . '/u',
+
+		'/^(?<author>' . $authors . ',?)\s*' . $year_pattern . '\s*' . $journal_simple . $volume_pattern . $collation_pattern . '/u',
 		
 		// complex journal pattern
 		'/^' . $journal_para  .  $volume_pattern . $collation_pattern . '/u',
@@ -265,9 +275,11 @@ function parse($text)
 		'/^' . $journal_simple . '/u'
 	);
 	
-	//print_r($patterns);
-	
-	//exit();
+	if (0)
+	{
+		print_r($patterns);	
+		exit();
+	}
 	
 	$num_patterns = count($patterns);
 	
@@ -359,6 +371,16 @@ function parse($text)
 							}
 							break;
 					
+						case 'year':
+							$year = $match[0];
+							$year = preg_replace('/[,\(\)]/', '', $year);							
+							if (!isset($obj->issued))
+							{
+								$obj->issued = new stdclass;
+								$obj->issued->{'date-parts'} = array();
+							}
+							$obj->issued->{'date-parts'}[0][0] = (Integer)$year;
+							break;						
 					
 						case 'journal':
 							$obj->{'container-title'} = $match[0];
@@ -379,7 +401,7 @@ function parse($text)
 			{
 			
 				case 'container-title':
-					$obj->{$k} = preg_replace('/\,$/', '', $obj->{$k});
+					$obj->{$k} = preg_replace('/,$/', '', $obj->{$k});
 					$obj->{$k} = preg_replace('/No\.$/', '', $obj->{$k});
 					break;
 					
@@ -567,6 +589,50 @@ if (0)
 	'In Wocke & Staudinger, Stettin. ent. Ztg 23: 236.',
 	'In Joannis, Annls Soc. ent. Fr. 98(Suppl.): 724 [486].',
 	'In Caradja & Meyrick, Mater. Microlepid. Fauna chin. Provinzen Kiangsu, Chekiang, Hunan: 75.',
+	);
+	
+	$publications = array(
+	'in Landry & Roque-Albelo, Revue suisse Zool. 117: 730, figs 23-26, 66, 67, 93.',
+	'in Park & Kim, 2016, Oriental Insects 50: 172, figs 1(A-H).',
+	'Zootaxa 4059(3): 406-408 [keys], 416, figs 16-18, 61, 87, 114-116.',
+	'Verh. zool.-bot. Ges. Wien 57: (213).',
+	'Ruwenzori Exped. 1952 2: 97, figs 23, 24, 111-114.',
+	'Proc. ent. Soc. Philad. 2: 119; 120 [key].',
+	'P?írodov. Pr. ?esk. Akad. V?d. Brn? (N.S.)1: 217, pl. 4, figs 25, 26, pl. 16, fig. 4.',
+	'Insecta kor. 11: 2-4 [keys], 19, text-fig. 9, pl. 2, fig. 12.',
+	'In Ler (ed.), Opred. Nasekom. dal\'nego Vost. Ross. 5(2): 153.',
+	'In Alluaud & Jeannel, Voyage Alluaud & Jeannel Afr. or. (Lépid.) 2: 71.',
+	'Comb. rev. ? P?írodov. Pr. ?esk. Akad. V?d. Brn? (N.S.)3(12): 21, pl. 28, fig. 102, pl. 31, fig. 28.',
+	'Arch. Naturgesch. 85(A)(4): 63.',
+	'(May 9), Proc. U.S. natn. Mus. 25: 855 [key], 871.',
+	);
+
+	$publications = array(
+//	'in Landry & Roque-Albelo, Revue suisse Zool. 117: 730, figs 23-26, 66, 67, 93.',
+	'in Park & Kim, 2016, Oriental Insects 50: 172, figs 1(A-H).',
+//	'Breslin, P. B., & Majure. (2021). In: Taxon 70(2): 318.', // fail
+	//'Zootaxa 4059(3): 406-408 [keys], 416, figs 16-18, 61, 87, 114-116.',
+	
+	//'In Alluaud & Jeannel, Voyage Alluaud & Jeannel Afr. or. (Lépid.) 2: 71.',
+	//'Voyage Alluaud & Jeannel Afr. or. (Lépid.) 2: 71.',
+	//'In Alluaud & Jeannel, Voyage Alluaud and Jeannel Afr. or. (Lépid.) 2: 71.',
+	
+	'Meyrick (1929) Exotic Microlepidoptera. 3: 4510',
+	'Meyrick (1938) Deutsche Entomologische Zeitschrift, Iris. 52: 3003',
+	'Mém. Comité Liaison Rech. ecofaun. Jura 12: 80; 109, 110, 112 [keys], pl. 24, figs 1, 2.',
+	'Mém. Mus. natn. Hist. nat. Paris (N.S.)(A)37: 74, pl. 5, fig. 4.',
+	'P?írodov. Pr. ?esk. Akad. V?d. Brn? (N.S.)7(2): 18.', // encoding errors, doomed
+	'Reise öst. Fregatte Novara (Zool.)2(Abt. 2): pl. 138, fig. 43.',
+	'Revta Lepid. 27: 382; 384 [key], figs 5; 24 [as auroalba].',
+	
+	// bad
+		'Ruwenzori Exped. 1952 2: 97, figs 23, 24, 111-114.',
+		'Samml. eur. Schmett. 8: pl. 41, fig. 281.',
+		'Trav. Mus. Hist. nat. `Gr. Antipa\' 32: 166.',
+'Walker (1864) List of the specimens of lepidopterous insects in the collection of the British Museum. (29). Available from https://www.biodiversitylibrary.org/page/38948139: 6357',
+'Arch. Naturgesch. 85(A)(4): 63.',
+'Acta ent. bohemoslovaca 73: 175; 182 [key], figs 1, 2, 6, 8, 9.',
+'Far Eastern Entomologist (127): 4 [key], 10, figs 3, 4, 29. Acanthophila (A.).',
 	);
 	
 
