@@ -41,22 +41,24 @@ Green Thumb: #dcf3d0
   
 	}	
 	
+	/*https://www.color-hex.com/color-palette/35021 */
+	
 	.green {
-		background:#dcf3d0;
+		background:#2dc937;
 		/*color:rgb(252, 241, 144);*/
 	}
 	
 	.yellow {
-		background:#fff1b5;
+		background:#e7b416;
 	}
 	
 	
 	.orange {
-		background:#fef6dd;
+		background:#db7b2b;
 	}
 
 	.red {
-		background:#ffe1d0;
+		background:#cc3232;
 		/*color:rgb(252, 241, 144);*/
 	}
 	
@@ -121,7 +123,7 @@ Green Thumb: #dcf3d0
 
 $filename = "muelleria.json";
 $filename = "telopea.json";
-$filename = "x.json";
+$filename = "m.json";
 
 $counter = 1;
 
@@ -219,8 +221,14 @@ echo '	</div>';
 
 echo '	<div class="column">';
 echo ' <h3>Page image</h3>';
-//echo '		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/' . $obj->matched . '">';
-echo '		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/' . $obj->image . '">';
+if (1)
+{
+	echo '		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/https://www.biodiversitylibrary.org/pageimage/' . $obj->matched . '">';
+}
+else
+{
+	echo '		<img width="100%" src="https://aipbvczbup.cloudimg.io/s/height/700/' . $obj->image . '">';
+}
 echo '	</div>';
 
 
@@ -234,10 +242,12 @@ echo '</div>	';
 		echo '</details>';
 	}	
 	
+	/*
 	if ($counter++ > 200)
 	{
 		break;
 	}
+	*/
 }	
 
 ?>

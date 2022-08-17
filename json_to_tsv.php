@@ -2,6 +2,8 @@
 
 // read JSONL and export simple TSV
 $filename = "sheets/muelleria.json";
+$filename = "mulleria.json";
+
 
 $counter = 1;
 
@@ -15,6 +17,8 @@ $headings = array(
 'matched',
 'citation',
 );
+
+echo join("\t", $headings) . "\n";
 
 $file_handle = fopen($filename, "r");
 while (!feof($file_handle)) 
@@ -69,7 +73,7 @@ while (!feof($file_handle))
 		}
 		*/
 		
-		if ($ok)
+		//if ($ok)
 		{
 			$output_row = array();
 			
@@ -96,10 +100,13 @@ while (!feof($file_handle))
 			
 			echo join("\t", $output_row) . "\n";
 			
+			/*
 			if ($counter++ == 10)
 			{
 				break;
 			}
+			*/
+			
 		}
 	}
 }	
