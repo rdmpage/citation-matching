@@ -219,10 +219,10 @@ function parse($text)
 	$volume_pattern 	= "(?<volume>\d+[A-Z]?(-\d+)?(\s*\(\d+(-\d+)?\))?(,?\s+fasc\.\s+\d+)?[,|:]?)";
 	$volume_pattern 	= "(?<volume>\d+[A-Z]?(-\d+)?(\s*\(\d+(-\d+)?\))?(,?\s+(no|fasc)\.\s+\d+)?[,|:]?)";
 
-	$volume_pattern 	= "(?<volume>(No.\s+)?\d+[A-Z]?(-\d+)?(\s*\(\d+(-\d+)?\))?(,?\s+(no|fasc)\.\s+\d+)?[,|:]?)";
+	$volume_pattern 	= "(?<volume>([N|n]o.\s+)?\d+[A-Z]?(-\d+)?(\s*\(\d+(-\d+)?\))?(,?\s+(no|fasc)\.\s+\d+)?[,|:]?)";
 
 	// current
-	$volume_pattern 	= "\s*(?<volume>(No.\s+)?\d+[A-Z]?(-\d+)?(\s*\([^\)]+\))?(,?\s+(no|fasc)\.\s+\d+)?[,|:])";
+	$volume_pattern 	= "\s*(?<volume>([N|n]o.\s+)?\d+[A-Z]?(-\d+)?(\s*\([^\)]+\))?(,?\s+(no|fasc)\.\s+\d+)?[,|:])";
 
 
 	// include delimiter
@@ -264,9 +264,15 @@ function parse($text)
 		// complex journal pattern
 		'/^' . $journal_para  .  $volume_pattern . $collation_pattern . '/u',
 		
+		// journal and date then volume
+		'/^' . $journal_simple . '\s*' . $year_pattern . $volume_pattern . $collation_pattern . '/u',
+		
 		// articles
 		'/^' . $journal_simple . $volume_pattern . $collation_pattern . '/u',
 		'/^' . $journal_simple . $volume_pattern . '/u',
+		
+		// month prefix
+		'/^' . '(?<date>\((January|February|March|April|May|June|July|August|September|October|November|December)(\s*(\d+))?\),)\s+' . $journal_simple . $volume_pattern . $collation_pattern . '/u',
 
 		// monographs
 		'/^' . $journal_simple . '[,|:]' . $collation_pattern . '/u',
@@ -283,21 +289,58 @@ function parse($text)
 	
 	$num_patterns = count($patterns);
 	
-	
-	$i = 0;
-
-	while ($i < $num_patterns && !$matched)
+	if (0)
 	{
-		if (preg_match($patterns[$i], $text, $matches, PREG_OFFSET_CAPTURE))
+		// first match wins
+		$i = 0;
+		while ($i < $num_patterns && !$matched)
 		{
-			$obj->pattern = $patterns[$i];
-			$matched = true;
-		}
-		else
-		{
-			$i++;
+			if (preg_match($patterns[$i], $text, $matches, PREG_OFFSET_CAPTURE))
+			{
+				// store the pattern
+				$obj->pattern = $patterns[$i];
+			
+				// keep the matches
+				$obj->matches = $matches;
+			
+				// score the match			
+				$obj->score = round(match_span($text, $matches), 2);	
+
+				$matched = true;
+			}
+			else
+			{
+				$i++;
+			}
 		}
 	}
+	
+	if (1)
+	{
+		// best match wins
+		$obj->score = 0;
+		$obj->pattern = '';
+		for ($i = 0; $i < $num_patterns; $i++)
+		{
+			if (preg_match($patterns[$i], $text, $matches, PREG_OFFSET_CAPTURE))
+			{
+				$score = round(match_span($text, $matches), 2);	
+				if ($score > $obj->score)
+				{
+					// store the pattern
+					$obj->pattern = $patterns[$i];
+			
+					// keep the matches
+					$obj->matches = $matches;
+			
+					// score the match			
+					$obj->score = round(match_span($text, $matches), 2);	
+
+					$matched = true;					
+				}
+			}	
+		}
+	}	
 	
 	
 	/*
@@ -336,7 +379,7 @@ function parse($text)
 		
 		$obj->status = 200;	
 		
-		foreach ($matches as $tag => $match)
+		foreach ($obj->matches as $tag => $match)
 		{
 			if (is_numeric($tag))
 			{
@@ -380,7 +423,11 @@ function parse($text)
 								$obj->issued->{'date-parts'} = array();
 							}
 							$obj->issued->{'date-parts'}[0][0] = (Integer)$year;
-							break;						
+							break;	
+							
+							// eat for now
+						case 'date':
+							break;					
 					
 						case 'journal':
 							$obj->{'container-title'} = $match[0];
@@ -450,13 +497,14 @@ function parse($text)
 		
 		}
 		
-		// to do: parse the "colaltion" into pages, plates, figures, etc.
+		// to do: parse the "collation" into pages, plates, figures, etc.
 		
 		// add tagging
-		$obj->xml = match_to_tags($text, $matches);
+		$obj->xml = match_to_tags($text, $obj->matches);
 		
-		// score the match			
-		$obj->score = round(match_span($text, $matches), 2);	
+		// cleanup
+		unset($obj->matches);
+		
 	}
 	else
 	{
@@ -629,7 +677,7 @@ if (0)
 	'Mém. Mus. natn. Hist. nat. Paris (N.S.)(A)37: 74, pl. 5, fig. 4.',
 	'P?írodov. Pr. ?esk. Akad. V?d. Brn? (N.S.)7(2): 18.', // encoding errors, doomed
 	'Reise öst. Fregatte Novara (Zool.)2(Abt. 2): pl. 138, fig. 43.',
-	'Revta Lepid. 27: 382; 384 [key], figs 5; 24 [as auroalba].',
+	//'Revta Lepid. 27: 382; 384 [key], figs 5; 24 [as auroalba].',
 	
 	// bad
 		'Ruwenzori Exped. 1952 2: 97, figs 23, 24, 111-114.',
@@ -637,11 +685,20 @@ if (0)
 		'Trav. Mus. Hist. nat. `Gr. Antipa\' 32: 166.',
 'Walker (1864) List of the specimens of lepidopterous insects in the collection of the British Museum. (29). Available from https://www.biodiversitylibrary.org/page/38948139: 6357',
 'Arch. Naturgesch. 85(A)(4): 63.',
-'Acta ent. bohemoslovaca 73: 175; 182 [key], figs 1, 2, 6, 8, 9.',
+//'Acta ent. bohemoslovaca 73: 175; 182 [key], figs 1, 2, 6, 8, 9.',
 'Far Eastern Entomologist (127): 4 [key], 10, figs 3, 4, 29. Acanthophila (A.).',
 
-'Muelleria 2(1): 21-23',
+//'Muelleria 2(1): 21-23',
 	);
+	
+	$publications = array(
+//'Ruwenzori Exped. 1952 2: 97, figs 23, 24, 111-114.',
+//'Acta ent. bohemoslovaca 73: 175; 182 [key], figs 1, 2, 6, 8, 9.',
+//'Reise öst. Fregatte Novara (Zool.)2(Abt. 2): pl. 138, fig. 43.',
+'(May 9), Proc. U.S. natn. Mus. 25: 855 [key], 871.',
+'(May), Biologia cent.-am. (Zool.) Lepid.-Heterocera 4: 78.',
+'(November), Entomologist\'s mon. Mag. 40: 268.',
+	);	
 	
 
 	foreach ($publications as $text)
