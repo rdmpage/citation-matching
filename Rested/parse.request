@@ -32,6 +32,62 @@
 			<key>parameter</key>
 			<string>q</string>
 			<key>value</key>
+			<string>in Bidzilya, Mey &amp; Agassiz, Dt. ent. Z. 63: 48, 49 [keys], 57, figs 24, 25, 54, 76.</string>
+		</dict>
+		<dict>
+			<key>inUse</key>
+			<false/>
+			<key>parameter</key>
+			<string>q</string>
+			<key>value</key>
+			<string>Ent. scand. 27: 129 [key], 157, figs 15, 86.</string>
+		</dict>
+		<dict>
+			<key>inUse</key>
+			<false/>
+			<key>parameter</key>
+			<string>q</string>
+			<key>value</key>
+			<string>Rec. Ind. Mus., 5, 313.</string>
+		</dict>
+		<dict>
+			<key>inUse</key>
+			<false/>
+			<key>parameter</key>
+			<string>q</string>
+			<key>value</key>
+			<string>Ann. Mag. nat. Hist., (8) 6, 480.</string>
+		</dict>
+		<dict>
+			<key>inUse</key>
+			<false/>
+			<key>parameter</key>
+			<string>q</string>
+			<key>value</key>
+			<string>Muelleria 2(1): 21-23</string>
+		</dict>
+		<dict>
+			<key>inUse</key>
+			<false/>
+			<key>parameter</key>
+			<string>q</string>
+			<key>value</key>
+			<string>Catal. Amer. Hesperiid. Brit. Mus. (Nat. Hist.) pt. IV, 266, 292.</string>
+		</dict>
+		<dict>
+			<key>inUse</key>
+			<false/>
+			<key>parameter</key>
+			<string>q</string>
+			<key>value</key>
+			<string>Bull. Soc. ent. Fr. 1908: 141.</string>
+		</dict>
+		<dict>
+			<key>inUse</key>
+			<false/>
+			<key>parameter</key>
+			<string>q</string>
+			<key>value</key>
 			<string>Insecta kor. 11: 21.</string>
 		</dict>
 	</array>

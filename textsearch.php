@@ -193,6 +193,9 @@ function find_in_text($needle, $haystack, $case_insensitive = false, $max_error 
 		// store this hit
 		$hit = new stdclass;
 		
+		// store the score
+		$hit->score = $d;
+		
 		//$hit->alignment = $alignment;
 		
 		// location in haystack (i.e., text before any change in case)

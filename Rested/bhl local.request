@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>baseURL</key>
-	<string>http://localhost/citation-matching/api_bhl_ts.php</string>
+	<string>http://localhost/citation-matching/api_bhl_db.php</string>
 	<key>bodyString</key>
 	<string>{
     "status": 200,
-    "container-title": "Dt. ent. Z. Iris",
-	"volume": "48",
-	"page" : "35"
-} </string>
+    "container-title": "Exot. Microlepid.",
+    "volume": "2",
+    "page": "235"
+}</string>
 	<key>followRedirect</key>
 	<true/>
 	<key>handleJSONPCallbacks</key>

@@ -148,6 +148,10 @@ function get_bhl_title_from_text($text)
 			$titles = array(64180);
 			break;
 			
+		case 'Nota lepid.':
+			$titles = array(79076);
+			break;			
+			
 		case 'Telopea':
 			$titles = array(157010);
 			break;

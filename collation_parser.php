@@ -2,6 +2,7 @@
 
 // experiments parsing collation information
 
+//----------------------------------------------------------------------------------------
 function collation_parser($string, $debug = false)
 {
 	// definitions
@@ -341,8 +342,9 @@ function collation_parser($string, $debug = false)
 }
 
 
+//----------------------------------------------------------------------------------------
 // test
-if (1)
+if (0)
 {
 	$strings = array(
 	//"27, 28 [keys], 32, figs 26, 27, 103, pl. C, fig. 17.",

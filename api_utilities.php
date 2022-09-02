@@ -148,7 +148,7 @@ function http_post_endpoint($required_parameters = array())
 		{
 			$doc = new stdclass;
 			$doc->status = 400;
-			$doc->message = json_last_error_msg();
+			$doc->message = "Error parsing JSON: " . json_last_error_msg();
 	
 			send_doc($doc);	
 		}

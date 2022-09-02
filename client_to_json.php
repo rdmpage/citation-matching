@@ -10,17 +10,20 @@ function match_name_and_citation($name_id, $name, $citation)
 {
 	
 	// 0. Parse the taxon name to strip out authors	
-	$pp = new Parser();
-	$parser_result = $pp->parse($name);
-	
-	if (isset($parser_result->scientificName))
+	if (0)
 	{
-		if ($parser_result->scientificName->parsed)
+		$pp = new Parser();
+		$parser_result = $pp->parse($name);
+	
+		if (isset($parser_result->scientificName))
 		{
-			$name = $parser_result->scientificName->canonical;
+			if ($parser_result->scientificName->parsed)
+			{
+				$name = $parser_result->scientificName->canonical;
+			}
 		}
 	}
-		
+	
 	$output = new stdclass;
 	
 	$output->id				= $name_id;
@@ -50,7 +53,8 @@ function match_name_and_citation($name_id, $name, $citation)
 		$output->parsed = true;
 		
 		// 2. Now find corresponding BHL page(s) and get page text		
-		$url = 'http://localhost/citation-matching/api_bhl_ts.php';
+		//$url = 'http://localhost/citation-matching/api_bhl_ts.php'; // triple store
+		$url = 'http://localhost/citation-matching/api_bhl_db.php'; // local database
 		
 		$json = post($url, $doc);
 		
@@ -138,6 +142,10 @@ $input_filename = 'sheets/muelleria-input.tsv';
 //$input_filename = 'Telopea.tsv';
 
 //$input_filename = 'test.tsv'; // non BHL
+
+$input_filename = 'nota.tsv';
+//$input_filename = 'exotic.tsv';
+
 
 
 $headings = array();

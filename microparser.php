@@ -2,6 +2,8 @@
 
 // Parse a microcitation
 
+require_once (dirname(__FILE__) . '/collation_parser.php');
+
 //----------------------------------------------------------------------------------------
 // Output the regex matching using XML-style tags for debugging, and with an eye on
 // generating training data.
@@ -247,6 +249,10 @@ function parse($text)
 	// in(,?\s+(\p{Lu}\p{L}+))+\s+&\s+(\p{Lu}\p{L}+|al\.),\s+
 	
 	$authors = '(,?\s*' . $name_pattern . ')+(\s+&\s+' . '(' . $name_pattern . '|al\.))?';
+	
+	$month_en = '(January|February|March|April|May|June|July|August|September|October|November|December)';
+	
+	$months = '([A-Z]\w+(-[A-Z]\w+)?)';
 		
 	$matched = false;	
 	$matches = array();
@@ -270,9 +276,13 @@ function parse($text)
 		// articles
 		'/^' . $journal_simple . $volume_pattern . $collation_pattern . '/u',
 		'/^' . $journal_simple . $volume_pattern . '/u',
+
+		'/^' . $journal_simple . $volume_pattern .  '\s+(?<date>' . $months . ':)' . $collation_pattern . '/u',
+
 		
 		// month prefix
-		'/^' . '(?<date>\((January|February|March|April|May|June|July|August|September|October|November|December)(\s*(\d+))?\),)\s+' . $journal_simple . $volume_pattern . $collation_pattern . '/u',
+		'/^' . '(?<date>\(' . $month_en . '(\s*(\d+))?\)\]?,)\s+' . $journal_simple . $volume_pattern . $collation_pattern . '/u',
+		'/^' . '(?<date>\(' . $month_en . '(\s*(\d+))?\)\]?,)\s+' . '(?<author>[I|i]n\s+' . $authors . ',)\s+' . $journal_simple . $volume_pattern . $collation_pattern . '/u',
 
 		// monographs
 		'/^' . $journal_simple . '[,|:]' . $collation_pattern . '/u',
@@ -432,6 +442,45 @@ function parse($text)
 						case 'journal':
 							$obj->{'container-title'} = $match[0];
 							break;
+							
+							// eat as we want to parse the collation
+						case 'page':
+							break;							
+							
+						case 'collation':
+							$collation = collation_parser($match[0]);
+							
+							// if we've parsed the collation try and extract the first "main page"
+							if (isset($collation->locator))
+							{
+								// store parsed data
+								$obj->{$tag} = $collation->locator;
+								
+								// extract first "significant" page
+								$page_name = '';
+								foreach ($collation->locator->page as $page)
+								{
+									if ($page_name == '' && !isset($page->comment))
+									{
+										$page_name = $page->name;
+									}
+								}
+								
+								if ($page_name != '')
+								{
+									$obj->page = $page_name;
+								}
+							}
+							else
+							{
+								// failed to parse, create object so we can still store the text
+								$obj->{$tag} = new stdclass;
+							}
+							
+							// store 
+							$obj->{$tag}->value = $match[0];
+							break;
+							
 						
 						default:
 							$obj->{$tag} = $match[0];
@@ -698,8 +747,28 @@ if (0)
 '(May 9), Proc. U.S. natn. Mus. 25: 855 [key], 871.',
 '(May), Biologia cent.-am. (Zool.) Lepid.-Heterocera 4: 78.',
 '(November), Entomologist\'s mon. Mag. 40: 268.',
-	);	
+'(January 13)], in Dyar, Bull. U.S. natn. Mus. 52: 499.',
+
 	
+	);
+	
+	
+// NZ, notice the months and sometimes days on some of these, lots to do here...	
+	$publications = array(
+
+'Journal of Natural History 28(2), March-April: 480.',
+'Acarologia (Paris) 34(4), Octobre: 289.',
+'Atalanta (Markleuthen) 24(1-4), Juli: 231.',
+'Bulletin de la Societe Entomologique de France 97(4), octobre: 333.',
+'Courier Forschungsinstitut Senckenberg 155, 1 Marz: 173.',
+'Canadian Journal of Earth Sciences 30(10-11), October-November: 2129.',
+'Bulletin of the National Science Museum Series A (Zoology) 19(3), September 22: 118.',
+'The generic names of moths of the world. Vol.1. Noctuoidea (part): Noctuidae, Agaristidae, and Nolidae. Publs Br.Mus.nat.Hist.,London No.770: 432.',
+	);
+	
+ $publications = array( 
+  'Ent. scand. 27: 129 [keys], 146, figs 9, 31, 52, 53, 64, 80.',
+  );
 
 	foreach ($publications as $text)
 	{
