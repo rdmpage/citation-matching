@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>baseURL</key>
-	<string>http://localhost/citation-matching/api_bhl_db.php</string>
+	<string>http://localhost/citation-matching/api/bhl_db.php</string>
 	<key>bodyString</key>
 	<string>{
     "status": 200,

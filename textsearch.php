@@ -1,7 +1,10 @@
 <?php
 
-require_once (dirname(__FILE__) . '/config.inc.php');
+error_reporting(E_ALL);
+
 require_once (dirname(__FILE__) . '/php-approximate-search/approximate-search.php');
+
+define ('FLANKING_LENGTH', 32);
 
 //----------------------------------------------------------------------------------------
 // https://kvz.io/reverse-a-multibyte-string-in-php.html
@@ -74,11 +77,42 @@ function compare($needle, $haystack)
 	// score
 	$obj->d = $C[$m][$n];
 	
+	/*
+	echo "   ";
+	for ($j = 1; $j <= $n; $j++)
+	{
+		echo str_pad(ord(mb_substr($Y, $j - 1, 1)) , 3, 'x', STR_PAD_LEFT);
+	}
+	echo "\n";
+	for ($i = 1; $i <= $m; $i++)
+	{
+		echo mb_substr($X, $i - 1, 1) . ' ';
+	
+		for ($j = 1; $j <= $n; $j++)
+		{
+			echo str_pad($C[$i][$j], 3, ' ', STR_PAD_LEFT);
+		}
+		echo "\n";
+	}
+	*/
+	
 	// alignment (this is done in reverse order)
 	// we use the alignment to get start and end positions of the match in haystack
 		
 	$i = $m;
 	$j = $n;
+	
+	// Because we are getting the ongest common subsequence irrespective of gaps, we
+	// can sometimes get "ugly" alignments such as 
+	// abascantu--s
+    // |||||||||  |
+    // abascantus s
+	// To avoid these we go left in the score matrix until the scores decrease.
+	
+	while ($C[$i][$j] == $C[$i][$j-1])
+	{
+		$j--;
+	}
 	
 	while ($i > 0 && $j > 0)
 	{
@@ -129,15 +163,14 @@ function compare($needle, $haystack)
 function find_in_text($needle, $haystack, $case_insensitive = false, $max_error = 1)
 {
 	$output_html = true;
-	//$output_html = false;
+	$output_html = false;
 	
 	$result = new stdclass;
 
-	define ('MAX_ERR', $max_error);
-	define ('FLANKING_LENGTH', 32);
-	
 	$query = $needle;
 	$text = $haystack;
+	
+	$original_query = $query;
 	
 	if ($case_insensitive)
 	{
@@ -146,7 +179,7 @@ function find_in_text($needle, $haystack, $case_insensitive = false, $max_error 
 	}
 
 	// Search using approximate search
-	$search = new Approximate_Search($query, MAX_ERR);
+	$search = new Approximate_Search($query, $max_error);
 	if ( $search->too_short_err )
 	{
 		 $result->message = "Unable to search for \"" . addcslashes($query, '"') . "\" - use longer pattern " .
@@ -183,18 +216,23 @@ function find_in_text($needle, $haystack, $case_insensitive = false, $max_error 
 	
 		// grab substring from target text, make it long enough to include mismatches	
 		// by expanding either side by MAX_ERR
-		$from 	= max(0, $pos - $query_length - MAX_ERR);
-		$to 	= min(mb_strlen($text), $pos + MAX_ERR);	
+		$from 	= max(0, $pos - $query_length - $max_error);
+		$to 	= min(mb_strlen($text), $pos + $max_error);	
 		$text2 	= mb_substr($text, $from , $to - $from + 1);
 		
 		// get position of match in substring
 		$alignment = compare($text1, $text2);
+		
+		//echo $alignment->alignment;
 	
 		// store this hit
 		$hit = new stdclass;
 		
-		// store the score
-		$hit->score = $d;
+		// store query string
+		$hit->body = $original_query;
+		
+		// store the score of the alignment
+		$hit->score = $query_length - $alignment->d;
 		
 		//$hit->alignment = $alignment;
 		
@@ -205,7 +243,7 @@ function find_in_text($needle, $haystack, $case_insensitive = false, $max_error 
 		$hit->range = array($start, $end);
 		
 		// match in haystack
-		$hit->text = mb_substr($haystack, $start, $end - $start);
+		$hit->exact = mb_substr($haystack, $start, $end - $start);
 		
 		$pre_length = min($start, FLANKING_LENGTH);
 		$pre_start = $start - $pre_length;
@@ -234,11 +272,8 @@ function find_in_text($needle, $haystack, $case_insensitive = false, $max_error 
 		}
 	}
 	
-	
-	
 	if ($output_html)
 	{
-
 		// HTML for debugging
 		
 		// slit origjnal text into array of characters
@@ -369,8 +404,32 @@ if (0)
 	//print_r($doc);
 	
 
-	$result = find_in_text($doc->needle, $doc->haystack, true);
+	$result = find_in_text($doc->needle, $doc->haystack, false, 2);
 	
+	print_r($result);
+
+
+}
+
+if (0)
+{
+	$needle = "Koonalda";
+	$haystack = "\nl.A. conocephalus was originally described by Black (1929) as a variety of \nA. brachypappus. The var. conocephalus was considered to have a conical compound \nhead and var. brachypappus a cylindrical head. However the shape of the compound \nhead is quite variable. On the other hand both species exhibit distinct differences in habit \nand leaf morphology and usually pappus morphology. They are also allopatric. \nSelected Specimens Examined (5/23): \nWestern Australia — ApHn 1656, Forrest, 31.viii.1962 (PERTH); Chinnock 1151, 30 km S. of \nRawlinna, 19.ix.l973 (AD); George 8495, 30 miles NW. of Reid, 14.x. 1966 (PERTH). \nSouth Australia — Chinnock 1183, 15 km E. of Koonalda homestead, 21.ix.l973 (AD)";
+	
+$haystack = " “In loam over limestone”. \nNote: \nl.A. conocephalus was originally described by Black (1929) as a variety of \nA. brachypappus. The var. conocephalus was considered to have a conical compound \nhead and var. brachypappus a cylindrical head. However the shape of the compound \nhead is quite variable. On the other hand both species exhibit distinct differences in habit \nand leaf morphology and usually pappus morphology. They are also allopatric. \nSelected Specimens Examined (5/23): \nWestern Australia — ApHn 1656, Forrest, 31.viii.1962 (PERTH); Chinnock 1151, 30 km S. of \nRawlinna, 19.ix.l973 (AD); George 8495, 30 miles NW. of Reid, 14.x. 1966 (PERTH). \nSouth Australia — Chinnock 1183, 15 km E. of Koonalda homestead, 21.ix.l973 (AD); ";	
+
+
+$needle = "Abascantus";
+$haystack = " phaerico , convexe , intus bisinuato , concavo , apice sub torto. 
+
+Abascantus sannio Schauf. — Convexus, obovatus, nitidus, 
+ disperse-pilosus , cribrato-punctatus , abdomine supra glabro , pilosulo; 
+ antennarum articulo primo elongato , ultimum articulum fere longitu- 
+";
+
+	echo mb_strlen($haystack) . "\n";
+	
+	$result = find_in_text($needle, $haystack, true, 2);
 	print_r($result);
 
 

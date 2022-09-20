@@ -19,6 +19,9 @@ The focus will be on a set of APIs that can be used to process data, rather than
 
 The script `php client_to_json.php` will process a TSV file that must have at least columns headed `scientificname` and `citation`. It will attempt to parse these and output detailed results in a JSON file. This file can be then be output as HTML using `json_to_html.php` or TSV using `json_to_tsv.php`.
 
+## Workflow
+
+Inspired by [n8n](https://n8n.io) I’ve restructured the API as a series of calls that accept a JSON document via HTTP POST, do some work on that document, then return (a typically augmented) version of that document. I used a similar idea in BioRSS. I then create a crude workflow (see `workflow.php`) that makes a series of API calls. With each call the workflow returns a pointer to next available API function.
 
 ## Notes
 
@@ -56,5 +59,31 @@ Experimenting with BHL in RDF to help resolve (journal, volume, page) triples, a
 
 [Microcitations: linking nomenclators to BHL](https://iphylo.blogspot.com/2011/03/microcitations-linking-nomenclators-to.html) discussed validating matches between microcitations and BHL by using associated taxonomic names. If we have a taxonomic name and a citation, one way to valid that we’ve matched the citation to the correct page in BHL is to see whether that page mentions the taxonomic name. The presence of OCR errors means we will need to use approximate matching to check for the presence of the taxon name.
 
-The `api_text.php` service takes a short string (the “needle”) and attempts to find it in a larger body of text (the “haystack”) using approximate search [elonen/php-approximate-search](https://github.com/elonen/php-approximate-search). Matches found have their text coordinates recorded as well as flanking regions of text, so they can be represented as annotations.
+The `api/text.php` service takes a short string (the “needle”) and attempts to find it in a larger body of text (the “haystack”) using approximate search [elonen/php-approximate-search](https://github.com/elonen/php-approximate-search). Matches found have their text coordinates recorded as well as flanking regions of text, so they can be represented as annotations.
+
+#### Longest common subsequence and alignment
+
+Note that longest common subsequence is not the same as alignment, so sometimes we get paradoxical results. For example,
+
+```
+abascantu--s
+|||||||||  |
+abascantus s
+```
+
+This is a perfectly good longest common subsequence, but we would prefer
+
+```
+abascantus
+||||||||||
+abascantus s
+```
+
+The difference between the two alignments is the presence of gaps, which arise in this case because there are two “s” characters at the end of the target string. To minimise this situation we can go to the Longest common subsequence scoring matrix and see if there are any equally high-scoring cells to the “left” of `C[m][n]` which is the bottom right cell in the scoring matrix. If so, we move left until doing so would decrease the score, and start to reconstruct the alignment from that point.
+
+
+#### Issues
+
+Note that text search doesn’t always work, there seems to be issues with longer texts, need to explore this further, perhaps we need to split text into smaller blocks.
+
 

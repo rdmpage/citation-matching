@@ -109,7 +109,23 @@ function get_bhl_title_from_text($text)
 		case 'Ann. S. Afr. Mus.':		
 			$titles = array(6928);
 			break;
+
+		case 'Ann. Transv. Mus.':		
+			$titles = array(116503);
+			break;
 			
+		case 'Boll. Mus. Torino':
+			$titles = array(10776);
+			break;
+			
+		case 'Bull. Brit. Orn. Club':
+			$titles = array(46639);
+			break;
+			
+		case 'Bull. Soc. imp. Nat. Moscou':
+			$titles = array(4951);
+			break;
+						
 		case 'Deutsche entomologische Zeitschrift Iris':
 		case 'Dt. ent. Z. Iris':
 			$titles = array(12260);
@@ -148,13 +164,29 @@ function get_bhl_title_from_text($text)
 			$titles = array(64180);
 			break;
 			
+		case 'Mitt. münch. ent. Ges.':
+			$titles = array(15739);
+			break;
+			
 		case 'Nota lepid.':
 			$titles = array(79076);
-			break;			
+			break;	
+			
+		case 'Proc. U.S. natn. Mus.':		
+			$titles = array(7519);
+			break;	
 			
 		case 'Telopea':
 			$titles = array(157010);
 			break;
+			
+		case 'Tijdschr. Ent.':
+			$titles = array(10088);
+			break;
+			
+		case 'Trans. ent. Soc. Lond.':
+			$titles = array(11516);
+			break;			
 
 		case 'Wien. ent. Mschr.':
 			$titles = array(45022);

@@ -3,7 +3,7 @@
 // BHL lookup using local BHL database
 
 require_once (dirname(__FILE__) . '/api_utilities.php');
-require_once (dirname(__FILE__) . '/db.php');
+require_once (dirname(dirname(__FILE__)) . '/db.php');
 
 //----------------------------------------------------------------------------------------
 function find_bhl_page_local($doc)

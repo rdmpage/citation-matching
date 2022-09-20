@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>baseURL</key>
-	<string>http://localhost/citation-matching/api_parser.php</string>
+	<string>http://localhost/citation-matching/api/parser.php</string>
+	<key>bodyString</key>
+	<string>{ "q": "in Bidzilya, Mey &amp; Agassiz, Dt. ent. Z. 63: 48, 49 [keys], 57, figs 24, 25, 54, 76."}</string>
 	<key>followRedirect</key>
 	<true/>
 	<key>handleJSONPCallbacks</key>
@@ -11,7 +13,7 @@
 	<key>headers</key>
 	<array/>
 	<key>httpMethod</key>
-	<string>GET</string>
+	<string>POST</string>
 	<key>jsonpScript</key>
 	<string></string>
 	<key>paramBodyUIChoice</key>
@@ -98,6 +100,6 @@
 	<key>stringEncoding</key>
 	<integer>4</integer>
 	<key>usingHTTPBody</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

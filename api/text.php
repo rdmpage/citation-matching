@@ -1,7 +1,7 @@
 <?php
 
 require_once (dirname(__FILE__) . '/api_utilities.php');
-require_once (dirname(__FILE__) . '/textsearch.php');
+require_once (dirname(dirname(__FILE__)) . '/textsearch.php');
 
 
 $required = array('needle', 'haystack');

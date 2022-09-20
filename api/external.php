@@ -5,7 +5,7 @@
 require_once (dirname(__FILE__) . '/api_utilities.php');
 
 //----------------------------------------------------------------------------------------
-// Given a structured citation with container-ttiel, volume, and page, can we match to
+// Given a structured citation with container-title, volume, and page, can we match to
 // one or more BHL pages using BHL's OpenURL query?
 function find_bhl_page($obj)
 {
@@ -25,7 +25,6 @@ function find_bhl_page($obj)
 			'format' 	=> 'json'
 		);
 	
-	
 		$url = 'https://www.biodiversitylibrary.org/openurl?';
 		
 		$url .= http_build_query($parameters);
@@ -37,8 +36,7 @@ function find_bhl_page($obj)
 		if ($response)
 		{
 			foreach ($response->citations as $citation)
-			{
-			
+			{			
 				if (!isset($obj->BHLPAGEID))
 				{
 					$obj->BHLPAGEID = array();
@@ -46,7 +44,6 @@ function find_bhl_page($obj)
 				$obj->BHLPAGEID[] = str_replace('https://www.biodiversitylibrary.org/page/', '', $citation->Url);
 			}
 		}
-
 	}
 
 	return $obj;

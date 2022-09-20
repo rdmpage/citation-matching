@@ -1,12 +1,27 @@
 <?php
 
 require_once (dirname(__FILE__) . '/api_utilities.php');
-require_once (dirname(__FILE__) . '/db.php');
-require_once (dirname(__FILE__) . '/microparser.php');
+require_once (dirname(dirname(__FILE__)) . '/db.php');
+require_once (dirname(dirname(__FILE__)) . '/microparser.php');
 
-$doc = http_get_endpoint(["q"]);
+$doc = null;
 
-$doc = parse($doc->q);
+if ($_SERVER['REQUEST_METHOD'] == 'GET')
+{
+	$doc = http_get_endpoint(["q"]);
+}
+else
+{
+	$doc = http_post_endpoint(["q"]);
+}
+
+$parse_result = parse($doc->q);
+
+// we want to add results to existing doc
+foreach ($parse_result  as $k => $v)
+{
+	$doc->{$k} = $v;
+}
 
 if (0)
 {

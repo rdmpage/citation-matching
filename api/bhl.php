@@ -1,8 +1,8 @@
 <?php
 
 require_once (dirname(__FILE__) . '/api_utilities.php');
-require_once (dirname(__FILE__) . '/db.php');
-require_once (dirname(__FILE__) . '/external.php');
+require_once (dirname(__FILE__)  . '/external.php');
+require_once (dirname(dirname(__FILE__))  . '/db.php');
 
 
 $required = array('container-title', 'volume', 'page');
