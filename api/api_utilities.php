@@ -12,11 +12,27 @@ function get($url, $format_type = '')
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 	
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);	
+	
+	//curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+	
 	$headers = array();
 	
 	if ($format_type != '')
 	{
 		$headers[] = "Accept: " . $format_type;
+		
+		if ($format_type == 'text/html')
+		{
+			// play nice
+			$headers[] = "Accept-Language: en-gb";
+			$headers[] = "User-agent: Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405";
+			
+			// Cookies 
+			curl_setopt($ch, CURLOPT_COOKIEJAR, sys_get_temp_dir() . '/cookies.txt');
+			curl_setopt($ch, CURLOPT_COOKIEFILE, sys_get_temp_dir() . '/cookies.txt');	
+		}
 	}
 	
 	if (count($headers) > 0)

@@ -9,6 +9,7 @@
     "require": {
         "easyrdf/easyrdf": "^1.1",
         "ml/json-ld": "^1.2",
-        "endyjasmi/cuid": "2.*"    
+        "endyjasmi/cuid": "2.*",
+        "smalot/pdfparser": "^2.2"    
     }
 }

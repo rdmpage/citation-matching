@@ -1,57 +1,7 @@
 <?php
 
-// A node in a simple n8n like workflow
+require_once (dirname(__FILE__) . '/workflow.php');
 
-require_once (dirname(__FILE__) . '/api/api_utilities.php');
-
-//----------------------------------------------------------------------------------------
-class Node
-{
-	var $url  = ''; // API call
-	var $next = null; // Next node in workflow
-
-	function __construct($url)
-	{
-		$this->url = $url;
-	}
-	
-	function SetNext($NodePtr)
-	{
-		$this->next = $NodePtr;
-	}
-	
-	function Run(&$doc)
-	{
-		$next = null;		
-		$json = post($this->url, $doc);
-		$doc = json_decode($json);		
-		if ($doc)
-		{
-			if ($doc->status == 200)
-			{
-				if ($this->next)
-				{
-					// still more nodes in the workflow
-					$next = $this->next;
-				}
-				else
-				{
-					// end
-				}
-			}
-			
-		}
-		else
-		{
-			// badness happened
-		}
-	
-		return $next;	
-	}
-
-}
-
-/*
 // create workflow
 
 // Parse string
@@ -63,7 +13,7 @@ $node2 = new Node('http://localhost/citation-matching/api/bhl.php');
 
 $node1->SetNext($node2);
 
-// Find nane in text
+// Find name in text
 $node3 = new Node('http://localhost/citation-matching/api/text_doc.php');
 $node2->SetNext($node3);
 
@@ -108,7 +58,6 @@ $doc->q = "Bull. Soc. imp. Nat. Moscou 57(1): 27.";
 $doc->name = "Tachyptilia solemnella";
 
 
-
 // start with node1
 $next = $node1;
 
@@ -119,6 +68,6 @@ while ($next)
 }
 
 print_r($doc);
-*/
+
 
 ?>
