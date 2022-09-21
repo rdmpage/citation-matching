@@ -20,11 +20,11 @@ if (0)
 	$doc->url = 'https://cdnsciencepub.com/doi/abs/10.1139/cjes-2020-0190';
 	$doc->url = 'https://www.biotaxa.org/Zootaxa/article/view/zootaxa.1188.1.3';
 	$doc->url = 'https://www.scielo.br/j/ni/a/dGx5NWWPDmgjRwX3QFyb64m/';
+	$doc->url = 'https://www.sciencedirect.com/science/article/pii/S1383576922000800?dgcid=rss_sd_all';
 	$doc->status = 404;
 }
 
 $doc->status = 404;
-
 
 // Does this look like a PDF?
 
@@ -148,6 +148,17 @@ if (!isset($doc->pdf) || !isset($doc->doi))
 				foreach ($dom->find('span[id=LbDOI]') as $big)
 				{
 					if (preg_match('/(?<doi>10\..*)\b/', $big->plaintext, $m))
+					{
+						$doc->doi = $m['doi'];
+					}
+				}
+			}
+			
+			if (preg_match('/www.nmnhs.com/', $doc->url))
+			{
+				foreach ($dom->find('div[class=box_emph_e] a') as $a)
+				{
+					if (!isset($doc->doi) && preg_match('/https?:\/\/doi.org\/(?<doi>10\..*)/', $a->href, $m))
 					{
 						$doc->doi = $m['doi'];
 					}

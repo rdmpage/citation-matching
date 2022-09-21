@@ -8,7 +8,7 @@ function get($url, $format_type = '')
 	
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_HEADER, 1);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 	
@@ -35,6 +35,8 @@ function get($url, $format_type = '')
 		}
 	}
 	
+	//print_r($headers);
+	
 	if (count($headers) > 0)
 	{
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -51,9 +53,16 @@ function get($url, $format_type = '')
 	$info = curl_getinfo($ch);
 	$http_code = $info['http_code'];
 	
+	$header = substr($response, 0, $info['header_size']);
+	//echo $header;
+	
+	$content = substr($response, $info['header_size']);
+	
 	curl_close($ch);
 	
-	return $response;
+	
+	
+	return $content;
 }
 
 //----------------------------------------------------------------------------------------

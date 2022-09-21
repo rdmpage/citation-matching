@@ -159,7 +159,7 @@ else
 		}
 		
 		// try and extract ZooBank
-		if (preg_match('/zoobank.org\/(?<id>[A-Z0-9]{8}(-[A-Z0-9]{4}){3}-[A-Z0-9]{12})/i', $doc->text, $m))
+		if (preg_match('/zoobank.org(\/|:pub:)(?<id>[A-Z0-9]{8}(-[A-Z0-9]{4}){3}-[A-Z0-9]{12})/i', $doc->text, $m))
 		{
 			$doc->zoobank = strtolower($m['id']);
 		}

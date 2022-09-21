@@ -25,6 +25,10 @@ Inspired by [n8n](https://n8n.io) I’ve restructured the API as a series of cal
 
 ## Notes
 
+### Cloudflare
+
+Sites using Cloudflare will cause problems as they check for SSL, see https://stackoverflow.com/questions/67344798/php-curl-access-to-website-with-cloudflare-2021
+
 ### Parsing
 
 The parser uses regular expressions. The output includes XML-style tagging so that if we move to approaches such as CRF we can easily generate training data.
