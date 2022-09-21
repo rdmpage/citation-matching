@@ -1,5 +1,7 @@
 <?php
 
+ini_set("memory_limit","2048M");
+
 // Get info from PDF
 
 
@@ -10,6 +12,7 @@ error_reporting(E_ALL ^ E_WARNING);
 
 require_once (dirname(dirname(__FILE__)) . '/vendor/autoload.php');
 require_once (dirname(__FILE__) . '/api_utilities.php');
+
 
 $doc = null;
 $doc = http_post_endpoint(["url"]);
@@ -23,6 +26,7 @@ if (0)
 	//$doc->url = 'https://www.researchgate.net/profile/Jerome-Constant/publication/358103845_First_record_of_the_lanternfly_genus_Limois_Stal_1863_in_Vietnam_with_a_new_species_L_sonlaensis_sp_nov_Hemiptera_Fulgoromorpha_Fulgoridae/links/61f00739dafcdb25fd4e9a05/First-record-of-the-lanternfly-genus-Limois-Stal-1863-in-Vietnam-with-a-new-species-L-sonlaensis-sp-nov-Hemiptera-Fulgoromorpha-Fulgoridae.pdf';
 	//$doc->url = 'https://scholar.archive.org/work/djqknujmu5ae7b6udhdc64bt6a/access/wayback/https://vietnamscience.vjst.vn/index.php/vjste/article/download/339/325/1327';
 	$doc->url = 'https://www.biotaxa.org/Zootaxa/article/view/zootaxa.1188.1.3';
+	$doc->url = 'https://lasef.org/wp-content/uploads/BSEF/121-1/1868_Boilly.pdf'; // zoobank
 	$doc->status = 404;
 }
 
@@ -121,7 +125,7 @@ else
 	$file_start = fread($handle, 1024);  //<<--- as per your need 
 	fclose($handle);
 	
-	$pdf_ok = true;
+	$pdf_ok = false;
 	
 	if (preg_match('/^\s*%PDF/', $file_start ))
 	{
@@ -152,8 +156,14 @@ else
 
 			// ZooKeys
 			$doc->doi = preg_replace('/https?:\/\/zookeys.*$/', '', $doc->doi);
-
 		}
+		
+		// try and extract ZooBank
+		if (preg_match('/zoobank.org\/(?<id>[A-Z0-9]{8}(-[A-Z0-9]{4}){3}-[A-Z0-9]{12})/i', $doc->text, $m))
+		{
+			$doc->zoobank = strtolower($m['id']);
+		}
+		
 	}
 }
 

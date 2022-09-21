@@ -25,6 +25,8 @@
 		<string>F604594A-A63B-4224-9CD5-6AB2EF3A627D</string>
 		<string>3F9D26A8-DE30-4EBA-9394-5E96AE7CE959</string>
 		<string>B13D8024-7CE5-4F90-9106-4231F33135F8</string>
+		<string>E5C4C34C-8A7E-43C2-823C-E6456B40ACB6</string>
+		<string>837D9CC0-7BFE-4CF0-A818-F68BBAFBDFA7</string>
 	</array>
 	<key>ProjectItems</key>
 	<dict>
@@ -414,6 +416,56 @@
 			<string>.gitignore</string>
 			<key>ItemType</key>
 			<string>FileReference</string>
+		</dict>
+		<key>837D9CC0-7BFE-4CF0-A818-F68BBAFBDFA7</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9vaygDAAAAAAQQMAAAAISGZocSYovWXURbsQsKXYRc
+				2OosIecEru/AUiZ90uhBGAIAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAABQAA
+				AAEBAABTaXRlcwAAABEAAAABAQAAY2l0YXRpb24tbWF0
+				Y2hpbmcAAAAMAAAAAQEAAHdvcmtmbG93LnBocBQAAAAB
+				BgAAEAAAACAAAAAwAAAAQAAAAFwAAAAIAAAABAMAAIRc
+				AAAAAAAACAAAAAQDAACWxgMAAAAAAAgAAAAEAwAAQOge
+				AAAAAAAIAAAABAMAADjHrgAAAAAACAAAAAQDAADsEjMB
+				AAAAABQAAAABBgAAjAAAAJwAAACsAAAAvAAAAMwAAAAI
+				AAAAAAQAAEHEbGwnSITtGAAAAAECAAABAAAAAAAAAA8A
+				AAAAAAAAAAAAAAAAAAAIAAAABAMAAAMAAAAAAAAABAAA
+				AAMDAAD1AQAACAAAAAEJAABmaWxlOi8vLwwAAAABAQAA
+				TWFjaW50b3NoIEhECAAAAAQDAAAAkIKW5wAAAAgAAAAA
+				BAAAQcQU38QAAAAkAAAAAQEAAEVFREJDNDk1LURGNTIt
+				NDU2QS1CNDMxLUZCNjA3QkYwNEFEMRgAAAABAgAAgQAA
+				AAEAAADvEwAAAQAAAAAAAAAAAAAAAQAAAAEBAAAvAAAA
+				AAAAAAEFAAAaAAAAAQEAAE5TVVJMRG9jdW1lbnRJZGVu
+				dGlmaWVyS2V5AAAEAAAAAwMAAJdqAADYAAAA/v///wEA
+				AAAAAAAAEQAAAAQQAABwAAAAAAAAAAUQAADcAAAAAAAA
+				ABAQAAAIAQAAAAAAAEAQAAD4AAAAAAAAAAIgAADUAQAA
+				AAAAAAUgAABEAQAAAAAAABAgAABUAQAAAAAAABEgAACI
+				AQAAAAAAABIgAABoAQAAAAAAABMgAAB4AQAAAAAAACAg
+				AAC0AQAAAAAAADAgAADgAQAAAAAAAAHAAAAoAQAAAAAA
+				ABHAAAAgAAAAAAAAABLAAAA4AQAAAAAAABDQAAAEAAAA
+				AAAAAOgBAIAMAgAAAAAAAA==
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/rpage/Sites/citation-matching/workflow.php</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./workflow.php</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>workflow.php</string>
+			<key>ItemType</key>
+			<string>FileReference</string>
+			<key>UserOverrideItemName</key>
+			<true/>
 		</dict>
 		<key>8DABAB01-51CD-4A98-ADAB-DC0F2BBE47AC</key>
 		<dict>
@@ -896,6 +948,56 @@
 			</dict>
 			<key>ItemName</key>
 			<string>lcs.php</string>
+			<key>ItemType</key>
+			<string>FileReference</string>
+			<key>UserOverrideItemName</key>
+			<true/>
+		</dict>
+		<key>E5C4C34C-8A7E-43C2-823C-E6456B40ACB6</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9vaywDAAAAAAQQMAAAAGH/L9wwv+6U1vRmQbwm+2/D
+				U8UgeQdYTi2nLLrqbwQnHAIAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAABQAA
+				AAEBAABTaXRlcwAAABEAAAABAQAAY2l0YXRpb24tbWF0
+				Y2hpbmcAAAAQAAAAAQEAAHdvcmtmbG93X2JobC5waHAU
+				AAAAAQYAABAAAAAgAAAAMAAAAEAAAABcAAAACAAAAAQD
+				AACEXAAAAAAAAAgAAAAEAwAAlsYDAAAAAAAIAAAABAMA
+				AEDoHgAAAAAACAAAAAQDAAA4x64AAAAAAAgAAAAEAwAA
+				nAk0AQAAAAAUAAAAAQYAAJAAAACgAAAAsAAAAMAAAADQ
+				AAAACAAAAAAEAABBxGxsJ0iE7RgAAAABAgAAAQAAAAAA
+				AAAPAAAAAAAAAAAAAAAAAAAACAAAAAQDAAADAAAAAAAA
+				AAQAAAADAwAA9QEAAAgAAAABCQAAZmlsZTovLy8MAAAA
+				AQEAAE1hY2ludG9zaCBIRAgAAAAEAwAAAJCClucAAAAI
+				AAAAAAQAAEHEFN/EAAAAJAAAAAEBAABFRURCQzQ5NS1E
+				RjUyLTQ1NkEtQjQzMS1GQjYwN0JGMDRBRDEYAAAAAQIA
+				AIEAAAABAAAA7xMAAAEAAAAAAAAAAAAAAAEAAAABAQAA
+				LwAAAAAAAAABBQAAGgAAAAEBAABOU1VSTERvY3VtZW50
+				SWRlbnRpZmllcktleQAABAAAAAMDAACbagAA2AAAAP7/
+				//8BAAAAAAAAABEAAAAEEAAAdAAAAAAAAAAFEAAA4AAA
+				AAAAAAAQEAAADAEAAAAAAABAEAAA/AAAAAAAAAACIAAA
+				2AEAAAAAAAAFIAAASAEAAAAAAAAQIAAAWAEAAAAAAAAR
+				IAAAjAEAAAAAAAASIAAAbAEAAAAAAAATIAAAfAEAAAAA
+				AAAgIAAAuAEAAAAAAAAwIAAA5AEAAAAAAAABwAAALAEA
+				AAAAAAARwAAAIAAAAAAAAAASwAAAPAEAAAAAAAAQ0AAA
+				BAAAAAAAAADsAQCAEAIAAAAAAAA=
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/rpage/Sites/citation-matching/workflow_bhl.php</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./workflow_bhl.php</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>workflow_bhl.php</string>
 			<key>ItemType</key>
 			<string>FileReference</string>
 			<key>UserOverrideItemName</key>

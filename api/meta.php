@@ -44,7 +44,7 @@ if (!isset($doc->pdf))
 	}
 }
 
-// Can we get DOI from URL?
+// Can we get DOI from URL structure?
 if (!isset($doc->doi))
 {
 	if (preg_match('/doi\/pdf\/(?<doi>10\.[0-9]{4,}(?:\.[0-9]+)*(?:\/|%2F)(?:(?![\"&\'])\S)+)$/', $doc->url, $m))
@@ -61,8 +61,6 @@ if (!isset($doc->doi))
 		$doc->doi = $m['doi'];
 	}
 }
-
-http://www.tandfonline.com/doi/pdf/10.1080/03014223.1996.9518065
 
 // Looks like a website and we don't have a DOI
 if (!isset($doc->pdf) || !isset($doc->doi))
@@ -155,8 +153,30 @@ if (!isset($doc->pdf) || !isset($doc->doi))
 					}
 				}
 			}
-			
 		}
+			
+		// ZooBank
+		if (preg_match('/zoobank.org\/References\/(?<id>[A-Z0-9]{8}(-[A-Z0-9]{4}){3}-[A-Z0-9]{12})/i', $doc->url, $m))
+		{
+			$doc->zoobank = strtolower($m['id']);
+		
+			foreach ($dom->find('tr th[class=entry_label]') as $th)
+			{
+				switch (trim($th->plaintext))
+				{
+					case 'DOI:':
+						$doi = trim($th->next_sibling()->plaintext);
+						$doi = preg_replace('/https?:\/\/(dx\.)?doi.org\//i', '', $doi);
+						$doc->doi = $doi;	
+						break;
+	
+					default:
+						break;
+				}
+			}
+
+		}
+
 	}
 }
 
