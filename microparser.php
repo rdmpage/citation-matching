@@ -4,6 +4,44 @@
 
 require_once (dirname(__FILE__) . '/collation_parser.php');
 
+//--------------------------------------------------------------------------------------------------
+// From http://snipplr.com/view/6314/roman-numerals/
+// Expand subtractive notation in Roman numerals.
+function roman_expand($roman)
+{
+	$roman = str_replace("CM", "DCCCC", $roman);
+	$roman = str_replace("CD", "CCCC", $roman);
+	$roman = str_replace("XC", "LXXXX", $roman);
+	$roman = str_replace("XL", "XXXX", $roman);
+	$roman = str_replace("IX", "VIIII", $roman);
+	$roman = str_replace("IV", "IIII", $roman);
+	return $roman;
+}
+    
+//--------------------------------------------------------------------------------------------------
+// From http://snipplr.com/view/6314/roman-numerals/
+// Convert Roman number into Arabic
+function arabic($roman)
+{
+	$result = 0;
+	
+	$roman = strtoupper($roman);
+
+	// Remove subtractive notation.
+	$roman = roman_expand($roman);
+
+	// Calculate for each numeral.
+	$result += substr_count($roman, 'M') * 1000;
+	$result += substr_count($roman, 'D') * 500;
+	$result += substr_count($roman, 'C') * 100;
+	$result += substr_count($roman, 'L') * 50;
+	$result += substr_count($roman, 'X') * 10;
+	$result += substr_count($roman, 'V') * 5;
+	$result += substr_count($roman, 'I');
+	return $result;
+} 
+
+
 //----------------------------------------------------------------------------------------
 // Output the regex matching using XML-style tags for debugging, and with an eye on
 // generating training data.
@@ -225,10 +263,13 @@ function parse($text)
 
 	// current
 	$volume_pattern 	= "\s*(?<volume>([N|n]o.\s+)?\d+[A-Z]?(-\d+)?(\s*\([^\)]+\))?(,?\s+(no|fasc)\.\s+\d+)?[,|:])";
+	
+	
+	$volume_roman_pattern 	= "\s*(?<volume>([ivxlcIVXLC]+)\.?)";
 
 
 	// include delimiter
-	$page_pattern 		= "(?<page>(\d+|[xvlci]+)(-(\d+|[xvlci]+))?)" . $comment_pattern . "[\.]?";
+	$page_pattern 		= "(p\.\s*)?(?<page>(\d+|[xvlci]+)(-(\d+|[xvlci]+))?)" . $comment_pattern . "[\.]?";
 
 	// figures, plates, etc.
 	$extra_pattern = "([,|;]\s+(.*))?";
@@ -273,8 +314,23 @@ function parse($text)
 		// journal and date then volume
 		'/^' . $journal_simple . '\s*' . $year_pattern . $volume_pattern . $collation_pattern . '/u',
 		
+		// Proc. Zool. Soc. London, 7 (1839), p. 144
+		// journal, volume, date, page
+		'/^' . $journal_simple . '\s+(?<volume>\d+)\s+(?<year>\([1|2][0-9]{3}\),?)\s+' . $collation_pattern . '/u',
+		
+		// Joum. f. Orn., 72, 1924, p. 449.
+		'/^' . $journal_simple . '\s+(?<volume>\d+),\s+(?<year>[1|2][0-9]{3},?)\s+' . $collation_pattern . '/u',
+		
+		
+		// IPNI
+		// Lilloa xxx. 131 (1960).
+		'/^' . '(?<journal>[\p{L}]+)' . $volume_roman_pattern . $collation_pattern . '\s+(?<year>\([1|2][0-9]{3}\))' . '/u',
+		
+		
+		
 		// articles
 		'/^' . $journal_simple . $volume_pattern . $collation_pattern . '/u',
+		'/^' . $journal_simple . '[,|:]' . $volume_pattern . $collation_pattern . '/u',
 		'/^' . $journal_simple . $volume_pattern . '/u',
 
 		'/^' . $journal_simple . $volume_pattern .  '\s+(?<date>' . $months . ':)' . $collation_pattern . '/u',
@@ -293,8 +349,18 @@ function parse($text)
 	
 	if (0)
 	{
+		$patterns = array(
+			// IPNI
+			// Lilloa xxx. 131 (1960).
+			'/^' . '(?<journal>[\p{L}]+)' . $volume_roman_pattern . $collation_pattern . '\s+(?<year>\([1|2][0-9]{3}\))' . '/u',
+	
+		);
+	}
+	
+	if (0)
+	{
 		print_r($patterns);	
-		exit();
+		//exit();
 	}
 	
 	$num_patterns = count($patterns);
@@ -327,24 +393,43 @@ function parse($text)
 	
 	if (1)
 	{
-		// best match wins
+		// best match wins, score both length of character match and how many different
+		// kinds of tokens we have matched
 		$obj->score = 0;
 		$obj->pattern = '';
+		$obj->match_count = 0;
+		
 		for ($i = 0; $i < $num_patterns; $i++)
 		{
 			if (preg_match($patterns[$i], $text, $matches, PREG_OFFSET_CAPTURE))
 			{
 				$score = round(match_span($text, $matches), 2);	
-				if ($score > $obj->score)
+				
+				$match_count = 0;
+				foreach ($matches as $k => $v)
+				{
+					if (is_numeric($k))
+					{
+					}
+					else
+					{
+						$match_count++;
+					}
+				}
+				
+				//echo "pattern $i : score=$score\n";
+				
+				if ($score > $obj->score && $match_count >  $obj->match_count)
 				{
 					// store the pattern
 					$obj->pattern = $patterns[$i];
 			
 					// keep the matches
 					$obj->matches = $matches;
-			
+								
 					// score the match			
 					$obj->score = round(match_span($text, $matches), 2);	
+					$obj->match_count = $match_count;
 
 					$matched = true;					
 				}
@@ -441,6 +526,18 @@ function parse($text)
 					
 						case 'journal':
 							$obj->{'container-title'} = $match[0];
+							break;
+							
+						case 'volume':
+							$value =  $match[0];
+							$value = preg_replace('/\.$/', '', $value);
+						
+							if (preg_match('/^[ivxlc]+$/i', $value))
+							{
+								$value = arabic($value);
+							}
+							
+							$obj->{$tag} = $value;
 							break;
 							
 							// eat as we want to parse the collation
@@ -769,6 +866,23 @@ if (0)
  $publications = array( 
   'Ent. scand. 27: 129 [keys], 146, figs 9, 31, 52, 53, 64, 80.',
   );
+  
+  /*
+ $publications = array( 
+  //'Ann. Mag. nat. Hist. (6), 12: 183',
+  //'Ann. Mag. nat. Hist., (6) 12, 183.',
+  'Ann. Mag. nat. Hist (6), 14:138',
+  'Ann. Mag. nat. Hist. (9), 4, 151.',
+  );
+  */
+  
+ $publications = array( 
+  //'Proc. Zool. Soc. London, 7 (1839), p. 144',
+  //'Novit. Zool., 10, p. 448',
+  //'Acarologia (Paris) 34(4), Octobre: 289.',
+  
+  'Lilloa xxx. 131 (1960).',
+  );  
 
 	foreach ($publications as $text)
 	{

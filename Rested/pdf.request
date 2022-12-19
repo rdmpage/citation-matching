@@ -5,7 +5,7 @@
 	<key>baseURL</key>
 	<string>http://localhost/citation-matching/api/pdf.php</string>
 	<key>bodyString</key>
-	<string>{ "url":"https://revistas.ucr.ac.cr/index.php/lankesteriana/article/download/50848/50619"}</string>
+	<string>{ "URL":"https://www.ingentaconnect.com/contentone/mtax/mt/2022/00000137/00000002/art00003?crawler=true&amp;mimetype=application/pdf"}</string>
 	<key>followRedirect</key>
 	<true/>
 	<key>handleJSONPCallbacks</key>

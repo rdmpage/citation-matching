@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 
 require_once (dirname(__FILE__) . '/php-approximate-search/approximate-search.php');
 
-define ('FLANKING_LENGTH', 32);
+define ('FLANKING_LENGTH', 64);
 
 //----------------------------------------------------------------------------------------
 // https://kvz.io/reverse-a-multibyte-string-in-php.html
@@ -102,7 +102,7 @@ function compare($needle, $haystack)
 	$i = $m;
 	$j = $n;
 	
-	// Because we are getting the ongest common subsequence irrespective of gaps, we
+	// Because we are getting the longest common subsequence irrespective of gaps, we
 	// can sometimes get "ugly" alignments such as 
 	// abascantu--s
     // |||||||||  |
@@ -276,7 +276,7 @@ function find_in_text($needle, $haystack, $case_insensitive = false, $max_error 
 	{
 		// HTML for debugging
 		
-		// slit origjnal text into array of characters
+		// split origjnal text into array of characters
 		$text_array = mb_str_split($haystack);
 
 		$result->html = '<pre>';
@@ -311,6 +311,229 @@ function find_in_text($needle, $haystack, $case_insensitive = false, $max_error 
 
 	return $result;
 }
+
+//----------------------------------------------------------------------------------------
+// Very crude search for string (because more sophisticated apporaches seem to be problematic)
+function find_in_text_simple($needle, $haystack, $case_insensitive = false, $max_error = 1)
+{
+	$output_html = true;
+	$output_html = false;
+	
+	$result = new stdclass;
+
+	$query = $needle;
+	$text = $haystack;
+	
+	$original_query = $query;
+	
+	if ($case_insensitive)
+	{
+		$text = mb_strtolower($text);
+		$query = mb_strtolower($query);
+	}
+	
+	$words = preg_split('/\s/', $text);
+	
+	// print_r($words);
+	
+	$num_words = count($words);
+	
+	$result->matches = array();
+	
+	$pos = 0;
+	for ($i = 0; $i < $num_words; $i++)
+	{
+		//echo "[$pos] " . $words[$i] . "\n";
+	
+		$word_length = mb_strlen($words[$i]);
+		$pos += $word_length;
+		
+		// [!\"#\＄%&\'\(\)\*\+,-\./:;<=>\?@\[\\\]\^_`{\|}~]?
+		
+		$have_match = false;
+		
+		if (!$have_match)
+		{
+			// exact match
+			if (preg_match('/' . $needle . '/iu', $words[$i]))
+			{
+				$result->matches[] = $pos;
+				$have_match = true;
+			}
+		}
+		
+		if (!$have_match)
+		{
+			// approx match, test string if it matches first two characters
+			if (preg_match('/^' . mb_substr($needle, 0, 2) . '/iu', $words[$i]))
+			{
+				// we match the start of the string, check if rest is an OK match
+				if (levenshtein($needle, $words[$i]) <= $max_error)
+				{
+					$result->matches[] = $pos;
+					$have_match = true;
+				}
+			}
+		}
+		
+		/*
+		// this seems to work, but breaks alignment.
+		// for example Cnemopsilus if we match on a starting G the alignment ignores that
+		// and alugns startyig at nemopsilus. Need to fix.
+		if (!$have_match)
+		{
+			// confusion matrix			
+			$char_one = mb_substr($needle, 0, 1);
+			$char_two = mb_substr($needle, 1, 1); 
+			
+			switch ($char_one)
+			{
+				case 'c':
+				case 'C':
+					$pattern = '/^[g]' . $char_two . '/iu';
+					break;
+			
+				default:
+					break;
+			}
+			
+			if ($pattern != '')
+			{
+				//echo $pattern . "\n";
+				if (preg_match($pattern, $words[$i]))
+				{
+					// we match the start of the string, check if rest is an OK match
+					if (levenshtein($needle, $words[$i]) <= $max_error)
+					{
+						$result->matches[] = $pos;
+						$have_match = true;
+					}
+				}
+			}
+		}
+		*/
+		
+		
+		
+		// leading space
+		$pos++;
+	}
+	
+	// print_r($matches);
+	
+	// number of matches
+	$result->total = 0;
+	foreach ($result->matches as $match)
+	{
+		$result->total++;
+	}
+	
+	// get list of hits in the inout text (text selectors)
+	$result->selector = array();	
+	
+	foreach ($result->matches as $pos)
+	{
+		$text1 = $query;	
+		$query_length = mb_strlen($query);
+	
+		// grab substring from target text, make it long enough to include mismatches	
+		// by expanding either side by MAX_ERR
+		$from 	= max(0, $pos - $query_length - $max_error);
+		$to 	= min(mb_strlen($text), $pos + $max_error);	
+		$text2 	= mb_substr($text, $from , $to - $from + 1);
+				
+		// get position of match in substring
+		$alignment = compare($text1, $text2);
+		
+		// echo $alignment->alignment;
+	
+		// store this hit
+		$hit = new stdclass;
+		
+		// store query string
+		$hit->body = $original_query;
+		
+		// store the score of the alignment
+		$hit->score = $query_length - $alignment->d;
+		
+		//$hit->alignment = $alignment;
+		
+		// location in haystack (i.e., text before any change in case)
+		$start = $from + $alignment->range[0];
+		$end = $from + $alignment->range[1];
+		
+		$hit->range = array($start, $end);
+		
+		// match in haystack
+		$hit->exact = mb_substr($haystack, $start, $end - $start);
+		
+		$pre_length = min($start, FLANKING_LENGTH);
+		$pre_start = $start - $pre_length;		
+		
+		$hit->prefix = mb_substr($haystack, $pre_start, $pre_length, mb_detect_encoding($haystack)); 
+		$post_length = min(mb_strlen($haystack, mb_detect_encoding($haystack)) - $end, FLANKING_LENGTH);		
+		$hit->suffix = mb_substr($haystack, $end, $post_length, mb_detect_encoding($haystack)); 
+		
+		$result->selector[] = $hit;
+		
+		if ($output_html)
+		{
+			// tag the match
+						
+			if (!isset($tag_starts[$start]))
+			{
+				$tag_starts[$start] = array();
+			}
+			$tag_starts[$start][] = $tag;
+
+			if (!isset($tag_ends[$end]))
+			{
+				$tag_ends[$end] = array();
+			}
+			$tag_ends[$end][] = $tag;
+		}
+	}	
+	
+	if ($output_html)
+	{
+		// HTML for debugging
+		
+		// split origjnal text into array of characters
+		$text_array = mb_str_split($haystack);
+
+		$result->html = '<pre>';
+
+		foreach ($text_array as $pos => $char)
+		{
+
+			if (isset($tag_ends[$pos]))
+			{
+				foreach ($tag_ends[$pos] as $tag)
+				{
+					$result->html .= '</' . $tag . '>';
+				}
+			}
+
+
+			if (isset($tag_starts[$pos]))
+			{		
+				foreach ($tag_starts[$pos] as $tag)
+				{
+					$result->html .=  '<' . $tag . '>';
+				}
+			}
+
+			$result->html .=  $char;
+
+		}
+
+		$result->html .= '</pre>';
+	}
+	
+	
+	return $result;
+}
+
 
 
 // tests
@@ -434,5 +657,144 @@ Abascantus sannio Schauf. — Convexus, obovatus, nitidus,
 
 
 }
+
+// need to understand why JSON \u works for this string, but not original encoding
+if (0)
+{
+
+
+
+
+
+	$needle = "Eccoptura";
+	$haystack = "60 
+
+
+
+den ScblJifen braunlich. Pronotum lichtbraun,die Schwielen lichter 
+
+geiblich, Vorderecken diinkler, Ilinterrand scbinal schwarzbraun 
+
+gfisâumt. Meso- iind Metanotum dimkelbraun, die Mittelb'nie bis 
+
+zum Scuteliuin und die vertieften Partien zwischen Scutum und 
+
+Praescutum lichtgelb. Hinterleib mit Ausnahme der briiunlichen 
+
+Spitze und die ganze Unterseite ockergelb. Fûbler im basalen Drittel 
+
+ockergelb, nach der Spitze zu braunlich. Taster briiunlicb. Beine 
+
+ockergelb, an den Knien, Schienenspitzen und Fussspitzen braun- 
+
+lich. Schwanzborsten ockergelb. 
+
+
+
+Flûgel hyalin, nur der Gostalstreifen schwach geiblich. Nervatur 
+
+gelb, die Haupladern an der Wurzel verstfirkt und braun. 
+
+
+
+Ktirperlânge 16 mill., Flûgelspannung 49 mill. 
+
+
+
+Habitat: 1 $ Bezirk Tkwibul, Gouv. Kutaisk., 29-VII-95, leg. 
+
+KusLJAKOV (Mus. St-Petersburg). 
+
+
+
+3. Ag-netina brevipennis nov. sp. — Kopf ockergelb, zwi- 
+
+schen den Punktaugen mit einem schwarzen, etwas verwaschenen 
+
+Makel, der vorn vor den Stirnschwielen nach aussen sich erweitert. 
+
+Pronotum dunkel rôtlichbraun mit schwarzbraunen Vorder- und 
+
+Hinterrande. Meso- und Metanotum etwas dunkler aïs das Prono- 
+
+tum. Hinterleib und die Unterseite gelbbraun. Fiihler im unteren 
+
+Drittel ockergelb, sonst braun. Die aufîallend dtïnnen Taster braun. 
+
+Beine gelbbraun, die oberen Kanten etwas dunkler, der Knierend 
+
+der Schenkel und die ersten 2 Fiissglieder schwarzbraun. Das kleine 
+
+Stuck von Schwanzborste, welches ûbrig geblieben ist, gelbijraun. 
+
+
+
+Flûgel briiunlicb getrûbt, Nervatur briiunlich, Costa bis ûber die 
+
+Flûgelmilte ganz blass geiblich. Radius dagegen besonders gegen 
+
+die Wurzel zu verstârkt, dunkelbraun und stark vorlretend, Sub- 
+
+costa an der humeralen Querader knotig verdickt. 
+
+
+
+Kôrperlange 17 mill.; Flûgelspannung 27 mill* 
+
+
+
+Habitat : 1 ÇKischl. Schut, Buchara, leg. Bartsghewski (Mus. 
+
+Petersburg). 
+
+
+
+Gen. ECGOPTURA nov. gen. 
+
+
+
+• 
+
+
+
+Kopf kurz, fast halbkreisfôrmig, mit stark konvergierenden Seiten 
+
+und stumpfen, bis abgerundeten Yorderwinkeln des Kopfschildes. 
+
+Augen ziemlich gross und gewôlbt. Auch die hinteren Punktaugen 
+
+recht gross. aber das vordere viel kleiner; sie sind in ein schwach 
+
+gleichartiges Dreieck gestellt und der gegenseitige Abstand der 
+
+hinteren ist deutlich grôsser als die Enlfernung vom Innenrande 
+
+der Augen. Die Stirnschwielen kaum grôsser als die hinteren 
+
+Punktaugen. von denselben gleich wie vom Innenrande der Augen 
+
+entfernt.
+
+";
+	
+	//$result = find_in_text($needle, $haystack, true, 2);
+	
+	$result = find_in_text_simple($needle, $haystack, true, 2);
+	
+	print_r($result);
+
+
+}
+
+if (0)
+{
+	$needle = "Cnemopsilus";
+	$haystack = "190 \n\nSILPHIDES ET LIODIDES NOUVEAUX \n\npar 11. G. Portevin \n\nCHOLEVINI \n\nGNEMOPSILUS gen. nov. \n\nMesosternum haud carinatum. Elytra transversim strigosa.Tibiee \n vix spinosse. rf Femora anleriores infra dentata, tarsi anteriores et \n intermedii 4^' primisarticulis dilatatis. \n\nSe rapproche du genre Catops, mais s'en distingue par ses tibias \n garnis seulement d'épines rares et très courtes, ses élytres striolés \n en travers, et les caractères du (^ . \n\nC. femoratus nov. sp. — Longe ovalis, niger, parum nitidum, \n tenuissime griseo luteo pubescens, depressus, habitu corporis Pto- \n maphagi generis. Gaput leviter punctatum, antennis prothoracis \n\nbasi attingentibus, basi ru- \n ^^^ j,^Ç^ bra, articule ultimobreviter \n\novato et obtuse acuminato. \n Pronotum transversum, la- \n teribus antice regulariter \n rotundatiSjtenuiter et dense \n punctatum, in medio levis- \n sime rotundato foveolatum; \n angulis posticis paulo pro- \n ductis, acutis. Elytra regu- \n lariter postice attenuata, \n parum et oblifjue truncata \n tenuiter et dense strigosa, \n haud striata. Pedes nigri, \n femoribus clavatis, tarsis \n anterioribus et intermediis dilutioribus ; abdomen segmenti ultimo \n rubro. ç^ Femora anteriores dente brève; tibia3 anteriores \n fortiter curvatis ad apicem dilatatis, intermedii curvatis, posteriores \n rectis; tarsi anteriores et intermedii dilatati, longe et dense luteo \n pubescentes. — Long. 3,7 mill. \n\nI cf. Nouvelle-Zélande (Deut. Ent. Nat. Muséum). \n\nII est impossible de rapporter l'espèce ci-dessus à l'une de celles \n créées par Broun (Manual New. Zeol. Col.). D'ailleurs, d'une façon \n générale, les descriptions de cet auteur sont incomplètes, des carac- \n\n";
+	
+	$result = find_in_text_simple($needle, $haystack, true, 2);
+	
+	print_r($result);
+}
+
 
 ?>

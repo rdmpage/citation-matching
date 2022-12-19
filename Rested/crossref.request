@@ -6,9 +6,10 @@
 	<string>http://localhost/citation-matching/api/crossref_openurl.php</string>
 	<key>bodyString</key>
 	<string>{
-    "container-title": "Molecular Phylogenetics and Evolution",
-    "volume": 131,
-    "page": "211-218"
+    "container-title": "Transactions of the Entomological Society of London",
+    "volume": 72,
+    "page": "544-557",
+"issued" : { "date-parts" : [[1923]] }
 } 
 </string>
 	<key>followRedirect</key>

@@ -20,6 +20,9 @@ if (file_exists(dirname(__FILE__) . '/env.php'))
 	include 'env.php';
 }
 
-$config['BHL_API_KEY'] = getenv('BHL_API_KEY');
+$config['BHL_API_KEY'] 		= getenv('BHL_API_KEY');
+$config['CROSSREF_API_KEY'] = getenv('CROSSREF_API_KEY');
+
+
 
 ?>

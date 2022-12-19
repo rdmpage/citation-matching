@@ -5,7 +5,7 @@
 	<key>baseURL</key>
 	<string>http://localhost/citation-matching/api/meta.php</string>
 	<key>bodyString</key>
-	<string>{ "url":"https://www.tandfonline.com/doi/pdf/10.1080/20964129.2022.2101546"}</string>
+	<string>{ "URL":"https://rosa.uniroma1.it/rosa02/fragmenta_entomologica/article/download/1232/1179"}</string>
 	<key>followRedirect</key>
 	<true/>
 	<key>handleJSONPCallbacks</key>

@@ -30,7 +30,6 @@ if (isset($doc->{'container-title'}) && !isset($doc->BHLTITLEID))
 
 }
 
-
 // BHL page
 $doc = find_bhl_page($doc);
 

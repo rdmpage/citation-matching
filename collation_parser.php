@@ -11,7 +11,7 @@ function collation_parser($string, $debug = false)
 
 	// clean
 	$string = trim($string);
-
+	
 	$result = new stdclass;	
 	$result->string = $string;
 		
@@ -130,6 +130,8 @@ function collation_parser($string, $debug = false)
 	
 	}		
 	$result->tokens = $tokens;
+	
+	//print_r($tokens);
 
 	// now that we have a stream of tokens we convert them to something structured
 	// we classify each token by type
@@ -167,6 +169,16 @@ function collation_parser($string, $debug = false)
 				$type = 'comment';
 			}
 		}
+		
+		// page prefix
+		if ($type == 'unknown')
+		{
+			if (preg_match('/^p\.?$/', $token))
+			{
+				$type = 'category';
+			}
+		}
+		
 
 		// a number
 		if ($type == 'unknown')
@@ -362,7 +374,9 @@ if (0)
 
 
 //		"1 [hi] 3-5,7 ",
-		"2-4 [keys], 19, text-fig. 9, pl. 2, fig. 12.",
+//		"2-4 [keys], 19, text-fig. 9, pl. 2, fig. 12.",
+		
+		"p. 144",
 	);
 
 	foreach ($strings as $string)

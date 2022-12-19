@@ -1,0 +1,110 @@
+<html>
+<head>
+	<meta name="theme-color" content="#1a5d8d">
+	<title>Micro-citations</title>
+	
+	<style>
+		body {
+			padding:3em;
+			background: #D1E6FD;
+		}
+	
+	</style>
+
+</head>
+<body>
+	<h1>Micro-citations</h1>
+	
+	<p>Page has &lt;meta name="theme-color"  content="#1a5d8d"&gt; and uses fetch().</p>
+
+	<input id="q" name="q" style="font-size:1em;" size="50" value="Proc. zool. Soc. Lond. 1882: 781">
+	<br />
+	<button onclick="go()">Go</button>
+	
+	<!--
+	<div id="output" style="display:none;width:60%;padding:1em;font-family:monospace;white-space:pre-wrap;"></div>
+	-->
+	
+	<div id="output" style="display:none;width:60%;"></div>
+	
+
+	<script>
+	
+		function bhl(doc) {
+
+			var url = 'api/bhl.php';
+			
+			fetch(url, {
+				method: 'post',
+				body: JSON.stringify(doc)
+			}).then(
+					function(response){
+						if (response.status != 200) {
+							console.log('Looks like there was a problem. Status Code: ' + response.status);
+        					return;
+						}
+				
+						response.json().then(function(data) {
+							var output =  document.getElementById("output");
+							
+							var html = '';
+							if (data.text) {
+								for (var i in data.text) {
+									html += '<p>';
+									html += i + '<br/>';
+									var text = data.text[i];
+									text = text.replace(/\n/g, '<br/>');
+									html += text;
+									html += '</p>';
+								
+								}
+							
+							}
+							//output.innerHTML = JSON.stringify(data, null, 2);							
+							output.innerHTML = html;
+							output.style.display = "block";
+							
+
+						});
+					}
+				);
+		
+		
+			
+		}
+	
+	
+		function go() {
+			var output =  document.getElementById("output");
+			output.style.display = "none";
+
+			var q = document.getElementById("q").value;
+			
+			var doc = {};
+			doc.q = q;
+			
+			var url = 'api/parser.php';
+			
+			fetch(url, {
+				method: 'post',
+				body: JSON.stringify(doc)
+			}).then(
+					function(response){
+						if (response.status != 200) {
+							console.log('Looks like there was a problem. Status Code: ' + response.status);
+        					return;
+						}
+				
+						response.json().then(function(data) {
+							bhl(data);
+
+						});
+					}
+				);
+		}	
+		
+	
+	</script>
+
+</body>
+</html>

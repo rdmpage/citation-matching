@@ -17,12 +17,32 @@ if ($doc->status == 200)
 
 	foreach ($doc->text as $id => $text)
 	{
-		$hits = find_in_text(
-			$doc->name, 
-			$text, 
-			isset($doc->ignorecase) ? $doc->ignorecase : true,
-			isset($doc->maxerror) ? $doc->maxerror : 2	
-			);
+		// we seem to need this (sometimes) to get approx matches to work
+		//$text = json_encode($text);
+	
+		//$hits = find_in_text(
+		if (0)
+		{
+			$hits = find_in_text(
+				$doc->name, 
+				$text, 
+				isset($doc->ignorecase) ? $doc->ignorecase : true,
+				isset($doc->maxerror) ? $doc->maxerror : 2	
+				);
+		}
+		else
+		{		
+			$hits = find_in_text_simple(
+				$doc->name, 
+				$text, 
+				isset($doc->ignorecase) ? $doc->ignorecase : true,
+				isset($doc->maxerror) ? $doc->maxerror : 2	
+				);
+		}
+			
+		$doc->len = mb_strlen($text);
+			
+		//echo $text;
 			
 		// if we have hits store them
 		if ($hits->total > 0)

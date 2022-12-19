@@ -79,7 +79,7 @@ $doc->openurl = $openurl;
 
 //$openurl = str_replace('&amp;', '&', $openurl);
 
-$url = 'http://www.crossref.org/openurl?pid=r.page@bio.gla.ac.uk' . '&' . $openurl .  '&noredirect=true&format=unixref';
+$url = 'http://www.crossref.org/openurl?pid=' . $config['CROSSREF_API_KEY'] . '&' . $openurl .  '&noredirect=true&format=unixref';
 	
 $opts = array(
   CURLOPT_URL =>$url,
@@ -109,12 +109,12 @@ if ($data != '')
 	
 	foreach($nodeCollection as $node)
 	{
-		$doc->doi = strtolower($node->firstChild->nodeValue);
+		$doc->DOI = strtolower($node->firstChild->nodeValue);
 	}
 
 }
 
-if (isset($doc->doi))
+if (isset($doc->DOI))
 {
 	$doc->status = 200;
 }

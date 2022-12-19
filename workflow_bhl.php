@@ -57,6 +57,12 @@ $doc = new stdclass;
 $doc->q = "Bull. Soc. imp. Nat. Moscou 57(1): 27.";
 $doc->name = "Tachyptilia solemnella";
 
+$doc = new stdclass;
+$doc->q = "Novit. zool., 32: 52.";
+$doc->name = "Fascellina meligerys";
+
+
+
 
 // start with node1
 $next = $node1;

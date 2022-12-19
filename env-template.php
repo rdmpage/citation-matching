@@ -5,5 +5,6 @@
 // For production (e.g., Heroku) add these as environment variables.
 
 putenv('BHL_API_KEY=');
+putenv('CROSSREF_API_KEY=');
 
 ?>

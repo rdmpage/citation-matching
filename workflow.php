@@ -1,6 +1,7 @@
 <?php
 
-// A node in a simple n8n like workflow
+// A node in a simple n8n like workflow, with some specialised nodes that extend the
+// base node.
 
 require_once (dirname(__FILE__) . '/api/api_utilities.php');
 
@@ -10,10 +11,15 @@ class Node
 	var $url  = ''; // API call
 	var $next = null; // Next node in workflow
 
-	function __construct($url)
+	function __construct($path)
 	{
-		$this->url = $url;
+		$this->url = $path;
 	}
+	
+	function GetNext()
+	{
+		return ($this->next);
+	}	
 	
 	function SetNext($NodePtr)
 	{
@@ -51,74 +57,83 @@ class Node
 
 }
 
-/*
-// create workflow
-
-// Parse string
-$node1 = new Node('http://localhost/citation-matching/api/parser.php');
-
-// Match citation to BHL using database
-$node2 = new Node('http://localhost/citation-matching/api/bhl_db.php');
-$node2 = new Node('http://localhost/citation-matching/api/bhl.php');
-
-$node1->SetNext($node2);
-
-// Find nane in text
-$node3 = new Node('http://localhost/citation-matching/api/text_doc.php');
-$node2->SetNext($node3);
-
-// Initial doc is target name and text citation
-$doc = new stdclass;
-$doc->q = "Exot. Microlepid. 1: 278.";
-$doc->name = "Brachmia torva";
-
-$doc = new stdclass;
-$doc->q = "Ann. Transv. Mus. 8: 68.";
-$doc->name = "Telphusa accensa";
-
-$doc = new stdclass;
-$doc->q = "Trans. ent. Soc. Lond. 1917: 40.";
-$doc->name = "Tholerostola";
-
-$doc = new stdclass;
-$doc->q = "Proc. U.S. natn. Mus. 33: 197.";
-$doc->name = "Phthorimaea laudatella";
-
-$doc = new stdclass;
-$doc->q = "Mitt. münch. ent. Ges. 57: 117.";
-$doc->name = "Anacampsi";
-
-$doc = new stdclass;
-$doc->q = "Tijdschr. Ent. 84: 352, text-figs 1, 3, pl. 1, figs 1-4.";
-$doc->name = "Anacampsis betulinella";
-
-$doc = new stdclass;
-$doc->q = "Tijdschr. Ent., 29, 258.";
-$doc->name = "Abascantus";
-
-
-
-$doc = new stdclass;
-$doc->q = "Boll. Mus. Torino, 18, no. 433, 5.";
-$doc->name = "Abatodesmus";
-
-
-$doc = new stdclass;
-$doc->q = "Bull. Soc. imp. Nat. Moscou 57(1): 27.";
-$doc->name = "Tachyptilia solemnella";
-
-
-
-// start with node1
-$next = $node1;
-
-while ($next)
+// Just dump data for display
+//----------------------------------------------------------------------------------------
+class DumpNode extends Node
 {
-	print_r($doc);
-	$next = $next->Run($doc);
+
+	function __construct()
+	{
+
+	}
+	
+	function Run(&$doc)
+	{
+		print_r($doc);
+			
+		if ($this->next)
+		{
+			return $this->next;
+		}
+		else
+		{
+			return null;
+		}
+	}
+
 }
 
-print_r($doc);
-*/
+//----------------------------------------------------------------------------------------
+// Parse a row in a TSV file and call next node in the workflow
+class FileNode extends Node
+{
+	var $file_handle = null;
+	var $headings = array();
+	
+	function __construct($path)
+	{
+		$this->file_handle = fopen($path, "r");
+		$this->row_count = 0;
+		$this->headings = array();
+		
+		// get headings
+		$line = trim(fgets($this->file_handle));
+		$this->headings = explode("\t", $line);
+	}
+	
+	// Read a row of data, if OK return pointer to next item in flow
+	function Run(&$doc)
+	{
+		$next = null;
+		if (feof($this->file_handle))
+		{
+		}
+		else
+		{
+			$line = trim(fgets($this->file_handle));		
+			$row = explode("\t",$line);
+			
+			if (is_array($row) && count($row) > 1)
+			{
+				$doc = new stdclass;		
+				foreach ($row as $k => $v)
+				{
+					if ($v != '')
+					{
+						$doc->{$this->headings[$k]} = $v;
+					}
+				}
+				
+				if (isset($this->next))
+				{
+					$next = $this->next;
+				}
+			}
+		}
+		return $next;
+	}
+
+}
+
 
 ?>

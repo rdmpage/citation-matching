@@ -4,6 +4,7 @@
 
 require_once (dirname(__FILE__) . '/api_utilities.php');
 require_once (dirname(dirname(__FILE__)) . '/db.php');
+require_once (dirname(__FILE__) . '/external.php');
 
 //----------------------------------------------------------------------------------------
 function find_bhl_page_local($doc)
@@ -25,7 +26,27 @@ function find_bhl_page_local($doc)
 	foreach ($results as $result)
 	{
 		$doc->BHLPAGEID[] = $result->PageID;
-		$doc->text[$result->PageID] = $result->text;	
+		
+		// do we have text stored locally?
+		if (isset($result->text))
+		{
+			$doc->text[$result->PageID] = $result->text;
+		}
+		else
+		{
+			// nope, so fecth it
+			$text = get_bhl_page_text($result->PageID);
+			if ($text != '')
+			{
+				if (!isset($doc->text))
+				{
+					$doc->text = array();
+				}			
+				$text = mb_convert_encoding($text, 'UTF-8', mb_detect_encoding($text));			
+				$doc->text[$result->PageID] = $text;
+			}	
+		}
+		
 	}
 	
 	return $doc;
