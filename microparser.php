@@ -325,8 +325,8 @@ function parse($text)
 		// IPNI
 		// Lilloa xxx. 131 (1960).
 		'/^' . '(?<journal>[\p{L}]+)' . $volume_roman_pattern . $collation_pattern . '\s+(?<year>\([1|2][0-9]{3}\))' . '/u',
-		
-		
+		'/^' . '(?<journal>([\p{L}]+\.?\s*)+,)\s*(?<volume>([ivxlcIVXLC]+)\.?)\s*(?<collation>(p\.\s*)?(?<page>(\d+|[xvlci]+)(-(\d+|[xvlci]+))?)(\s*\[[^\]]+\])?[\.]?([,|;]\s+(.*))?)\s+(?<year>\([1|2][0-9]{3}\))' . '/u',
+		'/^' . '(?<journal>([\p{L}]+\.?\s*)+,)\s*(?<volume>([ivxlcIVXLC]+)\.?\s+No.\s+\d+,)\s*(?<collation>(p\.\s*)?(?<page>(\d+|[xvlci]+)(-(\d+|[xvlci]+))?)(\s*\[[^\]]+\])?[\.]?([,|;]\s+(.*))?)\s+(?<year>\([1|2][0-9]{3}\))' . '/u',
 		
 		// articles
 		'/^' . $journal_simple . $volume_pattern . $collation_pattern . '/u',
@@ -530,6 +530,13 @@ function parse($text)
 							
 						case 'volume':
 							$value =  $match[0];
+							
+							if (preg_match('/(\s+No\.\s+(?<issue>\d+),?)/', $value, $m))
+							{
+								$obj->issue = $m['issue'];
+								$value = str_replace($m[1], '', $value);
+							}							
+							
 							$value = preg_replace('/\.$/', '', $value);
 						
 							if (preg_match('/^[ivxlc]+$/i', $value))
@@ -876,12 +883,26 @@ if (0)
   );
   */
   
+	foreach ($publications as $text)
+	{
+		$obj = parse($text);
+		
+		print_r($obj);
+	}  
+  
+}
+
+if (0)
+{
+  
  $publications = array( 
   //'Proc. Zool. Soc. London, 7 (1839), p. 144',
   //'Novit. Zool., 10, p. 448',
   //'Acarologia (Paris) 34(4), Octobre: 289.',
   
-  'Lilloa xxx. 131 (1960).',
+  //'Lilloa xxx. 131 (1960).',
+  //'Mem. New York Bot. Gard., ix. 287 (1957).',
+  'Mem. New York Bot. Gard., x. No. 5, 40 (1964).',
   );  
 
 	foreach ($publications as $text)

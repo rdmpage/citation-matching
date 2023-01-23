@@ -1,6 +1,6 @@
 <?php
 
-// Get info from web page of article
+// Search for article using CrossRef OpenURL interface
 
 error_reporting(E_ALL);
 
@@ -59,7 +59,7 @@ foreach ($keys as $k)
 				break;
 
 			case 'page':
-				$pages = explode("-", $doc->{$k});
+				$pages = preg_split("/[-|—]/u", $doc->{$k});
 				$parameters['spage'] = $pages[0];
 				break;
 				

@@ -288,7 +288,12 @@ function get_bhl_title_from_text($text)
 		case 'List Specimens lepid. Insects Colln Br. Mus.':
 		case 'List Spec. Lepid. Insects Colln Br. Mus.':
 			$titles = array(58221);
-			break;					
+			break;	
+			
+		case 'Mem. New York Bot. Gard.':
+		case 'Memoirs of the New York Botanical Garden':				
+			$titles = array(50489);
+			break;	
 			
 		case 'Mitt. münch. ent. Ges.':
 			$titles = array(15739);
