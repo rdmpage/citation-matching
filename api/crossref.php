@@ -27,6 +27,8 @@ if ($debug)
 	$doc->q = 'DOUGHTY, P., KEALLEY, L., & MELVILLE, J. (2012). Taxonomic assessment of Diporiphora (Reptilia: Agamidae) dragon lizards from the western arid zone of Australia. Zootaxa, 3518(1), 1';
 	$doc->q = 'Untangling the trees: Revision of the Calumma nasutum complex (Squamata: Chamaeleonidae). Vertebrate Zoology 70: 23-59';
 	$doc->q = 'Neang, Thy; Somaly Chan, Nikolay A. Poyarkov, Jr.. (2018) A new species of smooth skink (Squamata: Scincidae: Scincella) from Cambodia. Zoological Research, DOI: 10.24272/j.issn.2095-8137.2018.008';
+	
+	$doc->q = '2021 Twenty-eight new species of Trigonopterus Fauvel (Coleoptera, Curculionidae) from Central Sulawesi. ZooKeys, 1065, Oct 22 2021: 29-79.  42 ';
 	$doc->status = 404;
 }
 
@@ -65,9 +67,9 @@ if ($obj)
 					case 'author':
 						// only add authors if we think query string has them (ION won't, for example)
 						$have_authors = false;
-						if (preg_match('/(\b[0-9]{4}[a-z]?\b.*)$/', $doc->q, $m))
+						if (preg_match('/^(?<prefix>[^\d]+)(\b[0-9]{4}[a-z]?\b)/', $doc->q, $m))
 						{
-							$have_authors = strlen($m[1]) > 4;						
+							$have_authors = strlen($m['prefix']) > 3;						
 						}
 						if ($have_authors)
 						{
@@ -139,7 +141,7 @@ if ($obj)
 
 		$matched = false;
 
-		if ($result->normalised[1] > 0.90)
+		if ($result->normalised[1] > 0.80)
 		{
 			// one string is almost an exact substring of the other
 			if ($result->normalised[0] > 0.75)
