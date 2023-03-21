@@ -328,6 +328,13 @@ function parse($text)
 		'/^' . '(?<journal>([\p{L}]+\.?\s*)+,)\s*(?<volume>([ivxlcIVXLC]+)\.?)\s*(?<collation>(p\.\s*)?(?<page>(\d+|[xvlci]+)(-(\d+|[xvlci]+))?)(\s*\[[^\]]+\])?[\.]?([,|;]\s+(.*))?)\s+(?<year>\([1|2][0-9]{3}\))' . '/u',
 		'/^' . '(?<journal>([\p{L}]+\.?\s*)+,)\s*(?<volume>([ivxlcIVXLC]+)\.?\s+No.\s+\d+,)\s*(?<collation>(p\.\s*)?(?<page>(\d+|[xvlci]+)(-(\d+|[xvlci]+))?)(\s*\[[^\]]+\])?[\.]?([,|;]\s+(.*))?)\s+(?<year>\([1|2][0-9]{3}\))' . '/u',
 		
+		// Acta Phytotax. Sin. ix. 297 (1964).
+		'/^' . '(?<journal>([A-Z][a-z]+\.?\s*)+)\s+(?<volume>([ivxlcIVXLC]+)\.)\s+(?<collation>(?<page>\d+))\s+(?<year>\([1|2][0-9]{3}\))' . '/u',
+		
+		// Quart. J. Taiwan Mus. 34(3–4): 145 (1981)
+		'/^' . '(?<journal>([A-Z][a-z]*\.?\s*)+)\s+(?<volume>[ivxlcIVXLC0-9]+(\s*\([^\)]+\))?[\.|,|:]?)\s+(?<collation>(?<page>\d+))\s*(?<year>\([1|2][0-9]{3}\))' . '/u',
+
+		
 		// articles
 		'/^' . $journal_simple . $volume_pattern . $collation_pattern . '/u',
 		'/^' . $journal_simple . '[,|:]' . $volume_pattern . $collation_pattern . '/u',

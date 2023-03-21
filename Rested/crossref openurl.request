@@ -3,7 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>baseURL</key>
-	<string>http://localhost/citation-matching/api/crossref.php</string>
+	<string>http://localhost/citation-matching/api/crossref_openurl.php</string>
+	<key>bodyString</key>
+	<string>{
+    "container-title": "Transactions of the Entomological Society of London",
+    "volume": 72,
+    "page": "544-557",
+"issued" : { "date-parts" : [[1923]] }
+} 
+</string>
 	<key>followRedirect</key>
 	<true/>
 	<key>handleJSONPCallbacks</key>
@@ -11,22 +19,13 @@
 	<key>headers</key>
 	<array/>
 	<key>httpMethod</key>
-	<string>GET</string>
+	<string>POST</string>
 	<key>jsonpScript</key>
 	<string></string>
 	<key>paramBodyUIChoice</key>
 	<integer>0</integer>
 	<key>parameters</key>
-	<array>
-		<dict>
-			<key>inUse</key>
-			<true/>
-			<key>parameter</key>
-			<string>q</string>
-			<key>value</key>
-			<string>Untangling the trees: Revision of the Calumma nasutum complex (Squamata: Chamaeleonidae). Vertebrate Zoology 70: 23-59</string>
-		</dict>
-	</array>
+	<array/>
 	<key>parametersType</key>
 	<integer>0</integer>
 	<key>presentBeforeChallenge</key>
@@ -34,6 +33,6 @@
 	<key>stringEncoding</key>
 	<integer>4</integer>
 	<key>usingHTTPBody</key>
-	<false/>
+	<true/>
 </dict>
 </plist>
