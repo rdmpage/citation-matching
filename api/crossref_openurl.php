@@ -8,6 +8,8 @@ require_once (dirname(__FILE__) . '/api_utilities.php');
 
 use Sunra\PhpSimple\HtmlDomParser;
 
+//print_r($config);
+
 $doc = null;
 $doc = http_post_endpoint(["container-title", "volume", "page"]);
 
@@ -76,6 +78,7 @@ foreach ($keys as $k)
 $openurl = http_build_query($parameters);
 
 $doc->openurl = $openurl;
+//$doc->debug_key = $config['CROSSREF_API_KEY'];
 
 //$openurl = str_replace('&amp;', '&', $openurl);
 

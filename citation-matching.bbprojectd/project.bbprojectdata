@@ -600,11 +600,11 @@
 				AAAAAAAAENAAAAQAAAAAAAAA
 				</data>
 				<key>FileURL</key>
-				<string>file:///Users/rpage/Sites/citation-matching/env.php</string>
+				<string>file:///Users/rpage/Sites/citation-abstracts-o/env.php</string>
 				<key>HasSecurityScope</key>
 				<true/>
 				<key>RelativePath</key>
-				<string>./env.php</string>
+				<string>../citation-abstracts-o/env.php</string>
 				<key>TypeID</key>
 				<string>_CFileLocator</string>
 				<key>Version</key>

@@ -334,6 +334,17 @@ function parse($text)
 		// Quart. J. Taiwan Mus. 34(3–4): 145 (1981)
 		'/^' . '(?<journal>([A-Z][a-z]*\.?\s*)+)\s+(?<volume>[ivxlcIVXLC0-9]+(\s*\([^\)]+\))?[\.|,|:]?)\s+(?<collation>(?<page>\d+))\s*(?<year>\([1|2][0-9]{3}\))' . '/u',
 
+		// Richardiana 12(1): 3 (fig. 1)
+		'/^' . '(?<journal>([A-Z][a-z]*\.?\s*)+)\s+(?<volume>\d+(\s*\([^\)]+\))?[\.|,|:]?)\s+(?<collation>(?<page>\d+)\s*(\(fig.*\)))' . '/u',
+		// Richardiana 3(2): 97 (25 March 2003)
+		// Richardiana 2(2): 49 (March 2003)
+		'/^' . '(?<journal>([A-Z][a-z]*\.?\s*)+)\s+(?<volume>\d+(\s*\([^\)]+\))?[\.|,|:]?)\s+(?<collation>(?<page>\d+)\s*(\((\d+\s+)?([A-Z]\w+\s+)?[0-9]{4}\)))' . '/u',
+
+		// Richardiana 5(4): 198 (-200, 202; fig. 1...)
+		'/^' . '(?<journal>([A-Z][a-z]*\.?\s*)+)\s+(?<volume>\d+(\s*\([^\)]+\))?[\.|,|:]?)\s+(?<collation>(?<page>\d+)\s*(\(-\d+.*\)))' . '/u',
+
+		// Richardiana 6(3): 126 (123-129; fig. 3)
+		'/^' . '(?<journal>([A-Z][a-z]*\.?\s*)+)\s+(?<volume>\d+(\s*\([^\)]+\))?[\.|,|:]?)\s+(?<collation>(?<page>\d+)\s*(\(\d+-.*\)))' . '/u',
 		
 		// articles
 		'/^' . $journal_simple . $volume_pattern . $collation_pattern . '/u',
@@ -571,7 +582,7 @@ function parse($text)
 								$page_name = '';
 								foreach ($collation->locator->page as $page)
 								{
-									if ($page_name == '' && !isset($page->comment))
+									if ($page_name == '') //  && !isset($page->comment))
 									{
 										$page_name = $page->name;
 									}

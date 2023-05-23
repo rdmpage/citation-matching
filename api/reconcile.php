@@ -39,8 +39,8 @@ $query->{$key}->query = $doc->q;
 $query->{$key}->limit = 3;
 
 $endpoints = array(
-	'wikidata' => 'https://wikicite-search.herokuapp.com/api_reconciliation.php?queries=',
-	//'biostor' => 'https://biostor.org/reconcile?queries='
+	//'wikidata' => 'https://wikicite-search.herokuapp.com/api_reconciliation.php?queries=',
+	'biostor' => 'https://biostor.org/reconcile?queries='
 );
 
 foreach ($endpoints as $service => $endpoint)

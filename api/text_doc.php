@@ -21,7 +21,7 @@ if ($doc->status == 200)
 		//$text = json_encode($text);
 	
 		//$hits = find_in_text(
-		if (0)
+		if (1)
 		{
 			$hits = find_in_text(
 				$doc->name, 
